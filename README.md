@@ -1,4 +1,4 @@
-Gentoo Chymeric Overlay
+Chymeric Gentoo Overlay
 ======================
 
 An overlay for Gentoo, with various packages chiefly maintained by TheCyhmera:
