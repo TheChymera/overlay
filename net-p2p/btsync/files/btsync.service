@@ -1,0 +1,8 @@
+[Service]
+Type=dbus
+BusName=org.btsync.daemon
+ExecStart=/opt/btsync
+
+[Install]
+WantedBy=multi-user.target
+
