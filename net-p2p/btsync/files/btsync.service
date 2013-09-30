@@ -1,7 +1,6 @@
 [Service]
-Type=forking
-PIDFile=/opt/btsync/.sync
-ExecStart=/opt/btsync/btsync
+Type=simple
+ExecStart=/opt/btsync/btsync --nodaemon
 
 [Install]
 WantedBy=multi-user.target
