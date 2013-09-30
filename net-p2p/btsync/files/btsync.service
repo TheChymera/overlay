@@ -1,7 +1,7 @@
 [Service]
-Type=dbus
-BusName=org.btsync.daemon
-ExecStart=/opt/btsync
+Type=forking
+PIDFile=/opt/btsync/.sync
+ExecStart=/opt/btsync/btsync
 
 [Install]
 WantedBy=multi-user.target
