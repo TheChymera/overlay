@@ -29,8 +29,8 @@
   "webui" :
   {
     "listen" : "0.0.0.0:8888",
-    "login" : "admin",
-    "password" : "password"
+//    "login" : "admin",
+//    "password" : "password"
   }
 
 /* !!! if you set shared folders in config file WebUI will be DISABLED !!!
