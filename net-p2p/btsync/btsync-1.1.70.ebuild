@@ -28,7 +28,7 @@ S="${WORKDIR}"
 
 pkg_setup() {
 	enewgroup btsync
-	enewuser btsync -1 -1 -1 "btsync"
+	enewuser btsync -1 -1 -1 "btsync,users"
 }
 
 src_install() {
