@@ -3,7 +3,7 @@
 
 EAPI="4"
 
-inherit systemd
+inherit systemd user
 
 DESCRIPTION="Automatically sync files via secure, distributed technology."
 HOMEPAGE="http://labs.bittorrent.com/experiments/sync.html"
@@ -22,20 +22,21 @@ IUSE=""
 DEPEND=""
 RDEPEND="${DEPEND}"
 
-QA_PREBUILT="opt/btsync/${PN}"
+QA_PREBUILT="opt/${PN}/${PN}"
 
 S="${WORKDIR}"
 
+pkg_setup() {
+	enewgroup btsync
+	enewuser btsync -1 -1 -1 "btsync"
+}
+
 src_install() {
-	mkdir -p ${D}/opt/${PN} && cd ${D}/opt/${PN}
-	mkdir -p ${D}/etc/{init.d,${PN}}
-
-	cp ${S}/btsync .
-	cp ${S}/LICENSE.TXT .
-	cp ${FILESDIR}/config ${D}/etc/${PN}
-	cp ${FILESDIR}/init.d/${PN} ${D}/etc/init.d/
-
-	# Set more secure permissions
-	chmod 755 ${D}/etc/init.d/btsync
-	systemd_dounit "${FILESDIR}"/${PN}.service
+	exeinto "/opt/${PN}"
+	doexe btsync
+	insinto "/etc/${PN}"
+	doins "${FILESDIR}/config"
+	doinitd "${FILESDIR}/init.d/${PN}"
+	systemd_dounit "${FILESDIR}"/btsync.service
+	fowners -R btsync:btsync /opt/${PN}
 }

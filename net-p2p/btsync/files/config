@@ -7,11 +7,10 @@
    where binary is located.
    otherwise user-defined directory will be used 
 */
-  "storage_path" : ".sync",
+  "storage_path" : "/opt/btsync",
 
 // uncomment next line if you want to set location of pid file
-  "pid_file" : "/var/run/btsync.pid",
-
+// "pid_file" : "/var/run/btsync.pid",
 
   "check_for_updates" : true, 
   "use_upnp" : true,                              // use UPnP for port mapping
@@ -29,8 +28,8 @@
   "webui" :
   {
     "listen" : "0.0.0.0:8888",
-//    "login" : "admin",
-//    "password" : "password"
+    "login" : "",
+    "password" : ""
   }
 
 /* !!! if you set shared folders in config file WebUI will be DISABLED !!!
