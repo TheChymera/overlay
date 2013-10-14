@@ -7,7 +7,7 @@
    where binary is located.
    otherwise user-defined directory will be used 
 */
-  "storage_path" : "/opt/btsync",
+  "storage_path" : "/opt/btsync/storage",
 
 // uncomment next line if you want to set location of pid file
 // "pid_file" : "/var/run/btsync.pid",
