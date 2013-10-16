@@ -36,7 +36,8 @@ src_install() {
 	insinto "/etc/${PN}"
 	doins "${FILESDIR}/config"
 	doinitd "${FILESDIR}/init.d/${PN}"
-	systemd_dounit "${FILESDIR}"/btsync.service
+	cp ${FILESDIR}/btsync.service ${D}/btsync@.service
+	systemd_dounit "${D}/btsync@.service"
 	mkdir ${D}/opt/${PN}/pid/
 	fowners -R root:btsync /opt/${PN}
 	fperms -R 775 /opt/${PN}
@@ -51,7 +52,6 @@ Do this by running the following command from a root terminal:
 If you are using systemd you should start the service per user:
 
 	systemctl start btsync@your_user
-
 
 You may also tell your system to automatically launch btsync:
 
