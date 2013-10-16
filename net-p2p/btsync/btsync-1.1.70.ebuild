@@ -56,6 +56,8 @@ If you are using systemd you should start the service per user:
 You may also tell your system to automatically launch btsync:
 
 	systemctl enable btsync@your_user
+
+You may access the web-GUI at localhost:8888.
  
 "
 }
