@@ -28,7 +28,6 @@ S="${WORKDIR}"
 
 pkg_setup() {
 	enewgroup btsync
-	enewuser btsync -1 -1 -1 "btsync,users"
 }
 
 src_install() {
@@ -38,5 +37,25 @@ src_install() {
 	doins "${FILESDIR}/config"
 	doinitd "${FILESDIR}/init.d/${PN}"
 	systemd_dounit "${FILESDIR}"/btsync.service
-	fowners -R btsync:btsync /opt/${PN}
+	mkdir ${D}/opt/${PN}/pid/
+	fowners -R root:btsync /opt/${PN}
+	fperms -R 775 /opt/${PN}
+}
+
+pkg_postinst() {
+ewarn "You have to add your user to the btsync group to use btsync.
+Do this by running the following command from a root terminal:
+
+	usermod -a -G btsync your_user
+
+If you are using systemd you should start the service per user:
+
+	systemctl start btsync@your_user
+
+
+You may also tell your system to automatically launch btsync:
+
+	systemctl enable btsync@your_user
+ 
+"
 }
