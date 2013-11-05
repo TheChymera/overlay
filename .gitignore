@@ -1,2 +1,5 @@
 .DS_Store
 app-misc/dummy
+
+#gedit temp files:
+*~
