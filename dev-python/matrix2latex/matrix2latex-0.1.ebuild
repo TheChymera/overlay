@@ -6,7 +6,7 @@ EAPI=5
 
 PYTHON_COMPAT=( python{2_6,2_7} )
 
-inherit python-single-r1 toolchain-funcs
+inherit python-single-r1
 
 DESCRIPTION="A tool to create LaTeX tables from python lists and arrays."
 HOMEPAGE="https://code.google.com/p/matrix2latex/"
@@ -26,4 +26,12 @@ src_unpack() {
 	fi
 	S="${WORKDIR}/${PN}Python"
 	cd ${S}
+}
+
+src_install() {
+	python_optimize .
+	python_domodule "${S}"/matrix2latex.py
+	python_domodule "${S}"/fixEngineeringNotation.py
+	python_domodule "${S}"/error.py
+	python_domodule "${S}"/IOString.py
 }
