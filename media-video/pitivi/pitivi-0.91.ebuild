@@ -27,8 +27,9 @@ COMMON_DEPEND="
 	dev-python/pycairo
 	>=media-libs/gstreamer-0.10.28:0.10
 	>=dev-python/gst-python-0.10.19:0.10
-	>=media-libs/gnonlin-0.10.16:0.10
-	>=x11-libs/gtk+-2.24.0:2"
+	>=media-libs/gnonlin-1.1.90:1
+	>=x11-libs/gtk+-2.24.0:2
+	media-plugins/gst-editing-services"
 RDEPEND="${COMMON_DEPEND}
 	dev-python/dbus-python
 	dev-python/pygoocanvas
