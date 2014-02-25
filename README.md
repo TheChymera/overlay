@@ -1,12 +1,6 @@
-Chymeric Gentoo Overlay
-======================
+# Chymeric Gentoo Overlay
 
-An overlay for Gentoo, with various packages chiefly maintained by TheCyhmera:
-https://github.com/TheChymera
+An overlay for Gentoo, with various packages chiefly maintained by [TheCyhmera](https://github.com/TheChymera). 
+The repositiry sstructure is somewhat based on that of the *gentoo science overlay*, and we also use thin manifests.
 
-Please fork! We will merge!
-
-Ask for help under h.chr@mail.ru .
-
-Report issues on the github site:
-https://github.com/TheChymera/chymeric
+Please report issues via the GitHub tracking system! Please fork and submit pull requests! We're happy to merge!
