@@ -34,7 +34,7 @@ src_install() {
 	exeinto "/opt/${PN}"
 	doexe btsync
 	insinto "/etc/${PN}"
-	doins "${FILESDIR}/config"
+	doins "${FILESDIR}/btsync.conf"
 	doinitd "${FILESDIR}/init.d/${PN}"
 	cp ${FILESDIR}/btsync.service ${D}/btsync@.service
 	systemd_dounit "${D}/btsync@.service"
