@@ -13,15 +13,16 @@ SLOT="1"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 
-RDEPEND=">=media-libs/gstreamer-0.10.30:0.10
-     >=media-libs/gst-plugins-base-0.10.30:0.10"
+RDEPEND="
+     >=media-libs/gstreamer-1.0.10:1.0
+     >=media-libs/gst-plugins-base-1.0.10:1.0"
 DEPEND="${RDEPEND}
     virtual/pkgconfig
     doc? ( || (
         >=dev-util/gtk-doc-am-1.13
         >=dev-util/gtk-doc-1.3 ) )
     test? ( dev-libs/check
-        media-libs/gst-plugins-good:0.10 )" # videomixer
+        >=media-libs/gst-plugins-good-1.0.10:1.0 )" # videomixer
 
 src_configure() {
     econf \
