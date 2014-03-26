@@ -25,9 +25,9 @@ RESTRICT="test"
 COMMON_DEPEND="
 	>=dev-python/pygtk-2.18:2
 	dev-python/pycairo
-	>=media-libs/gstreamer-1.0.10:1
-	>=dev-python/gst-python-1.1.90:1
-	>=media-libs/gnonlin-1.1.90:1
+	eix >=media-libs/gstreamer-1.0.10:1.0
+	>=dev-python/gst-python-1.1.90:1.0
+	>=media-libs/gnonlin-1.1.90:1.0
 	>=x11-libs/gtk+-2.24.0:2
 	media-plugins/gst-editing-services"
 RDEPEND="${COMMON_DEPEND}
@@ -37,11 +37,11 @@ RDEPEND="${COMMON_DEPEND}
 	net-zope/zope-interface
 	gnome-base/librsvg:=
 
-	>=media-libs/gst-plugins-base-1.0.10:1
-	>=media-libs/gst-plugins-good-1.0.10:1
+	>=media-libs/gst-plugins-base-1.0.10:1.0
+	>=media-libs/gst-plugins-good-1.0.10:1.0
 	>=media-plugins/gst-plugins-ffmpeg-0.10:0.10
 	>=media-plugins/gst-plugins-xvideo-0.10.31:0.10
-	>=media-plugins/gst-plugins-libpng-1.0.10:1
+	>=media-plugins/gst-plugins-libpng-1.0.10:1.0
 
 	v4l? ( media-plugins/gst-plugins-v4l2:0.10 )"
 DEPEND="${RDEPEND}
