@@ -26,6 +26,7 @@ RDEPEND="dev-python/pandas"
 src_install() {
 	python_optimize .
 	python_domodule "${S}"/chr_helpers.py 
+	python_domodule "${S}"/chr_matplotlib.py
 }
 
 
