@@ -3,8 +3,9 @@ Description=Bittorent Sync service
 After=network.target
  
 [Service]
-User=%i
-ExecStart=/opt/btsync/btsync --config /etc/btsync/btsync.conf --nodaemon
+User=btsync
+Group=btsync
+ExecStart=/usr/bin/btsync --config /etc/btsync.conf --nodaemon
 Restart=on-abort
 
 [Install]
