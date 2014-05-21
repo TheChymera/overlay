@@ -1,0 +1,36 @@
+#!/sbin/runscript
+# Copyright 1999-2013 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+PIDFILE="/run/btsync/btsync.pid"
+
+depend() {
+    need localmount net
+    after bootmisc
+}
+
+start() {
+    if [ ! -d /run/btsync ]; then
+        mkdir /run/btsync
+        chown "${BTSYNC_USER}:${BTSYNC_GROUP}" /run/btsync
+    fi
+
+    ebegin "Starting btsync"
+    start-stop-daemon \
+        --start \
+        --pidfile "${PIDFILE}" \
+        --user "${BTSYNC_USER}" \
+        --group "${BTSYNC_GROUP}" \
+        --exec /usr/bin/btsync \
+        -- --config /etc/btsync.conf
+    eend $?
+}
+
+stop() {
+    ebegin "Stopping btsync"
+    start-stop-daemon \
+        --stop \
+        --pidfile "${PIDFILE}"
+    eend $?
+}
