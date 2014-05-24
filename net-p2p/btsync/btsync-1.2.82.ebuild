@@ -1,63 +1,77 @@
-# Copyright (C) 2013 Jonathan Vasquez 
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
 
-EAPI="4"
+EAPI=5
 
-inherit systemd user
+inherit eutils pax-utils user flag-o-matic multilib autotools pam systemd versionator
 
-DESCRIPTION="Automatically sync files via secure, distributed technology."
+DESCRIPTION="Sync stuff via BitTorrent"
 HOMEPAGE="http://labs.bittorrent.com/experiments/sync.html"
-SRC_URI="
-	amd64?	( http://syncapp.bittorrent.com/${PV}/${PN}_x64-${PV}.tar.gz )
-	x86?	( http://syncapp.bittorrent.com/${PV}/${PN}_i386-${PV}.tar.gz )
-	arm?	( http://syncapp.bittorrent.com/${PV}/${PN}_arm-${PV}.tar.gz )
-	ppc?	( http://syncapp.bittorrent.com/${PV}/${PN}_powerpc-${PV}.tar.gz )"
+SRC_URI="amd64? ( http://syncapp.bittorrent.com/${PV}/${PN}_x64-${PV}.tar.gz )
+	x86? ( http://syncapp.bittorrent.com/${PV}/${PN}_i386-${PV}.tar.gz )
+	ppc? ( http://syncapp.bittorrent.com/${PV}/${PN}_powerpc-${PV}.tar.gz )
+	arm? ( http://syncapp.bittorrent.com/${PV}/${PN}_arm-${PV}.tar.gz )"
 
 RESTRICT="mirror strip"
 LICENSE="BitTorrent"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="amd64 ~x86 ~arm ~ppc"
 IUSE=""
 
 DEPEND=""
 RDEPEND="${DEPEND}"
 
-QA_PREBUILT="opt/${PN}/${PN}"
-
 S="${WORKDIR}"
 
-pkg_setup() {
-	enewgroup btsync
-}
+QA_PREBUILT="usr/bin/btsync"
+
 
 src_install() {
-	exeinto "/opt/${PN}"
-	doexe btsync
-	insinto "/etc/${PN}"
-	doins "${FILESDIR}/btsync.conf"
-	doinitd "${FILESDIR}/init.d/${PN}"
-	cp ${FILESDIR}/btsync.service ${D}/btsync@.service
-	systemd_dounit "${D}/btsync@.service"
-	mkdir ${D}/opt/${PN}/pid/
-	fowners -R root:btsync /opt/${PN}
-	fperms -R 775 /opt/${PN}
+	dodoc "${S}"/LICENSE.TXT
+
+	newconfd "${FILESDIR}/btsync_confd" btsync
+	"{S}/btsync" --dump-sample-config | sed 's:/home/user/\.sync:/var/lib/btsync:g' > "btsync.conf"
+	insinto /etc
+	doins "btsync.conf"
+	
+	# system-v-init support
+	newinitd "${FILESDIR}/btsync_initd" btsync
+	
+	# systemd support
+	systemd_dounit "${FILESDIR}/btsync.service"
+	systemd_newunit "${FILESDIR}/btsync.service" 'btsync.service'
+	systemd_dounit "${FILESDIR}/btsync@.service"
+	systemd_newunit "${FILESDIR}/btsync@.service" 'btsync@.service'
+	systemd_dounit "${FILESDIR}/btsync_user.service"
+	systemd_newunit "${FILESDIR}/btsync_user.service" 'btsync_user.service'
+	into /usr/
+	dobin btsync
+}
+
+pkg_preinst() {
+	enewgroup btsync
+	enewuser btsync -1 /bin/false /dev/null btsync
+	dodir "/run/btsync"
+	fowners btsync:btsync "/run/btsync"
 }
 
 pkg_postinst() {
-ewarn "You have to add your user to the btsync group to use btsync.
-Do this by running the following command from a root terminal:
-
-	usermod -a -G btsync your_user
-
-If you are using systemd you should start the service per user:
-
-	systemctl start btsync@your_user
-
-You may also tell your system to automatically launch btsync:
-
-	systemctl enable btsync@your_user
-
-You may access the web-GUI at localhost:8888.
- 
-"
+einfo "Auto-generated configuration file is located at /etc/btsync.conf"
+einfo "(use this file as a template for user-level privilege service units)"
+einfo ""
+einfo "systemd"
+einfo "btsync.service:"
+einfo " run as a system service as user/group btsync:btsync"
+einfo " use /var/lib/btsync for btsync working data"
+einfo "btsync@<user>.service"
+einfo " run as a system service but with user privilege"
+einfo " use /home/<user>/.config/btsync/btsync.conf for btsync working data"
+einfo "btsync_user.service"
+einfo " run as a standard user service"
+einfo " use /home/<user>/.config/btsync/btsync.conf for btsync working data"
+einfo ""
+einfo "Ensure you open the following ports in your firewall:"
+einfo " btsync.conf specified listening port (UDP/TCP)"
+einfo " port 3838 (UDP) for DHT tracking"
 }
