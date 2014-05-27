@@ -1,9 +1,12 @@
 [Unit]
-Description=Bittorent Sync per-user service
+Description=Bittorrent Sync user service
 After=network.target
  
 [Service]
-ExecStart=/usr/bin/btsync --config %h/.config/btsync/btsync.conf --nodaemon
+Nice=19
+IOSchedulingClass=idle       
+IOSchedulingPriority=7
+ExecStart=/opt/btsync/btsync --config %h/.config/btsync/btsync.conf --nodaemon
 Restart=on-abort
 
 [Install]

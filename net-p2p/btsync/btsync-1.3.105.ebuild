@@ -6,7 +6,7 @@ EAPI=5
 
 inherit eutils pax-utils user flag-o-matic multilib autotools pam systemd versionator
 
-DESCRIPTION="Sync stuff via BitTorrent"
+DESCRIPTION="Sync files & folders using BitTorrent protocol"
 HOMEPAGE="http://labs.bittorrent.com/experiments/sync.html"
 SRC_URI="amd64? ( http://syncapp.bittorrent.com/${PV}/${PN}_x64-${PV}.tar.gz )
 	x86? ( http://syncapp.bittorrent.com/${PV}/${PN}_i386-${PV}.tar.gz )
@@ -24,36 +24,33 @@ RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"
 
-QA_PREBUILT="usr/bin/btsync"
-
+QA_PREBUILT="/opt/${PN}/"
 
 src_install() {
 	dodoc "${S}"/LICENSE.TXT
 
-	newconfd "${FILESDIR}/btsync_confd" btsync
-	"{S}/btsync" --dump-sample-config | sed 's:/home/user/\.sync:/var/lib/btsync:g' > "btsync.conf"
+	doconfd "${FILESDIR}/conf.d/${PN}"
+	"${S}/${PN}" --dump-sample-config | sed 's:/home/user/\.sync:/var/lib/btsync:g' > "${PN}.conf"
 	insinto /etc
-	doins "btsync.conf"
+	doins "${PN}.conf"
 	
 	# system-v-init support
-	newinitd "${FILESDIR}/btsync_initd" btsync
+	doinitd "${FILESDIR}/init.d/${PN}"
 	
 	# systemd support
 	systemd_dounit "${FILESDIR}/btsync.service"
-	systemd_newunit "${FILESDIR}/btsync.service" 'btsync.service'
 	systemd_dounit "${FILESDIR}/btsync@.service"
-	systemd_newunit "${FILESDIR}/btsync@.service" 'btsync@.service'
 	systemd_dounit "${FILESDIR}/btsync_user.service"
-	systemd_newunit "${FILESDIR}/btsync_user.service" 'btsync_user.service'
-	into /usr/
-	dobin btsync
+
+	exeinto "/opt/${PN}/"
+	doexe "${PN}"
 }
 
 pkg_preinst() {
-	enewgroup btsync
-	enewuser btsync -1 /bin/false /dev/null btsync
-	dodir "/run/btsync"
-	fowners btsync:btsync "/run/btsync"
+	enewgroup "${PN}"
+	enewuser "${PN}" -1 -1 /dev/null "${PN}"
+	dodir "/run/${PN}"
+	fowners "${PN}":"${PN}" "/run/${PN}"
 }
 
 pkg_postinst() {
