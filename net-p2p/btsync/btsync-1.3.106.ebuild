@@ -27,22 +27,22 @@ S="${WORKDIR}"
 QA_PREBUILT="/opt/${PN}/"
 
 src_install() {
-	dodoc "${S}"/LICENSE.TXT
+	dodoc "${S}/LICENSE.TXT"
 
-	doconfd "${FILESDIR}/conf.d/${PN}"
-	"${S}/${PN}" --dump-sample-config | sed 's:/home/user/\.sync:/var/lib/btsync:g' > "${PN}.conf"
-	insinto /etc
-	doins "${PN}.conf"
+	newconfd "${FILESDIR}/${PN}_confd" "/${PN}"
 	
 	# system-v-init support
-	doinitd "${FILESDIR}/init.d/${PN}"
+	newinitd "${FILESDIR}/${PN}_initd" "/${PN}"
 	
 	# systemd support
-	systemd_dounit "${FILESDIR}/btsync.service"
-	systemd_dounit "${FILESDIR}/btsync@.service"
-	systemd_dounit "${FILESDIR}/btsync_user.service"
+	systemd_dounit "${FILESDIR}/${PN}.service"
+	systemd_newunit "${FILESDIR}/${PN}_at.service" "${PN}@.service"
+	#systemd_newuserunit "${FILESDIR}/${PN}_user.service" "${PN}.service"
+	insinto "$(systemd_get_userunitdir)"
+	newins "${FILESDIR}/${PN}_user.service" "${PN}.service"
 
-	exeinto "/opt/${PN}/"
+	exeinto "/opt/${PN}/bin/"
+	doexe "${FILESDIR}/${PN}_setup"
 	doexe "${PN}"
 }
 
@@ -51,6 +51,8 @@ pkg_preinst() {
 	enewuser "${PN}" -1 -1 /dev/null "${PN}"
 	dodir "/run/${PN}"
 	fowners "${PN}":"${PN}" "/run/${PN}"
+	dodir "/var/lib/${PN}"
+	fowners "${PN}":"${PN}" "/var/lib/${PN}"
 }
 
 pkg_postinst() {
@@ -60,15 +62,18 @@ einfo ""
 einfo "systemd"
 einfo "btsync.service:"
 einfo " run as a system service as user/group btsync:btsync"
-einfo " use /var/lib/btsync for btsync working data"
+einfo " uses /var/lib/btsync for btsync working data"
 einfo "btsync@<user>.service"
 einfo " run as a system service but with user privilege"
-einfo " use /home/<user>/.config/btsync/btsync.conf for btsync working data"
+einfo " uses /home/<user>/.config/btsync/btsync.conf for btsync working data"
 einfo "btsync_user.service"
 einfo " run as a standard user service"
-einfo " use /home/<user>/.config/btsync/btsync.conf for btsync working data"
+einfo " uses /home/<user>/.config/btsync/btsync.conf for btsync working data"
 einfo ""
 einfo "Ensure you open the following ports in your firewall:"
-einfo " btsync.conf specified listening port (UDP/TCP)"
+einfo " btsync.conf specified sync listening port (UDP/TCP)"
 einfo " port 3838 (UDP) for DHT tracking"
+einfo ""
+einfo "WebUI listens on: localhost:(8888+UID)"
+
 }
