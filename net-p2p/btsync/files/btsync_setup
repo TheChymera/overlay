@@ -22,9 +22,9 @@ BTSYNC_PATH="/opt/${PN}"
 if [[ $EUID -eq 0 ]]; then
     STORAGE_PATH="/var/lib/${PN}"
     CONF_FILE="/etc/${PN}.conf"
-    PID_FILE="/var/run/${PN}.pid"
+    PID_FILE="/run/${PN}/${PN}.pid"
 else
-    STORAGE_PATH="$HOME.${PN}"
+    STORAGE_PATH="${HOME%/}/.${PN}"
     CONF_FILE="${STORAGE_PATH}/${PN}.conf"
     PID_FILE="${STORAGE_PATH}/${PN}.pid"
     mkdir -p "${STORAGE_PATH}"
