@@ -74,6 +74,6 @@ einfo "Ensure you open the following ports in your firewall:"
 einfo " btsync.conf specified sync listening port (UDP/TCP)"
 einfo " port 3838 (UDP) for DHT tracking"
 einfo ""
-einfo "WebUI listens on: localhost:(8888+UID)"
+einfo "WebUI listens on: localhost:(8888), nominally localhost:(7888+UID)"
 
 }
