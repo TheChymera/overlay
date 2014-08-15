@@ -1,6 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
-# Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-tex/envlab/envlab-1.2-r1.ebuild,v 1.18 2012/05/09 17:16:08 aballier Exp $
+# Distributed under the terms of the GNU General Public License v3
 
 EAPI=5
 
@@ -20,13 +18,12 @@ KEYWORDS="~amd64"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND=""
-
 RDEPEND="dev-python/pandas"
 
 src_install() {
 	python_optimize .
-	python_domodule "${S}"/chr_helpers.py 
-	python_domodule "${S}"/chr_matplotlib.py
+	python_domodule "${S}"/chr_helpers/chr_helpers.py 
+	python_domodule "${S}"/chr_helpers/chr_matplotlib.py
 }
 
 
