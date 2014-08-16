@@ -7,8 +7,8 @@ PYTHON_COMPAT=( python{2_7,3_2,3_3} )
 inherit python-single-r1 git-2
 
 DESCRIPTION="Helper Functions for TheChymera's python scripts"
-HOMEPAGE="https://github.com/TheChymera/chr-helpers"
-EGIT_REPO_URI="https://github.com/TheChymera/chr-helpers.git"
+HOMEPAGE="https://github.com/TheChymera/RTbatch"
+EGIT_REPO_URI="https://github.com/TheChymera/RTbatch.git"
 SRC_URI=""
 
 
