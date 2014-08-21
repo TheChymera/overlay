@@ -2,7 +2,7 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_7,3_2,3_3} )
+PYTHON_COMPAT=( python{2_7,3_2,3_3,3_4} )
 
 inherit python-r1 git-2
 
@@ -21,9 +21,9 @@ DEPEND=""
 RDEPEND="dev-python/pandas"
 
 src_install() {
-	python_optimize .
+	python_foreach_impl python_optimize .
 	python_foreach_impl python_domodule "${S}"/RTbatch.py
-	python_foreach_impl python_doscript "${S}"/RTbatch_cli.py
+	python_foreach_impl python_newscript "${S}"/RTbatch_cli.py RTbatch_cli
 }
 
 
