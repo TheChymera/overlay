@@ -8,8 +8,8 @@ inherit git-2
 
 RESTRICT="strip"
 
-DESCRIPTION="native bindings for the FUSE kernel module"
-HOMEPAGE="https://github.com/tools/godep"
+DESCRIPTION="Bash Utility for Creating Stage 4 Tarballs"
+HOMEPAGE="https://github.com/TheChymera/${PN}"
 EGIT_REPO_URI="https://github.com/TheChymera/${PN}.git"
 
 LICENSE="GPL-3"
