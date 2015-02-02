@@ -1,38 +1,97 @@
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
 
 EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
+inherit git-r3 flag-o-matic python-any-r1 eutils
 
-inherit python-single-r1 git-2
-
-DESCRIPTION="A modern, approachable, and hackable text editor."
-HOMEPAGE="https://atom.io/"
-EGIT_REPO_URI="https://github.com/atom/atom.git"
+DESCRIPTION="A hackable text editor for the 21st Century"
+HOMEPAGE="https://atom.io"
 SRC_URI=""
 
+EGIT_REPO_URI="git://github.com/atom/atom"
 
-SLOT="0"
 LICENSE="MIT"
-KEYWORDS="~x86 ~amd64"
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+SLOT="0"
+
+if [[ ${PV} == *9999 ]];then
+	KEYWORDS=""
+else
+	KEYWORDS="~amd64"
+	EGIT_COMMIT="v${PV}"
+fi
+
+IUSE=""
 
 DEPEND="
-	gnome-base/libgnome-keyring
-	${PYTHON_DEPS}	
+	${PYTHON_DEPS}
+	dev-util/atom-shell:0/19
+	>=net-libs/nodejs-0.10.30[npm]
+	media-fonts/inconsolata
 "
+RDEPEND="${DEPEND}"
 
-RDEPEND="
-	${DEPEND}
-	>=net-libs/nodejs-0.10.29[npm]
+QA_PRESTRIPPED="
+	/usr/share/atom/node_modules/symbols-view/vendor/ctags-linux
 "
+pkg_setup() {
+	python-any-r1_pkg_setup
+
+	npm config set python $PYTHON
+}
+
+src_unpack() {
+	git-r3_src_unpack
+}
+
+src_prepare() {
+	# Skip atom-shell download
+	sed -i -e "s/defaultTasks = \['download-atom-shell', /defaultTasks = [/g" \
+	  ./build/Gruntfile.coffee \
+	  || die "Failed to fix Gruntfile"
+
+	# Skip atom-shell copy
+	epatch "${FILESDIR}/0002-skip-atom-shell-copy.patch"
+
+	# Fix atom location guessing
+	sed -i -e 's/ATOM_PATH="$USR_DIRECTORY\/share\/atom/ATOM_PATH="$USR_DIRECTORY\/../g' \
+	  ./atom.sh \
+	  || die "Fail fixing atom-shell directory"
+}
 
 src_compile() {
-	script/build --verbose --no-quiet || die
+	./script/build --verbose --build-dir "${T}" || die "Failed to compile"
+
+	"${T}/Atom/resources/app/apm/node_modules/atom-package-manager/bin/apm" rebuild || die "Failed to rebuild native module"
 }
 
 src_install() {
-	dobin atom-shell/atom
+
+	into	/usr
+
+	insinto /usr/share/applications
+
+	insinto /usr/share/${PN}/resources/app
+	exeinto /usr/bin
+
+	cd "${T}/Atom/resources/app"
+	doicon resources/atom.png
+	dodoc LICENSE.md
+
+	# Installs everything in Atom/resources/app
+	doins -r .
+
+	# Fixes permissions
+	fperms +x /usr/share/${PN}/resources/app/atom.sh
+	fperms +x /usr/share/${PN}/resources/app/apm/node_modules/.bin/apm
+	fperms +x /usr/share/${PN}/resources/app/apm/node_modules/atom-package-manager/bin/node
+	fperms +x /usr/share/${PN}/resources/app/apm/node_modules/atom-package-manager/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js
+
+	# Symlinking to /usr/bin
+	dosym ../share/${PN}/resources/app/atom.sh /usr/bin/atom
+	dosym ../share/${PN}/resources/app/apm/node_modules/atom-package-manager/bin/apm /usr/bin/apm
+
+	make_desktop_entry "/usr/bin/atom %U" "Atom" "atom" "GNOME;GTK;Utility;TextEditor;Development;" "MimeType=text/plain;\nStartupNotify=true\nStartupWMClass=Atom"
 }
-
-
