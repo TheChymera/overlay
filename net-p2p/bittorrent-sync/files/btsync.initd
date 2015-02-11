@@ -1,0 +1,58 @@
+#!/sbin/runscript
+# Copyright 1999-2013 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+BTSYNC_EXEC="/opt/bin/btsync"
+PROGNAME=${SVCNAME#*.}
+PIDPATH="/var/run/btsync"
+PIDFILE="${PIDPATH}/${SVCNAME}.pid"
+
+depend() {
+	need net
+}
+
+start() {
+	local OPTIONS="--nodaemon"
+
+	if [ "${SVCNAME}" = "btsync" ]; then
+		eerror "You are not supposed to run this script directly. Create a symlink"
+		eerror "for the BitTorrent Sync instance you want to run as well as a copy"
+		eerror "of the ration file and modify it appropriately like so..."
+		eerror
+		eerror "  # ln -s btsync /etc/init.d/btsync.home"
+		eerror "  # cp /etc/conf.d/btsync /etc/conf.d/btsync.home"
+		eerror "  # nano /etc/conf.d/btsync.home"
+		eerror
+		return 1
+	fi
+
+	if [ -z "${BTSYNC_USER}" ] || [ -z "${BTSYNC_GROUP}" ]; then
+		eerror "You should specify an user and group:"
+		eerror "  BTSYNC_USER=user"
+		eerror "  BTSYNC_GROUP=group"
+		return 1
+	fi
+
+	if [ -n "${BTSYNC_CONFIG}" ]; then
+		OPTIONS="${OPTIONS} --config ${BTSYNC_CONFIG}"
+	fi
+	
+	if [ -n "${BTSYNC_EXTRA_OPTIONS}" ]; then
+		OPTIONS="${OPTIONS} ${BTSYNC_EXTRA_OPTIONS}"
+	fi
+	
+	ebegin "Starting BitTorrent Sync instance ${PROGNAME}"
+	checkpath -d -m 0750 -o "${BTSYNC_USER}":"${BTSYNC_GROUP}" "${PIDPATH}"
+	cd "${BTSYNC_DIR:-/}" && \
+		start-stop-daemon --start --user "${BTSYNC_USER}" --group "${BTSYNC_GROUP}" \
+		--pidfile "${PIDFILE}" --background --make-pidfile --exec "${BTSYNC_EXEC}" \
+		-- ${OPTIONS}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping BitTorrent Sync instance ${PROGNAME}"
+	start-stop-daemon --stop --pidfile "${PIDFILE}"
+	eend $?
+}

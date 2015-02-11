@@ -1,0 +1,19 @@
+# Copyright 1999-2013 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+# DO NOT MODIFY THIS FILE DIRECTLY! CREATE A COPY AND MODIFY THAT INSTEAD!
+
+# User and group of the user that will run the instance.
+BTSYNC_USER=
+BTSYNC_GROUP=
+
+# Configuration file. Create it with "btsync --dump-sample-config" and edit.
+# If not set, default settings will be applied.
+#BTSYNC_CONFIG=
+
+# Directory where the instance will be started. Defaults to /
+#BTSYNC_DIR=/
+
+# Extra options to be added to the btsync call.
+#BTSYNC_EXTRA_OPTIONS=
