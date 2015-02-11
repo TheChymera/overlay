@@ -1,0 +1,38 @@
+#!/sbin/runscript
+
+# Copyright 2014 Jonathan Vasquez <jvasquez1011@gmail.com>
+# Distributed under the terms of the GNU General Public License v2
+
+NAME="SyncThing"
+SYNC_NAME="${SYNC_NAME:-syncthing}"
+SYNC_PATH="${SYNC_PATH:-/usr/bin}"
+SYNC_BINARY="${SYNC_BINARY:-$SYNC_PATH/$SYNC_NAME}"
+SYNC_OPTS="${SYNC_OPTS:--home=/etc/$SYNC_NAME}"
+SYNC_PIDFILE="${SYNC_PIDFILE:-/var/run/$SYNC_NAME.pid}"
+
+start() {
+	ebegin "Starting ${NAME}"
+
+	start-stop-daemon -m --pidfile "${SYNC_PIDFILE}" -b \
+	--start --exec "${SYNC_BINARY}" -- ${SYNC_OPTS}
+
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping ${NAME}"
+
+	start-stop-daemon --stop --exec "${SYNC_BINARY}" \
+	    --pidfile "${SYNC_PIDFILE}"
+
+	eend $?
+}
+
+reload() {
+	ebegin "Reloading ${NAME}"
+
+	start-stop-daemon --signal HUP --exec "${SYNC_BINARY}" \
+	    --pidfile "${SYNC_PIDFILE}"
+
+	eend $?
+}
