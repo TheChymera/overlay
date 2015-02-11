@@ -1,8 +1,8 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
+EAPI="5"
 
 PYTHON_COMPAT=( python2_7 )
 inherit git-r3 flag-o-matic python-any-r1
@@ -14,7 +14,7 @@ SRC_URI=""
 EGIT_REPO_URI="git://github.com/atom/atom-shell"
 
 LICENSE="MIT"
-SLOT="0/21"
+SLOT="0/20"
 
 if [[ ${PV} == *9999 ]];then
 	KEYWORDS=""
@@ -29,7 +29,7 @@ DEPEND="
 	${PYTHON_DEPS}
 	sys-devel/llvm:0/3.5[clang]
 	dev-lang/python:2.7
-	net-libs/nodejs[npm]
+	>=net-libs/nodejs-0.10.30[npm]
 	x11-libs/gtk+:2
 	x11-libs/libnotify
 	gnome-base/libgnome-keyring
@@ -86,8 +86,7 @@ src_prepare() {
 		|| die "build fix failed"
 
 	# Update ninja files
-	./script/update.py \
-		|| die "update failed"
+	./script/update.py || die "update failed"
 }
 
 src_compile() {

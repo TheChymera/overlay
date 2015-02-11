@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="5"
+EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
 inherit git-r3 flag-o-matic python-any-r1 eutils
@@ -27,15 +27,15 @@ IUSE=""
 
 DEPEND="
 	${PYTHON_DEPS}
-	dev-util/atom-shell:0/20
-	>=net-libs/nodejs-0.10.30[npm]
+	dev-util/atom-shell:0/21
+	net-libs/nodejs[npm]
 	media-fonts/inconsolata
 "
-
 RDEPEND="${DEPEND}"
 
-QA_PRESTRIPPED="/usr/share/atom/resources/app/node_modules/symbols-view/vendor/ctags-linux"
-
+QA_PRESTRIPPED="
+	/usr/share/atom/resources/app/node_modules/symbols-view/vendor/ctags-linux
+"
 pkg_setup() {
 	python-any-r1_pkg_setup
 
@@ -59,17 +59,25 @@ src_prepare() {
 	sed -i -e 's/ATOM_PATH="$USR_DIRECTORY\/share\/atom/ATOM_PATH="$USR_DIRECTORY\/../g' \
 		./atom.sh \
 		|| die "Fail fixing atom-shell directory"
+
+	# Make bootstrap process more verbose
+	sed -i -e 's@node script/bootstrap@node script/bootstrap --no-quiet@g' \
+		./script/build \
+		|| die "Fail fixing verbosity of script/build"
 }
 
 src_compile() {
 	./script/build --verbose --build-dir "${T}" || die "Failed to compile"
+
 	"${T}/Atom/resources/app/apm/bin/apm" rebuild || die "Failed to rebuild native module"
+
 	# Setup python path to builtin npm
 	echo "python = $PYTHON" >> "${T}/Atom/resources/app/apm/.apmrc"
 }
 
 src_install() {
-	into /usr
+
+	into	/usr
 
 	insinto /usr/share/applications
 

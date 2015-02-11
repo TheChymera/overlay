@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>aegypius@github.com</email>
+		<name>Nicolas Laurent</name>
+	</maintainer>
+	<maintainer>
+		<email>mplichta@gmail.com</email>
+		<name>Michal Plichta</name>
+	</maintainer>
+	<longdescription>A hackable text editor for the 21st Century</longdescription>
+</pkgmetadata>
