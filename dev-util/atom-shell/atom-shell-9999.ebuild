@@ -14,7 +14,7 @@ SRC_URI=""
 EGIT_REPO_URI="git://github.com/atom/atom-shell"
 
 LICENSE="MIT"
-SLOT="0/21"
+SLOT="0/22"
 
 if [[ ${PV} == *9999 ]];then
 	KEYWORDS=""
@@ -29,7 +29,7 @@ DEPEND="
 	${PYTHON_DEPS}
 	sys-devel/llvm:0/3.5[clang]
 	dev-lang/python:2.7
-	net-libs/nodejs[npm]
+	=net-libs/nodejs-0.10*[npm]
 	x11-libs/gtk+:2
 	x11-libs/libnotify
 	gnome-base/libgnome-keyring
@@ -41,8 +41,8 @@ DEPEND="
 	sys-libs/libcap
 	x11-libs/libXtst
 	x11-libs/pango
+	dev-util/ninja
 "
-
 RDEPEND="${DEPEND}
 	!<app-editors/atom-0.120.0
 "
@@ -51,7 +51,6 @@ QA_PRESTRIPPED="
 	/usr/share/atom/libffmpegsumo.so
 	/usr/share/atom/libchromiumcontent.so
 "
-
 src_unpack() {
 	git-r3_src_unpack
 }
@@ -68,12 +67,11 @@ src_prepare() {
 
 	# Fix util.execute function to be more verbose
 	sed -i -e 's/def execute(argv):/def execute(argv):\n  print "   - bootstrap: " + " ".join(argv)/g' \
-		./script/lib/util.py \
-		|| die "Failed to sed lib/util.py"
+	  ./script/lib/util.py \
+	  || die "Failed to sed lib/util.py"
 
 	# Bootstrap
-	./script/bootstrap.py \
-		|| die "bootstrap failed"
+	./script/bootstrap.py || die "bootstrap failed"
 
 	# Fix libudev.so.0 link
 	sed -i -e 's/libudev.so.0/libudev.so.1/g' \
@@ -86,8 +84,7 @@ src_prepare() {
 		|| die "build fix failed"
 
 	# Update ninja files
-	./script/update.py \
-		|| die "update failed"
+	./script/update.py || die "update failed"
 }
 
 src_compile() {
@@ -98,7 +95,8 @@ src_compile() {
 }
 
 src_install() {
-	into /usr/share/atom
+
+	into	/usr/share/atom
 	insinto /usr/share/atom
 	exeinto /usr/share/atom
 
@@ -112,4 +110,7 @@ src_install() {
 	doins LICENSE
 	doins icudtl.dat
 	doins content_shell.pak
+	doins natives_blob.bin
+	doins snapshot_blob.bin
+
 }

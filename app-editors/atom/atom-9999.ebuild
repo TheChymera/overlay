@@ -27,17 +27,18 @@ IUSE=""
 
 DEPEND="
 	${PYTHON_DEPS}
-	dev-util/atom-shell:0/21
-	net-libs/nodejs[npm]
+	dev-util/atom-shell:0/22
+	|| ( net-libs/nodejs[npm] net-libs/iojs[npm] )
 	media-fonts/inconsolata
 "
-
 RDEPEND="${DEPEND}"
 
-QA_PRESTRIPPED="/usr/share/atom/resources/app/node_modules/symbols-view/vendor/ctags-linux"
-
+QA_PRESTRIPPED="
+	/usr/share/atom/resources/app/node_modules/symbols-view/vendor/ctags-linux
+"
 pkg_setup() {
 	python-any-r1_pkg_setup
+
 	npm config set python $PYTHON
 }
 
@@ -46,8 +47,8 @@ src_unpack() {
 }
 
 src_prepare() {
-	# Skip atom-shell download
-	sed -i -e "s/defaultTasks = \['download-atom-shell', /defaultTasks = [/g" \
+	# Skip atom-shell & atom-shell-chromedriver download
+	sed -i -e "s/defaultTasks = \['download-atom-shell', 'download-atom-shell-chromedriver', /defaultTasks = [/g" \
 		./build/Gruntfile.coffee \
 		|| die "Failed to fix Gruntfile"
 
@@ -67,14 +68,19 @@ src_prepare() {
 
 src_compile() {
 	./script/build --verbose --build-dir "${T}" || die "Failed to compile"
+
 	"${T}/Atom/resources/app/apm/bin/apm" rebuild || die "Failed to rebuild native module"
+
 	# Setup python path to builtin npm
 	echo "python = $PYTHON" >> "${T}/Atom/resources/app/apm/.apmrc"
 }
 
 src_install() {
-	into /usr
+
+	into	/usr
+
 	insinto /usr/share/applications
+
 	insinto /usr/share/${PN}/resources/app
 	exeinto /usr/bin
 
