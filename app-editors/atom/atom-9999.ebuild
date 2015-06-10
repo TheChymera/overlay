@@ -31,11 +31,11 @@ DEPEND="
 	|| ( net-libs/nodejs[npm] net-libs/iojs[npm] )
 	media-fonts/inconsolata
 "
+
 RDEPEND="${DEPEND}"
 
-QA_PRESTRIPPED="
-	/usr/share/atom/resources/app/node_modules/symbols-view/vendor/ctags-linux
-"
+QA_PRESTRIPPED="/usr/share/atom/resources/app.asar.unpacked/node_modules/symbols-view/vendor/ctags-linux"
+
 pkg_setup() {
 	python-any-r1_pkg_setup
 
@@ -76,16 +76,15 @@ src_compile() {
 }
 
 src_install() {
-
-	into	/usr
-
+	into /usr
 	insinto /usr/share/applications
-
-	insinto /usr/share/${PN}/resources/app
+	insinto /usr/share/${PN}/resources
 	exeinto /usr/bin
 
-	cd "${T}/Atom/resources/app"
-	doicon resources/atom.png
+	cd "${S}/resources"
+	doicon atom.png
+
+	cd "${T}/Atom/resources"
 	dodoc LICENSE.md
 
 	# Installs everything in Atom/resources/app
@@ -101,5 +100,7 @@ src_install() {
 	dosym ../share/${PN}/resources/app/atom.sh /usr/bin/atom
 	dosym ../share/${PN}/resources/app/apm/bin/apm /usr/bin/apm
 
-	make_desktop_entry "/usr/bin/atom %U" "Atom" "atom" "GNOME;GTK;Utility;TextEditor;Development;" "MimeType=text/plain;\nStartupNotify=true\nStartupWMClass=Atom"
+	make_desktop_entry "/usr/bin/atom %U" "Atom" "atom" \
+		"GNOME;GTK;Utility;TextEditor;Development;" \
+		"GenericName=Text Editor\nMimeType=text/plain;\nStartupNotify=true\nStartupWMClass=Atom"
 }
