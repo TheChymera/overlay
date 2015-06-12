@@ -14,7 +14,7 @@ SRC_URI=""
 EGIT_REPO_URI="git://github.com/atom/atom-shell"
 
 LICENSE="MIT"
-SLOT="0/23"
+SLOT="0/22"
 
 if [[ ${PV} == *9999 ]];then
 	KEYWORDS=""
@@ -27,7 +27,7 @@ IUSE="debug"
 
 DEPEND="
 	${PYTHON_DEPS}
-	sys-devel/llvm:0/3.5[clang]
+	>=sys-devel/llvm-3.5.0[clang]
 	dev-lang/python:2.7
 	|| ( net-libs/nodejs[npm] net-libs/iojs[npm] )
 	x11-libs/gtk+:2
@@ -45,7 +45,7 @@ DEPEND="
 "
 
 RDEPEND="${DEPEND}
-	!<app-editors/atom-0.190.0
+	!<app-editors/atom-0.188.0
 "
 
 QA_PRESTRIPPED="
