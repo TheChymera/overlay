@@ -3,11 +3,6 @@
 <pkgmetadata>
 	<maintainer>
 		<email>aegypius@github.com</email>
-		<name>Nicolas Laurent</name>
+		<name>aegypius</name>
 	</maintainer>
-	<maintainer>
-		<email>mplichta@gmail.com</email>
-		<name>Michal Plichta</name>
-	</maintainer>
-	<longdescription>A hackable text editor for the 21st Century</longdescription>
 </pkgmetadata>
