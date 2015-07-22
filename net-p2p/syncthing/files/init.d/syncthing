@@ -1,0 +1,36 @@
+#!/sbin/runscript
+
+# Copyright 2014-2015 Jonathan Vasquez <jvasquez1011@gmail.com>
+# Distributed under the terms of the GNU General Public License v2
+
+DISPLAY_NAME="SyncThing"
+
+SYNC_PATH="/usr/bin"
+SYNC_BINARY="${SYNC_PATH}/${SYNC_NAME}"
+SYNC_USER="${SYNC_USER:-root}"
+SYNC_GROUP="${SYNC_GROUP:-root}"
+SYNC_HOME="${SYNC_HOME:-/etc/${SYNC_NAME}}"
+
+start() {
+	ebegin "Starting ${DISPLAY_NAME}"
+
+	if [[ ${SYNC_USER} == "root" ]]; then
+		SYNC_NAME="root"
+		SYNC_GROUP="root"
+
+		einfo "Running ${DISPLAY_NAME} as root:root. Home directory: ${SYNC_HOME}"
+	fi
+
+	start-stop-daemon -m --pidfile "${SYNC_PIDFILE}" -b \
+	--start --user ${SYNC_USER} --group ${SYNC_GROUP} --exec "${SYNC_BINARY}" -- ${SYNC_OPTS}
+
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping ${DISPLAY_NAME}"
+
+	start-stop-daemon --stop --exec "${SYNC_BINARY}" --pidfile "${SYNC_PIDFILE}"
+
+	eend $?
+}
