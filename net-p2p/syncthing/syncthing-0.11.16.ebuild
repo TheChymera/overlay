@@ -1,4 +1,4 @@
-# Copyright 2014 Jonathan Vasquez <jvasquez1011@gmail.com>
+# Copyright 2014-2015 Jonathan Vasquez <jvasquez1011@gmail.com>
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -13,20 +13,18 @@ NAME="syncthing"
 DESCRIPTION="Open Source Continuous File Synchronization"
 HOMEPAGE="http://syncthing.net/"
 
-SRC_URI="
-	amd64? ( https://github.com/${GITHUB_USER}/${GITHUB_REPO}/releases/download/v${GITHUB_TAG}/syncthing-linux-amd64-v${PV}.tar.gz )"
-#https://github.com/$//archive/v${GITHUB_TAG}.tar.gz -> ${P}.tar.gz
-#https://github.com/{GITHUB_USER}/${GITHUB_REPO}/releases/download/v${GITHUB_TAG}/syncthing-linux-amd64-v${PV}.tar.gz
+SRC_URI="https://github.com/${GITHUB_USER}/${GITHUB_REPO}/archive/v${GITHUB_TAG}.tar.gz -> ${P}.tar.gz"
+
 RESTRICT="mirror"
-LICENSE="GPL-3+"
+LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~x86 ~amd64"
 
 DEPEND=">=dev-lang/go-1.3.0"
 
 S="${WORKDIR}"
 
-configDir="/etc/${PN}"
+configDir="~/.config/syncthing"
 config="${configDir}/config.xml"
 
 src_install() {
@@ -44,36 +42,22 @@ src_install() {
 	go run build.go -version v${PV} -no-upgrade=true
 
 	# Copy compiled binary over to image directory
-	dobin "${WORKDIR}/syncthing-linux-amd64-v${PV}/syncthing"
+	dobin "bin/${PN}"
 
-	# Install the OpenRC init file
+	# Install the OpenRC init/conf files
 	doinitd "${FILESDIR}/init.d/${NAME}"
+	doconfd "${FILESDIR}/conf.d/${NAME}"
 
 	# Install the systemd unit file
-	systemd_newunit "${FILESDIR}/${PN}_.service" "${PN}@.service"
-	#Install the systemd user unit file
-	systemd_douserunit "${FILESDIR}/${PN}.service"
+	local systemdServiceFile="etc/linux-systemd/system/${PN}@.service"
+	systemd_dounit "${systemdServiceFile}"
 }
 
 pkg_postinst() {
-	if [[ ! -d "${configDir}" ]]; then
-		mkdir "${configDir}"
-	fi
-
-	if [[ ! -e "${config}" ]]; then
-		einfo "Generating default configuration file ..."
-
-		syncthing -generate "${configDir}"
-
-		# Remove 'default' folder (it has an incorrect path anyway)
-		sed -i '/<folder id="default"/,/<\/folder>/d' "${config}"
-	fi
-
 	elog "In order to be able to view the Web UI remotely (from another machine),"
 	elog "edit your ${config} and change the 127.0.0.1:8080 to 0.0.0.0:8080 in"
-	elog "the 'address' section."
+	elog "the 'address' section. This file will only be generated once you start syncthing."
 	elog ""
-	elog "After checking your config, run 'rc-config start ${PN}' to start the application."
-	elog "Point your browser to the address above to access the Web UI."
-	elog ""
+	elog "Modify the /etc/conf.d/${PN} file and set the user/group/ and syncthing home directory"
+	elog "before launching. Afterwards, you can start ${PN} by doing a: rc-config start ${PN}"
 }
