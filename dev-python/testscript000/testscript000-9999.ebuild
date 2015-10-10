@@ -10,7 +10,7 @@ inherit distutils-r1 git-r3 multilib
 
 DESCRIPTION="A tool to create LaTeX tables from python lists and arrays"
 HOMEPAGE="https://github.com/jereviendrai/ld_expert-test"
-EGIT_REPO_URI="https://github.com/TheChymera/testscript000"
+EGIT_REPO_URI="https://github.com/jereviendrai/ld_expert-test"
 
 LICENSE="GPL-3"
 SLOT="0"
