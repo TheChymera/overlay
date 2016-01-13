@@ -1,0 +1,4 @@
+*syncthing-0.12.12 (13 Jan 2016)
+
+  13 Jan 2016;  <chymera@gentoo.org> +syncthing-0.12.12.ebuild:
+  net-p2p/syncthing: added ebuild by mva
