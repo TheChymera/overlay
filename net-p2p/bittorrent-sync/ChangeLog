@@ -1,3 +1,8 @@
+  13 Jan 2016;  <chymera@gentoo.org> +files/btsync.conf, +files/init.d/btsync,
+  +files/systemd/btsync.service, -files/btsync.confd, -files/btsync.initd:
+  net-p2p/bittorrent-sync: added service/config files from pigfoot to correct
+  ebuild
+
 *bittorrent-sync-1.4.110 (13 Jan 2016)
 
   13 Jan 2016;  <chymera@gentoo.org> +bittorrent-sync-1.4.110.ebuild,
