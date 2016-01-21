@@ -1,3 +1,6 @@
+  21 Jan 2016;  <chymera@gentoo.org> bittorrent-sync-9999.ebuild:
+  net-p2p/bittorrent-sync: updated ebuild
+
 *bittorrent-sync-9999 (21 Jan 2016)
 
   21 Jan 2016;  <chymera@gentoo.org> +bittorrent-sync-9999.ebuild:
