@@ -1,3 +1,8 @@
+*syncthing-0.12.14 (21 Jan 2016)
+
+  21 Jan 2016;  <chymera@gentoo.org> +syncthing-0.12.14.ebuild, files/syncthing:
+  net-p2p/syncthing: version bump
+
   13 Jan 2016;  <chymera@gentoo.org> +files/syncthing:
   net-p2p/syncthing: added syncthing launcher file
 

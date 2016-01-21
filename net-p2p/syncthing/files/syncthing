@@ -18,8 +18,7 @@ start_pre() {
 start() {
 	ebegin "Starting Syncthing"
 	start-stop-daemon --start --make-pidfile --pidfile ${pid_file} \
-		--user ${SVCUSER} --group ${SVCUSER} --background --exec /usr/bin/syncthing -- 
--no-browser
+		--user ${SVCUSER} --group ${SVCUSER} --background --exec /usr/bin/syncthing -- -no-browser
 	eend $?
 }
 
