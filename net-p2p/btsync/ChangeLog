@@ -1,3 +1,0 @@
-  13 Jan 2016;  <chymera@gentoo.org> +files/btsync.conf, +files/init.d/btsync,
-  +files/systemd/btsync.service:
-  net-p2p/btsync: added config and service files from pigfoot
