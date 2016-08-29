@@ -6,7 +6,7 @@ EAPI=6
 
 PYTHON_COMPAT=( python2_7 python3_5)
 
-inherit distutils-r1
+inherit distutils-r1 vcs-snapshot
 
 DESCRIPTION="Add a progress meter to your loops in a second."
 HOMEPAGE="https://github.com/noamraph/tqdm"
@@ -23,4 +23,3 @@ DEPEND="
 	"
 RDEPEND=""
 
-S="${WORKDIR}/noamraph-tqdm-da5fdbf"

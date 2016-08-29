@@ -1,4 +1,7 @@
   29 Aug 2016; Horea Christian <h.chr@mail.ru> tqdm-0_pre20140115.ebuild:
+  dev-python/tqdm: using eclass to handle package name
+
+  29 Aug 2016; Horea Christian <h.chr@mail.ru> tqdm-0_pre20140115.ebuild:
   dev-python/tqdm: tweaked workdir
 
   29 Aug 2016; Horea Christian <h.chr@mail.ru> tqdm-0_pre20140115.ebuild:
