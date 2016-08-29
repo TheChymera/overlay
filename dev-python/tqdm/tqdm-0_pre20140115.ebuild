@@ -15,7 +15,7 @@ SRC_URI="https://github.com/noamraph/${PN}/tarball/${COMMIT} -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="x86 amd64"
 IUSE=""
 
 DEPEND="
