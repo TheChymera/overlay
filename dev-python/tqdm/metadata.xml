@@ -5,10 +5,6 @@
     <email>horea.christ@gmail.com</email>
     <name>Horea Christian</name>
   </maintainer>
-  <maintainer type="project">
-    <email>sci@gentoo.org</email>
-    <name>Gentoo Science Project</name>
-  </maintainer>
   <longdescription lang="en">
 	Instantly make your loops show a progress meter - just wrap 
 	any iterator with "tqdm(iterator)", and you're done!
