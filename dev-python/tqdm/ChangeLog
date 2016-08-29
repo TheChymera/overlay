@@ -1,0 +1,6 @@
+*tqdm-0_pre20140115 (29 Aug 2016)
+*tqdm-9999 (29 Aug 2016)
+
+  29 Aug 2016; Horea Christian <h.chr@mail.ru> +metadata.xml,
+  +tqdm-0_pre20140115.ebuild, +tqdm-9999.ebuild:
+  dev-python/tqdm: new package
