@@ -22,5 +22,7 @@ DEPEND="
 	"
 RDEPEND="
 	dev-python/decorator[${PYTHON_USEDEP}]
+	dev-python/imageio[${PYTHON_USEDEP}]
 	dev-python/numpy[${PYTHON_USEDEP}]
+	dev-python/tqdm[${PYTHON_USEDEP}]
 	"
