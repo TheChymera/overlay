@@ -22,3 +22,5 @@ DEPEND="
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	"
 RDEPEND=""
+
+S="${WORKDIR}/noamraph-tqdm-da5fdbf"
