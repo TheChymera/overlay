@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>horea.christ@gmail.com</email>
+		<name>Horea Christian</name>
+	</maintainer>
+	<longdescription lang="en">
+		SAMRI (Small Animal Magnetic Resonance Imaging) - pronounced 
+		"Sam-rye" - provides fMRI preprocessing, metadata parsing, and 
+		data analysis functions and pipelines.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">TheChymera/SAMRI</remote-id>
+	</upstream>
+</pkgmetadata>
