@@ -20,6 +20,7 @@ KEYWORDS=""
 
 DEPEND=""
 RDEPEND="
+	sci-biology/dcmstack[${PYTHON_USEDEP}]
 	dev-python/pandas[${PYTHON_USEDEP}]
 	sci-biology/fsl
 	sci-biology/bru2nii
