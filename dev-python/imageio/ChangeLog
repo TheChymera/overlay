@@ -1,5 +1,0 @@
-*imageio-1.5 (29 Aug 2016)
-
-  29 Aug 2016; Horea Christian <h.chr@mail.ru> +imageio-1.5.ebuild,
-  +metadata.xml:
-  dev-python/imageio: new package
