@@ -22,6 +22,7 @@ DEPEND=""
 RDEPEND="
 	dev-python/argh[${PYTHON_USEDEP}]
 	dev-python/pandas[${PYTHON_USEDEP}]
+	dev-python/sqlalchemy[${PYTHON_USEDEP}]
 	sci-biology/dcmstack[${PYTHON_USEDEP}]
 	sci-biology/fsl
 	sci-biology/bru2nii
