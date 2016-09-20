@@ -1,8 +1,0 @@
-  29 Aug 2016; Horea Christian <h.chr@mail.ru> moviepy-0.2.2.ebuild:
-  dev-python/moviepy: updated dependencies
-
-*moviepy-0.2.2 (29 Aug 2016)
-
-  29 Aug 2016; Horea Christian <h.chr@mail.ru> +metadata.xml,
-  +moviepy-0.2.2.ebuild:
-  dev-python/moviepy: corrected metadata
