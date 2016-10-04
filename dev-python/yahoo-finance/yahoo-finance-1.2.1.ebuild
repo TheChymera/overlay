@@ -8,16 +8,19 @@ PYTHON_COMPAT=( python{2_7,3_4,3_5} )
 
 inherit distutils-r1
 
-DESCRIPTION="Neuroimaging tools for Python"
-HOMEPAGE="http://nipy.org/"
+DESCRIPTION="Python module to get stock data from Yahoo! Finance"
+HOMEPAGE="https://github.com/lukaszbanasiak/yahoo-finance"
 SRC_URI="https://github.com/lukaszbanasiak/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="BSD"
+LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
-RDEPEND="dev-python/simplejson[${PYTHON_USEDEP}]"
+RDEPEND="
+	dev-python/pytz[${PYTHON_USEDEP}]
+	dev-python/simplejson[${PYTHON_USEDEP}]
+	"
 DEPEND="
 	test? (
 		${RDEPEND}
@@ -26,5 +29,5 @@ DEPEND="
 	"
 
 python_test() {
-	${EPYTHON} -m unittest discover || die
+	${EPYTHON} test/test_yahoo.py || die
 }
