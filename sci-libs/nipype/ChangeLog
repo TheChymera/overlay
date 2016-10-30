@@ -1,0 +1,5 @@
+*nipype-9999 (30 Oct 2016)
+
+  30 Oct 2016; Horea Christian <h.chr@mail.ru> +metadata.xml,
+  +nipype-9999.ebuild:
+  sci-libs/nipype: my temporal nipype fork
