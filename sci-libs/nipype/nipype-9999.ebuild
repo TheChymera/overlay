@@ -13,6 +13,7 @@ DESCRIPTION="Neuroimaging in Python: Pipelines and Interfaces"
 HOMEPAGE="http://nipy.sourceforge.net/nipype/"
 SRC_URI=""
 EGIT_REPO_URI="https://github.com/TheChymera/nipype"
+EGIT_BRANCH="hack"
 
 LICENSE="BSD"
 SLOT="0"
