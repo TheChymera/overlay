@@ -23,13 +23,12 @@ LICENSE="GPL-3"
 SLOT="0"
 IUSE="+cairo openmp"
 
-# Bug #536734; configure sets boostlib 1.53.0 but 1.54.0 is required
 RDEPEND="${PYTHON_DEPS}
-	>=dev-libs/boost-1.54.0[python,${PYTHON_USEDEP}]
+	dev-libs/boost:=[python,${PYTHON_USEDEP}]
 	dev-libs/expat
 	dev-python/numpy[${PYTHON_USEDEP}]
 	sci-libs/scipy[${PYTHON_USEDEP}]
-	>=sci-mathematics/cgal-3.5
+	sci-mathematics/cgal
 	cairo? (
 		dev-cpp/cairomm
 		dev-python/pycairo[${PYTHON_USEDEP}]
@@ -46,16 +45,19 @@ MAKEOPTS="${MAKEOPTS} -j1"
 CHECKREQS_DISK_BUILD="6G"
 
 pkg_pretend() {
-	if use openmp ; then
-		tc-has-openmp || die "Please switch to an openmp compatible compiler"
-	fi
+	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp \
+		|| die "Please switch to an openmp compatible compiler"
 	check-reqs_pkg_pretend
+}
+
+pkg_setup() {
+	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp \
+		|| die "Please switch to an openmp compatible compiler"
 }
 
 src_prepare() {
 	default
 	[[ ${PV} == "9999" ]] && eautoreconf
-	>py-compile
 	python_copy_sources
 }
 
@@ -80,11 +82,7 @@ src_compile() {
 
 src_install() {
 	python_foreach_impl run_in_build_dir default
-	prune_libtool_files --modules
+	find "${D}" -name '*.la' -delete || die
+	einstalldocs
 }
 
-run_in_build_dir() {
-	pushd "${BUILD_DIR}" > /dev/null
-	"$@"
-	popd > /dev/null
-}
