@@ -38,9 +38,6 @@ DEPEND="${RDEPEND}
 	dev-cpp/sparsehash
 	virtual/pkgconfig"
 
-# most machines don't have enough ram for parallel builds
-MAKEOPTS="${MAKEOPTS} -j1"
-
 # bug 453544
 CHECKREQS_DISK_BUILD="6G"
 
@@ -63,7 +60,7 @@ src_prepare() {
 
 src_configure() {
 	local threads
-	has_version dev-libs/boost[threads] && threads="-mt"
+	has_version "dev-libs/boost[threads]" && threads="-mt"
 
 	configure() {
 		econf \
@@ -77,12 +74,10 @@ src_configure() {
 }
 
 src_compile() {
-	python_foreach_impl run_in_build_dir default
+	python_foreach_impl run_in_build_dir emake -j1 || die "emake failed"
 }
 
 src_install() {
 	python_foreach_impl run_in_build_dir default
 	find "${D}" -name '*.la' -delete || die
-	einstalldocs
 }
-
