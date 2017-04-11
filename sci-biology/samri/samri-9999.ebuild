@@ -27,5 +27,5 @@ RDEPEND="
 	sci-biology/fsl
 	sci-biology/bru2nii
 	sci-libs/nipype[${PYTHON_USEDEP}]
-	sci-biology/nilearn
+	sci-biology/nilearn[${PYTHON_USEDEP}]
 	"
