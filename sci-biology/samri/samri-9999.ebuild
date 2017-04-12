@@ -8,10 +8,10 @@ PYTHON_COMPAT=( python{2_7,3_4,3_5} )
 
 inherit distutils-r1 git-r3
 
-DESCRIPTION="Organize and rename large numbers of files"
-HOMEPAGE="https://github.com/TheChymera/SAMRI"
+DESCRIPTION="Small Animal Magnetic Resonance Imaging"
+HOMEPAGE="https://github.com/IBT-FMI/SAMRI"
 SRC_URI=""
-EGIT_REPO_URI="https://github.com/TheChymera/SAMRI"
+EGIT_REPO_URI="https://github.com/IBT-FMI/SAMRI"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -27,4 +27,5 @@ RDEPEND="
 	sci-biology/fsl
 	sci-biology/bru2nii
 	sci-libs/nipype[${PYTHON_USEDEP}]
+	sci-biology/nilearn[${PYTHON_USEDEP}]
 	"
