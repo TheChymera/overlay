@@ -1,3 +1,6 @@
+  29 May 2017; Horea Christian <h.chr@mail.ru> samri-9999.ebuild:
+  sci-biology/samri: fixed stale header
+
   29 May 2017; Horea Christian <h.chr@mail.ru> metadata.xml, samri-9999.ebuild:
   sci-biology/samri: updated metadata
 
