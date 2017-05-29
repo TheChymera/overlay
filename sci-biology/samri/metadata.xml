@@ -11,6 +11,6 @@
 		data analysis functions and pipelines.
 	</longdescription>
 	<upstream>
-		<remote-id type="github">TheChymera/SAMRI</remote-id>
+		<remote-id type="github">IBT-FMI/SAMRI</remote-id>
 	</upstream>
 </pkgmetadata>
