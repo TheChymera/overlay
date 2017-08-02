@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-PYTHON_COMPAT=(python{2_7,3_3})
+PYTHON_COMPAT=(python{2_7,3_4})
 inherit vim-plugin git-2 python-r1 python-utils-r1
 
 DESCRIPTION="Jedi Python autocompletion with VIM"
