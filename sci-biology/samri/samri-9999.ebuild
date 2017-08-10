@@ -20,10 +20,18 @@ KEYWORDS=""
 DEPEND=""
 RDEPEND="
 	dev-python/argh[${PYTHON_USEDEP}]
+	dev-python/joblib[${PYTHON_USEDEP}]
+	>=dev-python/matplotlib-2.0.2[${PYTHON_USEDEP}]
+	dev-python/numpy[${PYTHON_USEDEP}]
 	dev-python/pandas[${PYTHON_USEDEP}]
+	dev-python/seaborn[${PYTHON_USEDEP}]
 	dev-python/sqlalchemy[${PYTHON_USEDEP}]
-	sci-biology/fsl
+	dev-python/statsmodels[${PYTHON_USEDEP}]
+	>=sci-biology/fsl-5.0.9
 	sci-biology/bru2nii
-	sci-libs/nipype[${PYTHON_USEDEP}]
+	sci-libs/nibabel[${PYTHON_USEDEP}]
+	>=sci-libs/nipy-0.4.1[${PYTHON_USEDEP}]
+	=sci-libs/nipype-9999[${PYTHON_USEDEP}]
+	sci-libs/scipy[${PYTHON_USEDEP}]
 	sci-biology/nilearn[${PYTHON_USEDEP}]
 	"
