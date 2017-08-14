@@ -6,7 +6,7 @@ The repository structure is somewhat based on that of the *gentoo science overla
 
 If you are looking for the neuroscience software packages maintained by [TheChymera](https://github.com/TheChymera), use the [NeuroGentoo overlay](https://github.com/TheChymera/neurogentoo) instead.
 
-##Install
+## Install
 
 As per the [current Portage specifications](https://dev.gentoo.org/~zmedico/portage/doc/man/portage.5.html), overlays should be managed via `/etc/portage/repos.conf/`.
 To enable this overlay make sure you are using a recent Portage version (at least `2.2.14`), and create an `/etc/portage/repos.conf/chymeric` file containing precisely:
