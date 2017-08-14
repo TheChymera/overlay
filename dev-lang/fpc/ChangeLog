@@ -1,0 +1,4 @@
+*fpc-3.0.2 (14 Aug 2017)
+
+  14 Aug 2017; Horea Christian <h.chr@mail.ru> +fpc-3.0.2.ebuild, +metadata.xml:
+  dev-lang/fpc: alternative ebuild to work with prefix
