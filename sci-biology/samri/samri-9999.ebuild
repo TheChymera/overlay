@@ -33,5 +33,6 @@ RDEPEND="
 	>=sci-libs/nipy-0.4.1[${PYTHON_USEDEP}]
 	=sci-libs/nipype-9999[${PYTHON_USEDEP}]
 	sci-libs/scipy[${PYTHON_USEDEP}]
+	sci-biology/ants
 	sci-biology/nilearn[${PYTHON_USEDEP}]
 	"
