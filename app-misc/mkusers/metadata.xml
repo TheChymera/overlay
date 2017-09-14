@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>horea.christ@yandex.com</email>
+		<name>Horea Christian</name>
+	</maintainer>
+	<longdescription lang="en">
+		A simple bash script which allows you to create batches of 
+		users in one go, and populate their home directories with 
+		specific files.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">TheChymera/mkusers</remote-id>
+	</upstream>
+</pkgmetadata>

@@ -1,0 +1,5 @@
+*mkusers-9999 (14 Sep 2017)
+
+  14 Sep 2017; Horea Christian <h.chr@mail.ru> +metadata.xml,
+  +mkusers-9999.ebuild:
+  app-misc/mkusers: new ebuild
