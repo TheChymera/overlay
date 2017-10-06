@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>horea.christ@gmail.com</email>
+		<name>Horea Christian</name>
+	</maintainer>
+	<longdescription lang="en">
+		COSgen (Contrast optimized stimulus generator) is a Python package
+		for the optimization of stimulus sequences in stimulus evoked
+		fMRI experiments. It is fully compatible with the stimulus
+		sequence delivery solution COSplay.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">IBT-FMI/COSgen</remote-id>
+	</upstream>
+</pkgmetadata>
