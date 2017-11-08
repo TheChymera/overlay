@@ -1,3 +1,6 @@
+  08 Nov 2017;  <chymera@gentoo.org> statsmodels-9999.ebuild:
+  dev-python/statsmodels: no keywords for live ebuild
+
 *statsmodels-9999 (08 Nov 2017)
 
   08 Nov 2017;  <chymera@gentoo.org> +metadata.xml, +statsmodels-9999.ebuild:
