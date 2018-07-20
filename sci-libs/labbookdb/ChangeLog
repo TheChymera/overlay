@@ -1,4 +1,0 @@
-*labbookdb-9999 (20 Sep 2016)
-
-  20 Sep 2016;  <chymera@gentoo.org> +labbookdb-9999.ebuild, +metadata.xml:
-  sci-libs/labbookdb: new package
