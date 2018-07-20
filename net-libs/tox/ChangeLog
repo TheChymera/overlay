@@ -1,0 +1,10 @@
+*tox-0.1.6 (20 Jul 2018)
+*tox-0.2.3 (20 Jul 2018)
+*tox-0_pre20160904 (20 Jul 2018)
+*tox-9999 (20 Jul 2018)
+
+  20 Jul 2018; Horea Christian <h.chr@mail.ru> +files/confd, +files/initd,
+  +files/tox-bootstrapd.conf, +files/tox-bootstrapd.service, +metadata.xml,
+  +tox-0.1.6.ebuild, +tox-0.2.3.ebuild, +tox-0_pre20160904.ebuild,
+  +tox-9999.ebuild:
+  net-libs/tox: new package with attempted version bump
