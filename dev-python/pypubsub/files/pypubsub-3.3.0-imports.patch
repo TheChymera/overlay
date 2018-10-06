@@ -1,0 +1,15 @@
+--- a/src/pubsub/core/topicdefnprovider.py	2018-10-06 03:47:21.100705832 +0200
++++ b/src/pubsub/core/topicdefnprovider.py	2018-10-06 03:48:55.158820283 +0200
+@@ -7,10 +7,8 @@
+ import os, re, inspect
+ from textwrap import TextWrapper, dedent
+ 
+-from .. import (
+-    policies, 
+-    py2and3
+-)
++import policies, py2and3
++
+ from .topicargspec import (
+     topicArgsFromCallable, 
+     ArgSpecGiven
