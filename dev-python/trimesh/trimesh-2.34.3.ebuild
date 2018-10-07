@@ -17,12 +17,15 @@ KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
 DEPEND="
-	test? ( dev-python/pytest[${PYTHON_USEDEP}] )
+	test? (
+		${RDEPEND}
+		dev-python/pytest[${PYTHON_USEDEP}]
+		)
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	dev-python/numpy[${PYTHON_USEDEP}]
 	sci-libs/scipy[${PYTHON_USEDEP}]
 	dev-python/networkx[${PYTHON_USEDEP}]
-	"
+"
 RDEPEND="
 	dev-libs/xxhash
 	dev-python/colorlog[${PYTHON_USEDEP}]
@@ -32,12 +35,15 @@ RDEPEND="
 	dev-python/pillow[${PYTHON_USEDEP}]
 	dev-python/pyglet[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
+	dev-python/svg-path[${PYTHON_USEDEP}]
 	dev-python/sympy[${PYTHON_USEDEP}]
 	=dev-python/six-1*[${PYTHON_USEDEP}]
 	sci-libs/Shapely[${PYTHON_USEDEP}]
 	sci-libs/Rtree[${PYTHON_USEDEP}]
-	"
+"
+
+PATCHES=( "${FILESDIR}/${P}-suppress-xvfb-test.patch" )
 
 python_test() {
-	pytest -p no:warnings tests/test_graph.py tests/test_scene.py || die
+	pytest -v || die
 }
