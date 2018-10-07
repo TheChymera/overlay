@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python2_7 python3_{5,6} )
+PYTHON_COMPAT=( python2_7 python3_{4,5,6,7} )
 
 inherit distutils-r1
 
@@ -23,11 +23,13 @@ RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_PN}-${PV}"
 
+MODNAME="svg"
+
 python_test() {
 	${EPYTHON} setup.py test || die
 }
 
-python_install() {
-	distutils-r1_python_install_all
-	find "${ED}" -name '*.pth' -delete || die
+src_install() {
+	cd src
+	python_foreach_impl python_domodule ${MODNAME}
 }
