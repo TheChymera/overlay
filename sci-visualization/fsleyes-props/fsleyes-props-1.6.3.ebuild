@@ -3,8 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python2_7 )
-#PYTHON_COMPAT=( python2_7 python3_{5,6} )
+PYTHON_COMPAT=( python2_7 python3_{5,6} )
 
 inherit distutils-r1 virtualx
 
@@ -38,4 +37,3 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 python_test() {
 	virtx pytest --verbose || die
 }
-
