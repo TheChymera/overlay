@@ -1,11 +1,11 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=6
 
 PYTHON_COMPAT=( python{2_7,3_5,3_6} )
 
-inherit distutils-r1
+inherit distutils-r1 gnome2-utils
 
 MY_HASH="bfc2c0919b68583b6237cbdd9492e69a7bed30189b19dd21f7ba59f9f39e"
 
@@ -51,6 +51,22 @@ src_prepare() {
 	distutils-r1_src_prepare
 }
 
+src_install() {
+	default
+	doicon userdoc/images/fsleyes_icon.png
+	make_desktop_entry fsleyes FSLeyes /usr/share/icons/hicolor/512x512i/apps/fsleyes_icon.svg
+}
+
+pkg_postinst() {
+	gnome2_icon_cache_update
+}
+pkg_postrm() {
+	gnome2_icon_cache_update
+}
+
 python_test() {
+	echo "GLXINFO"
+	glxinfo
+	echo "GLXINFO END"
 	pytest -v || die
 }
