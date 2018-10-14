@@ -23,13 +23,12 @@ RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_PN}-${PV}"
 
-MODNAME="svg"
-
 python_test() {
-	${EPYTHON} setup.py test || die
+	esetup.py test || die
 }
 
 src_install() {
-	cd src
+	MODNAME="svg"
+	cd src || die
 	python_foreach_impl python_domodule ${MODNAME}
 }
