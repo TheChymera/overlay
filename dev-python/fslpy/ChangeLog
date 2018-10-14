@@ -1,0 +1,5 @@
+*fslpy-1.11.1 (14 Oct 2018)
+
+  14 Oct 2018; Horea Christian <h.chr@mail.ru> +fslpy-1.11.1.ebuild,
+  +metadata.xml:
+  dev-python/fslpy: new package  Ahead of inclusion in Gentoo Science
