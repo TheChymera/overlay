@@ -2,9 +2,8 @@
 
 An overlay for Gentoo, with various packages used and/or maintained by [TheChymera](https://github.com/TheChymera).
 A number of the ebuilds available from this overlay are regularly copied from external sources (see respective commit mesages), and thus have a different maintainer.
-The repository structure is somewhat based on that of the *gentoo science overlay*, and we also use thin manifests.
 
-If you are looking for the neuroscience software packages maintained by [TheChymera](https://github.com/TheChymera), use the [NeuroGentoo overlay](https://github.com/TheChymera/neurogentoo) instead.
+If you are looking for the neuroscience software packages maintained by [TheChymera](https://github.com/TheChymera), use the [Gentoo Science](https://github.com/gentoo/sci) instead.
 
 ## Install
 
