@@ -41,6 +41,11 @@ DEPEND="
 	)
 "
 
+PATCHES=(
+    "${FILESDIR}/${PN}"-4.0.3-webkit.patch
+    "${FILESDIR}/${PN}"-4.0.3-parallel.patch
+)
+
 S="${WORKDIR}/${MY_PN}-${PV}"
 
 python_prepare_all() {
