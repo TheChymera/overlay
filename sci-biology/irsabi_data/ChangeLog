@@ -1,0 +1,5 @@
+*irsabi_data-1.0 (06 Jan 2019)
+
+  06 Jan 2019; Horea Christian <h.chr@mail.ru> +irsabi_data-1.0.ebuild,
+  +metadata.xml:
+  sci-biology/irsabi_data: new package ahead of Gentoo Science
