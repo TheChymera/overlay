@@ -1,5 +1,0 @@
-*mouse-brain-atlases-0.5.3 (28 Dec 2018)
-
-  28 Dec 2018; Horea Christian <h.chr@mail.ru> +metadata.xml,
-  +mouse-brain-atlases-0.5.3.ebuild:
-  sci-biology/mouse-brain-atlases: version bump  ahead of Gentoo Science
