@@ -12,7 +12,7 @@ To enable this overlay make sure you are using a recent Portage version (at leas
 
 ```
 [chymeric]
-location = /usr/local/portage/chymeric
+location = /var/lib/overlays/chymeric
 sync-type = git
 sync-uri = https://github.com/TheChymera/gentoo-overlay.git
 priority=8889
