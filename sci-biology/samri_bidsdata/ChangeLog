@@ -1,0 +1,5 @@
+*samri_bidsdata-0.2.1 (06 Feb 2019)
+
+  06 Feb 2019;  <chymera@gentoo.org> +metadata.xml,
+  +samri_bidsdata-0.2.1.ebuild:
+  sci-biology/samri_bidsdata: version bump  ahead of Gentoo Science
