@@ -1,0 +1,5 @@
+*gebuilder-9999 (27 Feb 2019)
+
+  27 Feb 2019; Horea Christian <h.chr@mail.ru> +gebuilder-9999.ebuild,
+  +metadata.xml:
+  app-misc/gebuilder: new package

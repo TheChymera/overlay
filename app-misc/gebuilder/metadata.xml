@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>horea.christ@gmail.com</email>
+		<name>Horea Christian</name>
+	</maintainer>
+	<longdescription lang="en">
+		GeBuilder is a Gentoo system and image builder which can produce system tarballs,
+		OpenStack Images, and Docker containers based on the .gentoo live package
+		distribution standard.
+	</longdescription>
+	<use>
+		<flag name="autoupdate">Configures the system to auto-update existing images.</flag>
+		<flag name="btrfs">Enable support for btrfs filesystem formatting 
+			(saves space for many images).</flag>
+		<flag name="docker">Ensure prerequisites for Docker scripts are met.</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">IBT-FMI/gebuilder</remote-id>
+	</upstream>
+</pkgmetadata>
