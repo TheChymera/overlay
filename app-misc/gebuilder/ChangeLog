@@ -1,3 +1,6 @@
+  28 Feb 2019; Horea Christian <h.chr@mail.ru> +files/gebuilder_global_update:
+  app-misc/gebuilder: added update file
+
   28 Feb 2019; Horea Christian <h.chr@mail.ru> gebuilder-9999.ebuild:
   app-misc/gebuilder: improved path
 
