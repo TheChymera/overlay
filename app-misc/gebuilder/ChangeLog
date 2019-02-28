@@ -1,4 +1,7 @@
   28 Feb 2019; Horea Christian <h.chr@mail.ru> gebuilder-9999.ebuild:
+  app-misc/gebuilder: improved path
+
+  28 Feb 2019; Horea Christian <h.chr@mail.ru> gebuilder-9999.ebuild:
   app-misc/gebuilder: downloading from git
 
   28 Feb 2019; Horea Christian <h.chr@mail.ru> gebuilder-9999.ebuild:

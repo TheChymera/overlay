@@ -8,7 +8,7 @@ inherit git-r3
 DESCRIPTION="Gentoo System and Image Builder"
 HOMEPAGE="https://github.com/IBT-FMI/gebuilder"
 SRC_URI=""
-EGIT_REPO_URI="git@github.com:IBT-FMI/gebuilder.git"
+EGIT_REPO_URI="https://github.com/IBT-FMI/gebuilder.git"
 
 LICENSE="GPL-3"
 SLOT="0"
