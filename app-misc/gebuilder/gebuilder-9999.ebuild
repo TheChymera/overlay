@@ -35,6 +35,7 @@ src_unpack() {
 }
 
 src_install() {
+	cd gebuilder
 	insinto /usr/share/gebuilder
 	doins -r utils config
 	exeinto /usr/bin
