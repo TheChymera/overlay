@@ -29,13 +29,8 @@ RDEPEND="${DEPEND}
 	autoupdate? ( virtual/cron )
 "
 
-src_unpack() {
-	mkdir "$S"
-	cp -r -L "$DOTGENTOO_PACKAGE_ROOT/${PN}/"* -t "$S"
-}
-
 src_install() {
-	cd gebuilder
+	cd gebuilder || die
 	insinto /usr/share/gebuilder
 	doins -r utils config
 	exeinto /usr/bin
