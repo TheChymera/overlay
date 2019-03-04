@@ -19,8 +19,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
-DEPEND="test? (	dev-python/nose[${PYTHON_USEDEP}] )"
-RDEPEND=""
+DEPEND="test? (	dev-python/pytest[${PYTHON_USEDEP}] )"
+RDEPEND="virtual/python-pathlib[${PYTHON_USEDEP}]"
 
 #S="${WORKDIR}/${MY_P}"
 
