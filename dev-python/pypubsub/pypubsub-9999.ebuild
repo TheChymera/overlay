@@ -11,6 +11,7 @@ DESCRIPTION="A Python publish-subcribe library"
 HOMEPAGE="https://github.com/pauldmccarthy/indexed_gzip"
 SRC_URI=""
 EGIT_REPO_URI="https://github.com/schollii/pypubsub"
+EGIT_BRANCH="v3.4.0"
 
 LICENSE="BSD"
 SLOT="0"
