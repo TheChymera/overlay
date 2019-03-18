@@ -1,19 +1,19 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-PYTHON_COMPAT=( python2_7 python3_{4,5,6} )
+PYTHON_COMPAT=( python2_7 python3_{5,6} )
 WX_GTK_VER="3.0"
 
 inherit distutils-r1 wxwidgets
 
-P_HASH="bd55ab40e406a026a7fda0bb5eb61f466682544ae91ac26267c750f5e618"
+P_HASH="7c3ced03c3c76b9f98e4a0edae1801755a7599ebf481c04d9f77dfff17e3"
 MY_PN="wxPython"
 
 DESCRIPTION="A blending of the wxWindows C++ class library with Python"
 HOMEPAGE="http://www.wxpython.org/"
-SRC_URI="https://files.pythonhosted.org/packages/dd/31/${P_HASH}/${MY_PN}-${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://files.pythonhosted.org/packages/17/74/${P_HASH}/${MY_PN}-${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="wxWinLL-3"
 SLOT="3.0"
@@ -24,7 +24,8 @@ RDEPEND="
 	dev-python/appdirs[${PYTHON_USEDEP}]
 	dev-python/numpy[${PYTHON_USEDEP}]
 	dev-python/pillow[${PYTHON_USEDEP}]
-	dev-python/pypubsub[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep 'dev-python/pypubsub:3[${PYTHON_USEDEP}]' -2 )
+	$(python_gen_cond_dep 'dev-python/pypubsub:4[${PYTHON_USEDEP}]' -3 )
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]
 	dev-python/sphinx[${PYTHON_USEDEP}]
@@ -42,8 +43,8 @@ DEPEND="
 "
 
 PATCHES=(
-    "${FILESDIR}/${PN}"-4.0.3-webkit.patch
-    "${FILESDIR}/${PN}"-4.0.3-parallel.patch
+	"${FILESDIR}/${PN}"-4.0.3-webkit.patch
+	"${FILESDIR}/${PN}"-4.0.3-parallel.patch
 )
 
 S="${WORKDIR}/${MY_PN}-${PV}"
