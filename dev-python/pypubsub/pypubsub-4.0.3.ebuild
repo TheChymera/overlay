@@ -3,16 +3,18 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python3_{4,5,6,7} )
 
 inherit distutils-r1
 
 DESCRIPTION="A Python publish-subcribe library"
 HOMEPAGE="https://github.com/pauldmccarthy/indexed_gzip"
-SRC_URI="https://github.com/schollii/pypubsub/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	https://github.com/schollii/pypubsub/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	"
 
 LICENSE="BSD"
-SLOT="3"
+SLOT="4"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
