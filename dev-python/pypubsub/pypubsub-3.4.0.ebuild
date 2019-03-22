@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python2_7 )
 inherit distutils-r1
 
 DESCRIPTION="A Python publish-subcribe library"
-HOMEPAGE="https://github.com/pauldmccarthy/indexed_gzip"
+HOMEPAGE="https://github.com/schollii/pypubsub/"
 SRC_URI="https://github.com/schollii/pypubsub/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
