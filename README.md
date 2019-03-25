@@ -8,15 +8,10 @@ If you are looking for the neuroscience software packages maintained by [TheChym
 ## Install
 
 As per the [current Portage specifications](https://dev.gentoo.org/~zmedico/portage/doc/man/portage.5.html), overlays should be managed via `/etc/portage/repos.conf/`.
-To enable this overlay make sure you are using a recent Portage version (at least `2.2.14`), and create an `/etc/portage/repos.conf/chymeric` file containing precisely:
+To enable this overlay make sure you are using a recent Portage version (at least `2.2.14`), and download our `.conf` file to the apropriate system directory (root access will likely be required):
 
 ```
-[chymeric]
-masters = gentoo
-location = /var/lib/overlays/chymeric
-sync-type = git
-sync-uri = https://github.com/TheChymera/gentoo-overlay.git
-priority=8889
+wget https://raw.githubusercontent.com/TheChymera/overlay/master/metadata/chymeric.conf -O /etc/portage/repos.conf/chymeric
 ```
 
 Afterwards, simply run `emerge --sync`, and Portage should seamlessly make all our ebuilds available. 
