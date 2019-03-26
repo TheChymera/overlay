@@ -1,9 +1,9 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=6
 
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python2_7 python3_{5,6,7} )
 
 inherit eutils toolchain-funcs cmake-utils python-single-r1
 
@@ -17,7 +17,7 @@ RESTRICT="primaryuri"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug doc examples fftw itkv3compat python review test vtkglue"
+IUSE="debug doc examples fftw python review test vtkglue"
 
 RDEPEND="
 	dev-libs/double-conversion:0=
@@ -74,10 +74,9 @@ src_configure() {
 		-DWRAP_ITK_JAVA=OFF
 		-DWRAP_ITK_TCL=OFF
 		-Ddouble-conversion_INCLUDE_DIRS="${EPREFIX}/usr/include/double-conversion"
-		$(cmake-utils_use_build test TESTING)
-		$(cmake-utils_use_build examples EXAMPLES)
-		$(cmake-utils_use review ITK_USE_REVIEW)
-		$(cmake-utils_use itkv3compat ITKV3_COMPATIBILITY)
+		-DBUILD_TESTING="$(usex test)"
+		-DBUILD_EXAMPLES="$(usex examples)"
+		-DITK_USE_REVIEW="$(usex review)"
 	)
 	if use fftw; then
 		mycmakeargs+=(
