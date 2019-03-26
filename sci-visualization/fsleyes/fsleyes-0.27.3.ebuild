@@ -77,11 +77,11 @@ pkg_postrm() {
 python_test() {
 	rm tests/test_addmaskdataseries.py
 	rm tests/test_embed.py
-	rm tests/test_overlay_displayprops.py
-	rm tests/test_overlay_freesurfermesh.py
-	rm tests/test_overlay_giftimesh.py
-	rm tests/test_screenshot.py
-	rm tests/test_state.py
-	rm tests/test_views.py
-	virtx pytest -v || die
+	#rm tests/test_overlay_displayprops.py
+	#rm tests/test_overlay_freesurfermesh.py
+	#rm tests/test_overlay_giftimesh.py
+	#rm tests/test_screenshot.py
+	#rm tests/test_state.py
+	#rm tests/test_views.py
+	virtx pytest -vv || die
 }
