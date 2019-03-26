@@ -21,6 +21,7 @@ IUSE="debug doc examples fftw python review test vtkglue"
 
 RDEPEND="
 	dev-libs/double-conversion:0=
+	media-libs/openjpeg:2
 	media-libs/libpng:0=
 	media-libs/tiff:0=
 	sci-libs/dcmtk:0=
@@ -61,6 +62,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON
 		-DITK_USE_SYSTEM_DCMTK=ON
+		-DGDCM_USE_SYSTEM_OPENJPEG=ON
 		-DITK_USE_SYSTEM_DOUBLECONVERSION=ON
 		-DITK_USE_SYSTEM_GCCXML=ON
 		-DITK_USE_SYSTEM_HDF5=ON
@@ -77,6 +79,7 @@ src_configure() {
 		-DBUILD_TESTING="$(usex test)"
 		-DBUILD_EXAMPLES="$(usex examples)"
 		-DITK_USE_REVIEW="$(usex review)"
+		-DITK_INSTALL_LIBRARY_DIR=$(get_libdir)
 	)
 	if use fftw; then
 		mycmakeargs+=(
