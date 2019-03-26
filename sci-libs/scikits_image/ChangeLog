@@ -1,0 +1,5 @@
+*scikits_image-0.14.2 (26 Mar 2019)
+
+  26 Mar 2019;  <chymera@gentoo.org> +metadata.xml,
+  +scikits_image-0.14.2.ebuild:
+  sci-libs/scikits_image: version bump 0.14.2  ahead of Gentoo Main
