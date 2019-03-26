@@ -32,7 +32,7 @@ DEPEND="
 	"
 
 RDEPEND="
-	dev-python/fslpy[${PYTHON_USEDEP}]
+	>=dev-python/fslpy-1.13.2[${PYTHON_USEDEP}]
 	=dev-python/jinja-2*[${PYTHON_USEDEP}]
 	>=dev-python/matplotlib-1.5.1[${PYTHON_USEDEP}]
 	>=dev-python/numpy-1.14.0[${PYTHON_USEDEP}]
