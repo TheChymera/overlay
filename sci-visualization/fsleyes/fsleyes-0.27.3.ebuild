@@ -48,6 +48,11 @@ RDEPEND="
 	sci-visualization/fsleyes-props[${PYTHON_USEDEP}]
 	"
 
+# Tests fail
+# https://github.com/pauldmccarthy/fsleyes/issues/16
+# https://github.com/pauldmccarthy/fsleyes/issues/14
+RESTRICT="test"
+
 PATCHES=(
 	"${FILESDIR}/${PN}-0.26.2-fsldir.patch"
 	)
@@ -79,10 +84,5 @@ python_test() {
 	rm tests/test_embed.py
 	rm tests/test_overlay_displayprops.py
 	rm tests/test_resample.py
-	#rm tests/test_overlay_freesurfermesh.py
-	#rm tests/test_overlay_giftimesh.py
-	#rm tests/test_screenshot.py
-	#rm tests/test_state.py
-	#rm tests/test_views.py
 	virtx pytest -vv || die
 }
