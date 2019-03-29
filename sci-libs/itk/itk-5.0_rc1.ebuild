@@ -58,13 +58,19 @@ pkg_pretend() {
 	fi
 }
 
+src_prepare() {
+	sed -i -e "s/find_package(OpenJPEG 2.0.0/find_package(OpenJPEG 2.*/g"\
+		Modules/ThirdParty/GDCM/src/gdcm/CMakeLists.txt
+	default
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON
 		-DITK_USE_SYSTEM_DCMTK=ON
 		-DGDCM_USE_SYSTEM_OPENJPEG=ON
 		-DITK_USE_SYSTEM_DOUBLECONVERSION=ON
-		-DITK_USE_SYSTEM_GCCXML=ON
+		#-DITK_USE_SYSTEM_GCCXML=ON
 		-DITK_USE_SYSTEM_HDF5=ON
 		-DITK_USE_SYSTEM_JPEG=ON
 		-DITK_USE_SYSTEM_PNG=ON

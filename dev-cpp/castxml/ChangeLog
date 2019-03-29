@@ -1,0 +1,4 @@
+*castxml-9999 (29 Mar 2019)
+
+  29 Mar 2019;  <chymera@gentoo.org> +castxml-9999.ebuild, +metadata.xml:
+  dev-cpp/castxml: new package ahead of Gentoo Sci
