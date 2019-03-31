@@ -1,3 +1,9 @@
+*castxml-0.0.0_pre9 (31 Mar 2019)
+
+  31 Mar 2019;  <chymera@gentoo.org> +castxml-0.0.0_pre9.ebuild,
+  castxml-9999.ebuild:
+  dev-cpp/castxml: versioned release ahead of Gentoo Sci
+
 *castxml-9999 (29 Mar 2019)
 
   29 Mar 2019;  <chymera@gentoo.org> +castxml-9999.ebuild, +metadata.xml:
