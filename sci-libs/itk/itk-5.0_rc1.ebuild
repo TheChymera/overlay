@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -59,7 +59,7 @@ pkg_pretend() {
 }
 
 src_prepare() {
-	sed -i -e "s/find_package(OpenJPEG 2.0.0/find_package(OpenJPEG 2.*/g"\
+	sed -i -e "s/find_package(OpenJPEG 2.0.0/find_package(OpenJPEG/g"\
 		Modules/ThirdParty/GDCM/src/gdcm/CMakeLists.txt
 	default
 }
@@ -70,7 +70,7 @@ src_configure() {
 		-DITK_USE_SYSTEM_DCMTK=ON
 		-DGDCM_USE_SYSTEM_OPENJPEG=ON
 		-DITK_USE_SYSTEM_DOUBLECONVERSION=ON
-		#-DITK_USE_SYSTEM_GCCXML=ON
+		-DITK_USE_SYSTEM_CASTXML=ON
 		-DITK_USE_SYSTEM_HDF5=ON
 		-DITK_USE_SYSTEM_JPEG=ON
 		-DITK_USE_SYSTEM_PNG=ON
