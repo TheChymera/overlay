@@ -49,9 +49,8 @@ RDEPEND="
 	"
 
 # Tests fail
-# https://github.com/pauldmccarthy/fsleyes/issues/16
-# https://github.com/pauldmccarthy/fsleyes/issues/14
-RESTRICT="test"
+# https://github.com/pauldmccarthy/fsleyes/issues/14#issuecomment-477191925
+#RESTRICT="test"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.26.2-fsldir.patch"
