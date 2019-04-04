@@ -41,7 +41,7 @@ S="${WORKDIR}/${MYP}"
 DOCS=( CONTRIBUTORS.txt RELEASE.txt TODO.txt )
 
 # Fails on Gentoo
-RESTRICT="test"
+#RESTRICT="test"
 
 python_prepare_all() {
 	# Remove pip dependency
@@ -58,7 +58,10 @@ python_test() {
 	echo "backend : Agg" > matplotlibrc || die
 	#echo "backend.qt4 : PyQt4" >> matplotlibrc || die
 	#echo "backend.qt4 : PySide" >> matplotlibrc || die
-	pytest -vv || die
+	mkdir "${WORKDIR}/empty_test_dir" || die
+	cd "${WORKDIR}/empty_test_dir" || die
+	pytest --pyargs skimage || die
+	#pytest -vv || die
 }
 
 pkg_postinst() {
