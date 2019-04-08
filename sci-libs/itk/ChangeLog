@@ -1,8 +1,0 @@
-  29 Mar 2019;  <chymera@gentoo.org>
-  -files/0001-BUG-Wrap-TransformFileReader-TransformFileWriter.patch,
-  -files/0002-COMP-Fixed-itkQuasiNewtonOptimizerv4-wrapping-warnin.patch,
-  -files/0003-COMP-Fixed-itkGradientDescentOptimizerv4-wrapping-wa.patch,
-  -files/0004-COMP-Warp-OptimizerParameterScalesEstimatorTemplate.patch,
-  -files/0005-make-gdcm-helper-library-static.patch,
-  -files/nrrdio-linking.patch, itk-5.0_rc1.ebuild, metadata.xml:
-  sci-libs/itk: version bump 5.0 ahead of Gentoo Sci
