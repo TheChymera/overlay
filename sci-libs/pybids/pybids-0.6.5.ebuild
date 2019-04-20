@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -37,8 +37,6 @@ RESTRICT="test"
 python_test() {
 	rm bids/tests/test_config.py || die
 	distutils_install_for_testing
-	#cd "${TEST_DIR}" || die "no ${TEST_DIR} available"
 	pytest -vv || die
 	die
 }
-

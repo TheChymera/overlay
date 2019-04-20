@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -57,7 +57,7 @@ PATCHES=(
 	)
 
 src_prepare() {
-	sed -i -e "s/Pillow>=3.2.0,<5.0/Pillow>=3.2.0/g" requirements.txt
+	sed -i -e "s/Pillow>=3.2.0,<6.0/Pillow>=3.2.0/g" requirements.txt
 	distutils-r1_src_prepare
 }
 

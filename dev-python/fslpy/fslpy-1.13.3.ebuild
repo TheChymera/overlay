@@ -35,17 +35,17 @@ RDEPEND="
 # https://github.com/pauldmccarthy/fslpy/issues/3
 #RESTRICT="test"
 
-python_prepare_all() {
-	if use test; then
-		# Reported upstream
-		# https://github.com/pauldmccarthy/fslpy/issues/3
-		#sed -i -e \
-		#	"/def test_loadVestLutFile():/i@pytest.mark.xfail(reason='Known to fail on Gentoo')" \
-		#	tests/test_vest.py || die
-		rm tests/test_vest.py
-	fi
-	distutils-r1_python_prepare_all
-}
+#python_prepare_all() {
+#	if use test; then
+#		# Reported upstream
+#		# https://github.com/pauldmccarthy/fslpy/issues/3
+#		#sed -i -e \
+#		#	"/def test_loadVestLutFile():/i@pytest.mark.xfail(reason='Known to fail on Gentoo')" \
+#		#	tests/test_vest.py || die
+#		#rm tests/test_vest.py
+#	fi
+#	distutils-r1_python_prepare_all
+#}
 
 python_test() {
 	virtx pytest -m "not (dicomtest or fsltest)" --verbose || die
