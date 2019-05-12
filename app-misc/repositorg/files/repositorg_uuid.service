@@ -1,0 +1,10 @@
+[Unit]
+Description=A repositorg service to check for UUID events
+After=local-fs.target
+ 
+[Service]
+ExecStart=/usr/bin/repositorg_uuid
+User=%i
+
+[Install]
+WantedBy=multi-user.target
