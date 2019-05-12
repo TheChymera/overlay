@@ -1,7 +1,7 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 PYTHON_COMPAT=(python2_7 python3_{4,5,6})
 
@@ -12,20 +12,23 @@ HOMEPAGE="https://github.com/TheChymera/repositorg"
 SRC_URI=""
 EGIT_REPO_URI="https://github.com/TheChymera/repositorg"
 
-LICENSE="GPLv3"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
+IUSE="systemd"
 
 DEPEND="
 	>=dev-python/argh-0.26.2
 	media-libs/mutagen
+	systemd? ( sys-apps/systemd )
 "
 RDEPEND="${DEPEND}"
 
 python_install() {
 	distutils-r1_python_install
-	systemd_newunit "${FILESDIR}/${PN}_uuid.service" "${PN}_uuid@.service"
+	if use systemd; then
+		systemd_newunit "${FILESDIR}/${PN}_uuid.service" "${PN}_uuid@.service"
+	fi
 	dobin repositorg_uuid
 }
 
