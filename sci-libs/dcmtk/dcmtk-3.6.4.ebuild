@@ -7,7 +7,7 @@ inherit cmake-utils
 
 DESCRIPTION="The DICOM Toolkit"
 HOMEPAGE="https://dicom.offis.de/dcmtk.php.en"
-SRC_URI="ftp://dicom.offis.de/pub/dicom/offis/software/${PN}/${PN}363/${P}.tar.gz"
+SRC_URI="http://dicom.offis.de/download/dcmtk/release/${P}.tar.gz"
 
 LICENSE="OFFIS"
 KEYWORDS="~amd64 ~arm ~x86"
