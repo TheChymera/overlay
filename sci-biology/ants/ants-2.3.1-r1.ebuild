@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -14,11 +14,20 @@ LICENSE="BSD"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND=">=dev-util/cmake-3.10.3"
-RDEPEND=""
+RDEPEND="
+	sci-libs/vtk
+	>=sci-libs/itk-5.0_rc1
+	"
 
 S="${WORKDIR}/ANTs-${PV}"
 
-RESTRICT="network-sandbox"
+src_configure() {
+	local mycmakeargs=(
+		-DUSE_SYSTEM_ITK=ON
+		-DUSE_SYSTEM_VTK=ON
+	)
+	cmake-utils_src_configure
+}
 
 src_install() {
 	cd "${WORKDIR}/${P}_build/ANTS-build" || die "build dir not found"
