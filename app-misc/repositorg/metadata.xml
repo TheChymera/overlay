@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>chr@chymer.eu</email>
+		<name>Horea Christian</name>
+	</maintainer>
+	<longdescription lang="en">
+		Repositorg is Python module that lets you automatically reposit,
+		organize, rename, and process large collections of files (e.g.
+		pictures, or video). The package includes optional systemd support
+		which can trigger custom repositorg scripts based on hardware
+		events.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">TheChymera/repositorg</remote-id>
+	</upstream>
+</pkgmetadata>
