@@ -1,3 +1,9 @@
+*ants-2.3.1 (18 May 2019)
+
+  18 May 2019;  <chymera@gentoo.org> +ants-2.3.1.ebuild:
+  sci-biology/ants: unsandboxed fix fro bundling  Do not include in Gentoo
+  Science, work on unbundled revbump
+
 *ants-2.3.1-r1 (25 Mar 2019)
 *ants-9999 (25 Mar 2019)
 
