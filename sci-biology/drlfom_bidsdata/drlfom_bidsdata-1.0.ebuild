@@ -8,6 +8,7 @@ inherit check-reqs
 DESCRIPTION="BIDS data files released with the DRLFOM publication"
 HOMEPAGE="http://www.aic-fmi.ethz.ch/"
 SRC_URI="
+	https://zenodo.org/record/3260745/files/${P}.tar.xz
 	http://chymera.eu/distfiles/${P}.tar.xz
 	"
 
