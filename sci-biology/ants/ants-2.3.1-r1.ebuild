@@ -12,6 +12,7 @@ SRC_URI="https://github.com/ANTsX/ANTs/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 SLOT="0"
 LICENSE="BSD"
 KEYWORDS="~amd64 ~x86"
+IUSE="test"
 
 DEPEND=">=dev-util/cmake-3.10.3"
 RDEPEND="
@@ -23,8 +24,10 @@ S="${WORKDIR}/ANTs-${PV}"
 
 src_configure() {
 	local mycmakeargs=(
+		-DITK_DIR="/usr/include/ITK-5.0/"
 		-DUSE_SYSTEM_ITK=ON
 		-DUSE_SYSTEM_VTK=ON
+		-DBUILD_TESTING="$(usex test ON OFF)"
 	)
 	cmake-utils_src_configure
 }
