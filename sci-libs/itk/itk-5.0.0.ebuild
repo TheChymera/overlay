@@ -1,28 +1,31 @@
-# Copyright 1999-2019 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=6
 
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python2_7 python3_{5,6,7} )
 
 inherit eutils toolchain-funcs cmake-utils python-single-r1
 
-MY_HASH="3ee6f1e5c9a18235ca9ab88f7bba6056c09db56d"
+MY_PN="InsightToolkit"
+MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="NLM Insight Segmentation and Registration Toolkit"
 HOMEPAGE="http://www.itk.org"
 SRC_URI="
-	https://github.com/dzenanz/ITK/archive/${MY_HASH}.tar.gz -> ${P}.tar.gz
+	https://github.com/InsightSoftwareConsortium/ITK/releases/download/v${PV}/${MY_P}.tar.gz
+	test? ( https://github.com/InsightSoftwareConsortium/ITK/releases/download/v${PV}/InsightData-${PV}.tar.gz )
 	"
-	#https://github.com/InsightSoftwareConsortium/ITK/archive/v${PV}.tar.gz -> ${P}.tar.gz
+RESTRICT="primaryuri"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug doc examples fftw itkv3compat python review cpu_flags_x86_sse2 test vtkglue"
+IUSE="debug doc examples fftw python review test vtkglue"
 
 RDEPEND="
 	dev-libs/double-conversion:0=
+	media-libs/openjpeg:2
 	media-libs/libpng:0=
 	media-libs/tiff:0=
 	sci-libs/dcmtk:0=
@@ -34,21 +37,15 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	python? (
-		${PYTHON_DEPS}
 		>=dev-lang/swig-2.0:0
-		>=dev-cpp/gccxml-0.9.0_pre20120309
+		dev-cpp/castxml
 	)
 	doc? ( app-doc/doxygen )
 "
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
-#S="${WORKDIR}/${MYP}"
-S="${WORKDIR}/ITK-${MY_HASH}"
-
-PATCHES=(
-	"${FILESDIR}"/nrrdio-linking.patch
-)
+S="${WORKDIR}/${MY_P}"
 
 pkg_pretend() {
 	if [[ -z ${ITK_COMPUTER_MEMORY_SIZE} ]]; then
@@ -64,34 +61,37 @@ pkg_pretend() {
 	fi
 }
 
-src_configure() {
-	#sed -i \
-	#	-e 's/find_package(double-conversion REQUIRED)/find_package(double-conversion CONFIG REQUIRED)/g' \
-	#	Modules/ThirdParty/DoubleConversion/CMakeLists.txt || die
+src_prepare() {
+	sed -i -e "s/find_package(OpenJPEG 2.0.0/find_package(OpenJPEG/g"\
+		Modules/ThirdParty/GDCM/src/gdcm/CMakeLists.txt
+	default
+}
 
+src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON
 		-DITK_USE_SYSTEM_DCMTK=ON
+		-DGDCM_USE_SYSTEM_OPENJPEG=ON
 		-DITK_USE_SYSTEM_DOUBLECONVERSION=ON
-		-DITK_USE_SYSTEM_GCCXML=ON
+		-DITK_USE_SYSTEM_CASTXML=ON
 		-DITK_USE_SYSTEM_HDF5=ON
 		-DITK_USE_SYSTEM_JPEG=ON
 		-DITK_USE_SYSTEM_PNG=ON
 		-DITK_USE_SYSTEM_SWIG=ON
 		-DITK_USE_SYSTEM_TIFF=ON
 		-DITK_USE_SYSTEM_ZLIB=ON
+		-DITK_USE_KWSTYLE=OFF
 		-DITK_BUILD_DEFAULT_MODULES=ON
 		-DITK_COMPUTER_MEMORY_SIZE="${ITK_COMPUTER_MEMORY_SIZE:-1}"
 		-DWRAP_ITK_JAVA=OFF
 		-DWRAP_ITK_TCL=OFF
-		$(cmake-utils_use_build test TESTING)
-		$(cmake-utils_use_build examples EXAMPLES)
-		$(cmake-utils_use review ITK_USE_REVIEW)
-		$(cmake-utils_use itkv3compat ITKV3_COMPATIBILITY)
-		$(cmake-utils_use cpu_flags_x86_sse2 VNL_CONFIG_ENABLE_SSE2)
+		-Ddouble-conversion_INCLUDE_DIRS="${EPREFIX}/usr/include/double-conversion"
+		-DExternalData_OBJECT_STORES="${WORKDIR}/InsightToolkit-${MY_PV}/.ExternalData"
+		-DBUILD_TESTING="$(usex test ON OFF)"
+		-DBUILD_EXAMPLES="$(usex examples ON OFF)"
+		-DITK_USE_REVIEW="$(usex review ON OFF)"
+		-DITK_INSTALL_LIBRARY_DIR=$(get_libdir)
 	)
-		#-Ddouble-conversion_INCLUDE_DIRS="${EPREFIX}/usr/include/double-conversion"
-		#-Ddouble-conversion_LIBRARIES="-ldouble-conversion"
 	if use fftw; then
 		mycmakeargs+=(
 			-DUSE_FFTWD=ON
