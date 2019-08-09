@@ -1,8 +1,0 @@
-  16 May 2019;  <chymera@gentoo.org> dcmtk-3.6.4.ebuild:
-  sci-libs/dcmtk: updated link
-
-*dcmtk-3.6.4 (16 May 2019)
-
-  16 May 2019;  <chymera@gentoo.org> +dcmtk-3.6.4.ebuild, +metadata.xml:
-  sci-libs/dcmtk: version bump 3.6.4 ahead of gentoo
-  https://github.com/gentoo/gentoo/pull/12024
