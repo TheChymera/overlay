@@ -86,7 +86,7 @@ src_configure() {
 		-DWRAP_ITK_JAVA=OFF
 		-DWRAP_ITK_TCL=OFF
 		-Ddouble-conversion_INCLUDE_DIRS="${EPREFIX}/usr/include/double-conversion"
-		-DExternalData_OBJECT_STORES="${WORKDIR}/InsightToolkit-${MY_PV}/.ExternalData"
+		-DExternalData_OBJECT_STORES="${WORKDIR}/InsightToolkit-${PV}/.ExternalData"
 		-DBUILD_TESTING="$(usex test ON OFF)"
 		-DBUILD_EXAMPLES="$(usex examples ON OFF)"
 		-DITK_USE_REVIEW="$(usex review ON OFF)"
