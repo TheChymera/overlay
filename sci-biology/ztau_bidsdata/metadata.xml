@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>chr@chymera.eu</email>
+		<name>Horea Christian</name>
+	</maintainer>
+	<maintainer type="project">
+		<email>sci@gentoo.org</email>
+		<name>Gentoo Science Project</name>
+	</maintainer>
+	<longdescription lang="en">
+		BIDS-formatted MRI data recorded at the ETH/UZH Animal Imaging Center
+		and first associated with the ZTAU study. The archive contains
+		longitudinal f/MRI mouse brain scans using both T2 and T2* (BOLD)
+		contrasts. Functional data is acquired during anesthetized resting
+		state.
+	</longdescription>
+</pkgmetadata>
