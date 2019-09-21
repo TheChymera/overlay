@@ -1,13 +1,17 @@
-# Copyright 1999-2019 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit cmake-utils multilib
+inherit cmake-utils git-r3 multilib
+
+MY_HASH="84cf0e06646142e0aa4c3d3324a62701"
 
 DESCRIPTION="Advanced Normalitazion Tools for neuroimaging"
 HOMEPAGE="http://stnava.github.io/ANTs/"
-SRC_URI="https://github.com/ANTsX/ANTs/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="http://slicer.kitware.com/midas3/api/rest?method=midas.bitstream.download&checksum=${MY_HASH} -> ${MY_HASH}"
+EGIT_REPO_URI="https://github.com/stnava/ANTs.git"
+EGIT_COMMIT="1d2e5bf497cd71667d6f7d79ff858387c08bb93e"
 
 SLOT="0"
 LICENSE="BSD"
@@ -20,7 +24,13 @@ RDEPEND="
 	>=sci-libs/itk-5.0_rc1
 	"
 
-S="${WORKDIR}/ANTs-${PV}"
+#S="${WORKDIR}/ANTs-${PV}"
+
+#src_prepare() {
+#	pwd
+#	ln -s
+#	die
+#}
 
 src_configure() {
 	local mycmakeargs=(
@@ -35,7 +45,7 @@ src_configure() {
 src_install() {
 	cd "${WORKDIR}/${P}_build/ANTS-build" || die "build dir not found"
 	default
-	cd "${S}/Scripts" || die "scripts dir not found"
+	cd "${WORKDIR}/${P}/Scripts" || die "scripts dir not found"
 	dobin *.sh
 	dodir /usr/$(get_libdir)/ants
 	install -t "${D}"usr/$(get_libdir)/ants *
