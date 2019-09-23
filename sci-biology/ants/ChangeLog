@@ -1,3 +1,6 @@
+  23 Sep 2019;  <chymera@gentoo.org> ants-2.3.1_p20190704.ebuild:
+  sci-biology/ants: improved testing support
+
 *ants-2.3.1_p20190704 (21 Sep 2019)
 
   21 Sep 2019;  <chymera@gentoo.org> +ants-2.3.1_p20190704.ebuild,

@@ -24,12 +24,7 @@ RDEPEND="
 	>=sci-libs/itk-5.0_rc1
 	"
 
-#S="${WORKDIR}/ANTs-${PV}"
-
 #src_prepare() {
-#	pwd
-#	ln -s
-#	die
 #}
 
 src_configure() {
@@ -40,6 +35,7 @@ src_configure() {
 		-DBUILD_TESTING="$(usex test ON OFF)"
 	)
 	cmake-utils_src_configure
+	cp "../../distdir/84cf0e06646142e0aa4c3d3324a62701" "../${P}_build/ANTS-build"
 }
 
 src_install() {
