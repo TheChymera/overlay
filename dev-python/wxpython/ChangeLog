@@ -1,5 +1,0 @@
-*wxpython-4.0.4 (18 Mar 2019)
-
-  18 Mar 2019; Horea Christian <h.chr@mail.ru> +wxpython-4.0.4.ebuild,
-  -wxpython-4.0.3.ebuild, metadata.xml:
-  dev-python/wxpython: version bump
