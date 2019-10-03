@@ -12,7 +12,7 @@ EGIT_REPO_URI="https://github.com/IBT-FMI/gebuilder.git"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE="autoupdate btrfs docker"
 
 DEPEND="
