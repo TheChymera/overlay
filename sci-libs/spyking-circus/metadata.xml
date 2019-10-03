@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>horea.christ@gmail.com</email>
+    <name>Horea Christian</name>
+  </maintainer>
+  <longdescription lang="en">
+    SpyKING CIRCUS is a python code to allow fast spike sorting on multi channel recordings. A publication on the algorithm can be found at https://elifesciences.org/articles/34518 It has been tested on datasets coming from in vitro retina with 252 electrodes MEA, from in vivo hippocampus with tetrodes, in vivo and in vitro cortex data with 30 and up to 4225 c
+  </longdescription>
+</pkgmetadata>
