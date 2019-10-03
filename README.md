@@ -11,11 +11,12 @@ As per the [current Portage specifications](https://dev.gentoo.org/~zmedico/port
 To enable this overlay make sure you are using a recent Portage version (at least `2.2.14`), and download our `.conf` file to the apropriate system directory (root access will likely be required):
 
 ```
+mkdir /etc/portage/repos.conf
 wget https://raw.githubusercontent.com/TheChymera/overlay/master/metadata/chymeric.conf -O /etc/portage/repos.conf/chymeric
 ```
 
-Afterwards, simply run `emerge --sync`, and Portage should seamlessly make all our ebuilds available. 
-Many of our packages are available as live (`*-9999`) ebuilds, and also need manual unmasking in `/etc/portage/package.accept_keywords` before they can be emerged. 
+Afterwards, simply run `emerge --sync`, and Portage should seamlessly make all our ebuilds availabl.
+Many of our packages are available as live (`*-9999`) ebuilds, and also need manual unmasking in `/etc/portage/package.accept_keywords` before they can be emerged.
 
 ---
 
