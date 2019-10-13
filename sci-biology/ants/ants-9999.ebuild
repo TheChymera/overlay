@@ -21,25 +21,26 @@ LICENSE="BSD"
 KEYWORDS=""
 IUSE="test vtk"
 
-RDEPEND=""
 DEPEND="
-	>=dev-util/cmake-3.10.3
 	vtk? (
 		~sci-libs/itk-5.0.1[vtkglue]
 		sci-libs/vtk
 	)
 	!vtk? (	~sci-libs/itk-5.0.1 )
 "
+RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${P}-logic.patch"
-	"${FILESDIR}/${P}-paths.patch"
+	"${FILESDIR}/${PN}-2.3.1_p20191013-logic.patch"
+	"${FILESDIR}/${PN}-2.3.1_p20191013-paths.patch"
 )
 
-src_prepare () {
-	use test && mkdir -p "${S}/.ExternalData/MD5"
-	use test && tar xvf "${DISTDIR}/ants_testdata-2.3.1_p20191013.tar.xz" -C "${S}/.ExternalData/MD5/"
-	cmake-utils_src_prepare
+src_unpack() {
+	git-r3_src_unpack
+	if use test; then
+		mkdir -p "${S}/.ExternalData/MD5" || die "Could not create test data directory."
+		tar xvf "${DISTDIR}/ants_testdata-2.3.1_p20191013.tar.xz" -C "${S}/.ExternalData/MD5/" > /dev/null || die "Could not unpack test data."
+	fi
 }
 
 src_configure() {

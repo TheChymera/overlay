@@ -1,3 +1,8 @@
+  13 Oct 2019;  <chymera@gentoo.org> +files/ants-2.3.1_p20191013-logic.patch,
+  +files/ants-2.3.1_p20191013-paths.patch, ants-2.3.1_p20191013.ebuild,
+  ants-9999.ebuild:
+  sci-biology/ants: updated ebuild style
+
   23 Sep 2019;  <chymera@gentoo.org> ants-2.3.1_p20190704.ebuild:
   sci-biology/ants: improved testing support
 
