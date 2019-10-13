@@ -18,4 +18,7 @@
 		image analysis. ANTs depends on the Insight ToolKit (ITK), a widely used
 		medical image processing library to which ANTs developers contribute.
 	</longdescription>
+	<use>
+		<flag name="vtk">Optional support for a number of surface enabled tools (via sci-libs/vtk).</flag>
+	</use>
 </pkgmetadata>

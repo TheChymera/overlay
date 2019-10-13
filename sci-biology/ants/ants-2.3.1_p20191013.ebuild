@@ -11,14 +11,15 @@ DESCRIPTION="Advanced Normalitazion Tools for neuroimaging"
 HOMEPAGE="http://stnava.github.io/ANTs/"
 SRC_URI="
 	test? (
-		http://chymera.eu/distfiles/ants_testdata-2.3.1_p20191013.tar.xz
+		http://chymera.eu/distfiles/ants_testdata-${PV}.tar.xz
 	)
 "
 EGIT_REPO_URI="https://github.com/stnava/ANTs.git"
+EGIT_COMMIT="f78b2d4a382d3090230641b5ade5da28962dad04"
 
 SLOT="0"
 LICENSE="BSD"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="test vtk"
 
 RDEPEND=""
@@ -38,7 +39,7 @@ PATCHES=(
 
 src_prepare () {
 	use test && mkdir -p "${S}/.ExternalData/MD5"
-	use test && tar xvf "${DISTDIR}/ants_testdata-2.3.1_p20191013.tar.xz" -C "${S}/.ExternalData/MD5/"
+	use test && tar xvf "${DISTDIR}/ants_testdata-${PV}.tar.xz" -C "${S}/.ExternalData/MD5/"
 	cmake-utils_src_prepare
 }
 
