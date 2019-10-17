@@ -31,7 +31,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2.3.1_p20191013-logic.patch"
 	"${FILESDIR}/${PN}-2.3.1_p20191013-paths.patch"
 )
 

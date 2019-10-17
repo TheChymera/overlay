@@ -1,3 +1,6 @@
+  17 Oct 2019;  <chymera@gentoo.org> ants-9999.ebuild:
+  sci-biology/ants: patch merged by ANTs upstream
+
   13 Oct 2019;  <chymera@gentoo.org> +files/ants-2.3.1_p20191013-logic.patch,
   +files/ants-2.3.1_p20191013-paths.patch, ants-2.3.1_p20191013.ebuild,
   ants-9999.ebuild:
