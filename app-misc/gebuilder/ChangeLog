@@ -1,3 +1,6 @@
+  26 Oct 2019;  <chymera@gentoo.org> gebuilder-9999.ebuild, metadata.xml:
+  app-misc/gebuilder: included tests and more USE
+
   28 Feb 2019; Horea Christian <h.chr@mail.ru> +files/gebuilder_global_update:
   app-misc/gebuilder: added update file
 

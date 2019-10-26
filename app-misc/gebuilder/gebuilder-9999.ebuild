@@ -13,11 +13,10 @@ EGIT_REPO_URI="https://github.com/IBT-FMI/gebuilder.git"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="autoupdate btrfs docker"
+IUSE="autoupdate btrfs -docker -openstack test"
 
-DEPEND="
+COMMON_DEPEND="
 	>=app-shells/bash-4.2:*
-	dev-python/python-glanceclient
 	net-misc/rsync
 	sys-apps/portage
 	sys-apps/util-linux
@@ -25,25 +24,45 @@ DEPEND="
 	sys-fs/duperemove
 	sys-kernel/dracut
 "
-RDEPEND="${DEPEND}
+DEPEND="${COMMON_DEPEND}
+	sys-devel/m4
+"
+RDEPEND="${COMMON_DEPEND}
 	sys-process/lsof
-	docker? ( >=app-emulation/docker-18.05.0 )
-	btrfs? ( sys-fs/btrfs-progs )
 	autoupdate? ( virtual/cron )
+	btrfs? ( sys-fs/btrfs-progs )
+	docker? ( >=app-emulation/docker-18.05.0 )
+	openstack? ( dev-python/python-glanceclient )
 "
 
-src_install() {
-	cd gebuilder || die
-	insinto /usr/share/gebuilder
-	doins -r utils config
-	exeinto /usr/bin
-	doexe gebuild
-	insopts "-m0755"
-	doins -r example_hooks exec.sh scripts
+src_prepare(){
+	if use !docker; then
+		rm -rf gebuilder/scripts/*docker* || die
+		rm gebuilder/tests/*docker* || die
+	fi
+	if use !openstack; then
+		rm -rf gebuilder/scripts/*openstack* || die
+		rm gebuilder/tests/*openstack* || die
+	fi
+	default
+}
 
+src_compile(){
+	emake
+}
+
+src_install() {
+	default
 	if use autoupdate; then
 		einfo "Installing weekly cron job:"
 		insinto /etc/cron.weekly
 		doins "${FILESDIR}/gebuilder_global_update"
 	fi
+}
+
+src_test() {
+	TMPDIR="${WORKDIR}/test_results"
+	mkdir ${TMPDIR}
+	cd gebuilder
+	./tests.sh || die
 }
