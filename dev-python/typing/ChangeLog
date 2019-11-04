@@ -1,3 +1,6 @@
+  04 Nov 2019;  <chymera@gentoo.org> typing-3.7.4.1.ebuild:
+  dev-python/typing: KEYWORDS
+
 *typing-3.7.4.1 (09 Oct 2019)
 
   09 Oct 2019;  <chymera@gentoo.org> +metadata.xml, +typing-3.7.4.1.ebuild:
