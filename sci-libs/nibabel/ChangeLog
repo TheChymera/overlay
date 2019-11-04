@@ -1,0 +1,4 @@
+*nibabel-2.5.1 (04 Nov 2019)
+
+  04 Nov 2019;  <chymera@gentoo.org> +metadata.xml, +nibabel-2.5.1.ebuild:
+  sci-libs/nibabel: version bump 2.5.1 ahead of Gentoo Science
