@@ -1,3 +1,9 @@
+*fslpy-2.6.2 (04 Nov 2019)
+
+  04 Nov 2019;  <chymera@gentoo.org> +files/fslpy-2.6.2-exclude_tests.patch,
+  +fslpy-2.6.2.ebuild, -fslpy-1.11.1.ebuild, -fslpy-1.13.3.ebuild:
+  dev-python/fslpy: version bump 2.6.2 ahead of Gentoo Science
+
 *fslpy-1.11.1 (14 Oct 2018)
 
   14 Oct 2018; Horea Christian <h.chr@mail.ru> +fslpy-1.11.1.ebuild,
