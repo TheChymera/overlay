@@ -1,0 +1,13 @@
+*fsl-6.0.2 (06 Nov 2019)
+
+  06 Nov 2019;  <chymera@gentoo.org> +files/99fsl,
+  +files/fsl-5.0.11-fslsurface_parallel_make.patch,
+  +files/fsl-5.0.11-ifstream_use.patch, +files/fsl-5.0.11-niftiio_var_fix.patch,
+  +files/fsl-5.0.11-no_xmlpp.patch, +files/fsl-5.0.11-qstring_compat.patch,
+  +files/fsl-5.0.11-setup.patch, +files/fsl-5.0.4-headers.patch,
+  +files/fsl-5.0.4-setup.patch, +files/fsl-5.0.6-fsldir_redux.patch,
+  +files/fsl-5.0.8-fsldir_redux.patch, +files/fsl-5.0.8-headers.patch,
+  +files/fsl-5.0.8-setup.patch, +files/fsl-5.0.9-fsldir_redux.patch,
+  +files/fsl-5.0.9-headers.patch, +files/fsl-5.0.9-setup.patch,
+  +fsl-6.0.2.ebuild, +metadata.xml:
+  sci-biology/fsl: attempt at version bump 6.0.2
