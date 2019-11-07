@@ -1,3 +1,6 @@
+  07 Nov 2019; François Bissey <frp.bissey@gmail.com> fsl-6.0.2.ebuild:
+  sci-biology/fsl: tcl/tk is needed at build time
+
   07 Nov 2019; François Bissey <frp.bissey@gmail.com>
   files/fsl-6.0.2-setup.patch:
   sci-biology/fsl: do not build tcl/tk/libpng

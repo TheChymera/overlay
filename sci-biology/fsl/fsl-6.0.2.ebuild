@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-COMMON_DEPEND="
+DEPEND="
 	dev-libs/boost
 	media-gfx/graphviz
 	media-libs/gd
@@ -23,12 +23,10 @@ COMMON_DEPEND="
 	sci-libs/ciftilib
 	sci-libs/nlopt
 	sys-libs/zlib
-	"
-DEPEND="${COMMON_DEPEND}"
-RDEPEND="${COMMON_DEPEND}
 	dev-lang/tcl:0=
 	dev-lang/tk:0=
 	"
+RDEPEND="${DEPEND}"
 
 S=${WORKDIR}/${PN}
 UPSTREAM_FSLDIR="/usr/share/fsl"
