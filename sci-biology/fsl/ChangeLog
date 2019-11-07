@@ -1,4 +1,8 @@
   07 Nov 2019; François Bissey <frp.bissey@gmail.com>
+  +files/fsl-6.0.2-fsldir_redux.patch, fsl-6.0.2.ebuild:
+  sci-biology/fsl: Work on fsldir elimination
+
+  07 Nov 2019; François Bissey <frp.bissey@gmail.com>
   +files/fsl-6.0.2-no_xmlpp.patch, +files/fsl-6.0.2-qstring_compat.patch,
   fsl-6.0.2.ebuild:
   sci-biology/fsl: patch porting to deal with cifti

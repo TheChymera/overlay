@@ -25,6 +25,8 @@ DEPEND="
 	sys-libs/zlib
 	dev-lang/tcl:0=
 	dev-lang/tk:0=
+	virtual/lapack
+	virtual/blas
 	"
 RDEPEND="${DEPEND}"
 
@@ -39,7 +41,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}"-5.0.11-fslsurface_parallel_make.patch
 	"${FILESDIR}/${PN}"-6.0.2-qstring_compat.patch
 	"${FILESDIR}/${PN}"-5.0.9-headers.patch
-	#"${FILESDIR}/${PN}"-5.0.9-fsldir_redux.patch
+	"${FILESDIR}/${PN}"-6.0.2-fsldir_redux.patch
 )
 
 src_prepare(){
@@ -69,7 +71,9 @@ src_prepare(){
 	sed -e "s:\${FSLDIR}/bin/::g" \
 		-e "s:\$FSLDIR/bin/::g" \
 		-i $(grep -rl "\${FSLDIR}/bin" src/*) \
-		$(grep -rl "\${FSLDIR}/bin" etc/matlab/*) || die
+		-i $(grep -rl "\$FSLDIR/bin" src/*) \
+		$(grep -rl "\${FSLDIR}/bin" etc/matlab/*)\
+		$(grep -rl "\$FSLDIR/bin" etc/matlab/*) || die
 
 	sed -e "s:\$FSLDIR/data:${EPREFIX}/usr/share/fsl/data:g" \
 		-e "s:\${FSLDIR}/data:${EPREFIX}/usr/share/fsl/data:g" \
