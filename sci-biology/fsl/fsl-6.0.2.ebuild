@@ -34,7 +34,7 @@ S=${WORKDIR}/${PN}
 UPSTREAM_FSLDIR="/usr/share/fsl"
 
 PATCHES=(
-	#"${FILESDIR}/${PN}"-5.0.11-setup.patch
+	"${FILESDIR}/${PN}"-6.0.2-setup.patch
 	#"${FILESDIR}/${PN}"-5.0.11-no_xmlpp.patch
 	"${FILESDIR}/${PN}"-5.0.11-niftiio_var_fix.patch
 	"${FILESDIR}/${PN}"-5.0.11-ifstream_use.patch
@@ -51,7 +51,7 @@ src_prepare(){
 		-e "s:@@GENTOO_RANLIB@@:$(tc-getRANLIB):" \
 		-e "s:@@GENTOO_CC@@:$(tc-getCC):" \
 		-e "s:@@GENTOO_CXX@@:$(tc-getCXX):" \
-		config/generic/systemvars.mk || die
+		config/buildSettings.mk || die
 
 	eprefixify $(grep -rl GENTOO_PORTAGE_EPREFIX src/*) \
 		etc/js/label-div.html

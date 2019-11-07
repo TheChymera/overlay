@@ -1,3 +1,7 @@
+  07 Nov 2019; François Bissey <frp.bissey@gmail.com>
+  +files/fsl-6.0.2-setup.patch, fsl-6.0.2.ebuild:
+  sci-biology/fsl: Initial fix to fsl 6.0.2
+
 *fsl-6.0.2 (06 Nov 2019)
 
   06 Nov 2019;  <chymera@gentoo.org> +files/99fsl,
