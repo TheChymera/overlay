@@ -33,11 +33,11 @@ UPSTREAM_FSLDIR="/usr/share/fsl"
 
 PATCHES=(
 	"${FILESDIR}/${PN}"-6.0.2-setup.patch
-	#"${FILESDIR}/${PN}"-5.0.11-no_xmlpp.patch
+	"${FILESDIR}/${PN}"-6.0.2-no_xmlpp.patch
 	"${FILESDIR}/${PN}"-5.0.11-niftiio_var_fix.patch
 	"${FILESDIR}/${PN}"-5.0.11-ifstream_use.patch
 	"${FILESDIR}/${PN}"-5.0.11-fslsurface_parallel_make.patch
-	#"${FILESDIR}/${PN}"-5.0.11-qstring_compat.patch
+	"${FILESDIR}/${PN}"-6.0.2-qstring_compat.patch
 	"${FILESDIR}/${PN}"-5.0.9-headers.patch
 	#"${FILESDIR}/${PN}"-5.0.9-fsldir_redux.patch
 )
