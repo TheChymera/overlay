@@ -1,5 +1,5 @@
 diff --git a/build b/build
-index 05dac06..d90e407 100755
+index 05dac06c..d90e407b 100755
 --- a/build
 +++ b/build
 @@ -3,7 +3,7 @@
@@ -23,7 +23,7 @@ index 05dac06..d90e407 100755
  if [ $finalStatus -eq 0 ]; then
      echo "Build completed successfully.";
 diff --git a/config/buildSettings.mk b/config/buildSettings.mk
-index b2e1f15..04532fc 100644
+index b2e1f150..04532fc2 100644
 --- a/config/buildSettings.mk
 +++ b/config/buildSettings.mk
 @@ -18,7 +18,7 @@ MV = /bin/mv
@@ -74,7 +74,7 @@ index b2e1f15..04532fc 100644
  QTDIR = /usr/lib/qt3
  LIB_QT = ${QTDIR}/lib
 diff --git a/config/common/buildproj b/config/common/buildproj
-index 2f0f2b8..48624a1 100755
+index 2f0f2b8f..48624a1f 100755
 --- a/config/common/buildproj
 +++ b/config/common/buildproj
 @@ -11,10 +11,10 @@ if [ X$1 = X-strict ] ; then
@@ -116,7 +116,7 @@ index 2f0f2b8..48624a1 100755
      fi
  done
 diff --git a/config/common/vars.mk b/config/common/vars.mk
-index b027b01..aeeae67 100755
+index b027b010..aeeae67c 100755
 --- a/config/common/vars.mk
 +++ b/config/common/vars.mk
 @@ -24,15 +24,15 @@ USRINCFLAGS =
@@ -141,10 +141,20 @@ index b027b01..aeeae67 100755
  HFILES = *.h
  AFILES = *.a
 diff --git a/extras/build b/extras/build
-index 59e7a2e..2cead09 100755
+index 59e7a2ed..0d68232e 100755
 --- a/extras/build
 +++ b/extras/build
-@@ -104,8 +104,8 @@ PROJECTS="${PROJECTS} libpng"
+@@ -96,16 +96,16 @@ if [ X"${OS}" = "XDarwin" ]; then
+ 	BUILDICONV=1
+     fi
+ fi
+-PROJECTS="tcl tk"
++#PROJECTS="tcl tk"
+ if [ ${BUILDZLIB} -eq 1 ]; then
+   PROJECTS="${PROJECTS} zlib"
+ fi
+-PROJECTS="${PROJECTS} libpng"
++#PROJECTS="${PROJECTS} libpng"
  if [ ${BUILDICONV} -eq 1 ]; then
    PROJECTS="${PROJECTS} libiconv"
  fi
@@ -156,7 +166,7 @@ index 59e7a2e..2cead09 100755
      if [ -d $FSLESRCDIR/$projname ] ; then
         buildIt $FSLESRCDIR $projname 1
 diff --git a/src/mist-clean/Makefile b/src/mist-clean/Makefile
-index 20402cc..6918bee 100755
+index 20402cca..6918bee4 100755
 --- a/src/mist-clean/Makefile
 +++ b/src/mist-clean/Makefile
 @@ -52,6 +52,6 @@ installpython:

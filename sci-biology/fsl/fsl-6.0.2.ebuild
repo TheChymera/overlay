@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-COMMON_DEPEND="
+DEPEND="
 	dev-libs/boost
 	media-gfx/graphviz
 	media-libs/gd
@@ -23,25 +23,25 @@ COMMON_DEPEND="
 	sci-libs/ciftilib
 	sci-libs/nlopt
 	sys-libs/zlib
-	"
-DEPEND="${COMMON_DEPEND}"
-RDEPEND="${COMMON_DEPEND}
 	dev-lang/tcl:0=
 	dev-lang/tk:0=
+	virtual/lapack
+	virtual/blas
 	"
+RDEPEND="${DEPEND}"
 
 S=${WORKDIR}/${PN}
 UPSTREAM_FSLDIR="/usr/share/fsl"
 
 PATCHES=(
 	"${FILESDIR}/${PN}"-6.0.2-setup.patch
-	#"${FILESDIR}/${PN}"-5.0.11-no_xmlpp.patch
+	"${FILESDIR}/${PN}"-6.0.2-no_xmlpp.patch
 	"${FILESDIR}/${PN}"-5.0.11-niftiio_var_fix.patch
 	"${FILESDIR}/${PN}"-5.0.11-ifstream_use.patch
 	"${FILESDIR}/${PN}"-5.0.11-fslsurface_parallel_make.patch
-	#"${FILESDIR}/${PN}"-5.0.11-qstring_compat.patch
+	"${FILESDIR}/${PN}"-6.0.2-qstring_compat.patch
 	"${FILESDIR}/${PN}"-5.0.9-headers.patch
-	#"${FILESDIR}/${PN}"-5.0.9-fsldir_redux.patch
+	"${FILESDIR}/${PN}"-6.0.2-fsldir_redux.patch
 )
 
 src_prepare(){
@@ -55,6 +55,9 @@ src_prepare(){
 
 	eprefixify $(grep -rl GENTOO_PORTAGE_EPREFIX src/*) \
 		etc/js/label-div.html
+
+	# Disable mist-clean the hard way for now.
+	rm -rf src/mist-clean
 
 	makefilelist=$(find src/ -name Makefile)
 
@@ -71,7 +74,13 @@ src_prepare(){
 	sed -e "s:\${FSLDIR}/bin/::g" \
 		-e "s:\$FSLDIR/bin/::g" \
 		-i $(grep -rl "\${FSLDIR}/bin" src/*) \
-		$(grep -rl "\${FSLDIR}/bin" etc/matlab/*) || die
+		-i $(grep -rl "\$FSLDIR/bin" src/*) \
+		$(grep -rl "\${FSLDIR}/bin" etc/matlab/*)\
+		$(grep -rl "\$FSLDIR/bin" etc/matlab/*) || die
+
+	# Not caught by the previous sed. Usually append
+	sed -e "s:\${FSLDIR}/bin::g" \
+		-i $(grep -rl "\${FSLDIR}/bin" src/*) || die
 
 	sed -e "s:\$FSLDIR/data:${EPREFIX}/usr/share/fsl/data:g" \
 		-e "s:\${FSLDIR}/data:${EPREFIX}/usr/share/fsl/data:g" \
