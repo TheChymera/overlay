@@ -56,6 +56,9 @@ src_prepare(){
 	eprefixify $(grep -rl GENTOO_PORTAGE_EPREFIX src/*) \
 		etc/js/label-div.html
 
+	# Disable mist-clean the hard way for now.
+	rm -rf src/mist-clean
+
 	makefilelist=$(find src/ -name Makefile)
 
 	sed -i \
@@ -74,6 +77,10 @@ src_prepare(){
 		-i $(grep -rl "\$FSLDIR/bin" src/*) \
 		$(grep -rl "\${FSLDIR}/bin" etc/matlab/*)\
 		$(grep -rl "\$FSLDIR/bin" etc/matlab/*) || die
+
+	# Not caught by the previous sed. Usually append
+	sed -e "s:\${FSLDIR}/bin::g" \
+		-i $(grep -rl "\${FSLDIR}/bin" src/*) || die
 
 	sed -e "s:\$FSLDIR/data:${EPREFIX}/usr/share/fsl/data:g" \
 		-e "s:\${FSLDIR}/data:${EPREFIX}/usr/share/fsl/data:g" \
