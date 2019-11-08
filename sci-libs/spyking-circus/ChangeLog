@@ -1,5 +1,0 @@
-*spyking-circus-0.8.3 (03 Oct 2019)
-
-  03 Oct 2019;  <chymera@gentoo.org> +metadata.xml,
-  +spyking-circus-0.8.3.ebuild:
-  sci-libs/spyking-circus: new package for Aeneas
