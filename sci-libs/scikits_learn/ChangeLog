@@ -1,3 +1,8 @@
+  10 Nov 2019;  <chymera@gentoo.org>
+  +files/scikits_learn-0.20.3-cblas-enum.patch, scikits_learn-0.20.3.ebuild:
+  sci-libs/scikits_learn: fixed CBLAS API usage
+  https://bugs.gentoo.org/630294#c23
+
 *scikits_learn-0.20.3 (16 Jun 2019)
 
   16 Jun 2019;  <chymera@gentoo.org>
