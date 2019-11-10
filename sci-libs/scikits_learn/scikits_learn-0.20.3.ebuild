@@ -43,7 +43,10 @@ DEPEND="
 
 S="${WORKDIR}/${MYP}"
 
-PATCHES=( "${FILESDIR}"/${PN}-0.18.1-system-cblas.patch )
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.18.1-system-cblas.patch
+	"${FILESDIR}"/${P}-cblas-enum.patch
+)
 
 python_prepare_all() {
 	# bug #397605
