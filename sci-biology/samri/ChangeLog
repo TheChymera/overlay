@@ -1,2 +1,7 @@
+*samri-9999 (12 Nov 2019)
+
+  12 Nov 2019;  <chymera@gentoo.org> +samri-9999.ebuild:
+  sci-biology/samri: live package with test suite
+
   12 Nov 2019;  <chymera@gentoo.org> metadata.xml, samri-0.4.ebuild:
   sci-biology/samri:
