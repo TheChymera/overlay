@@ -13,7 +13,7 @@ SRC_URI="https://github.com/IBT-FMI/SAMRI/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="test"
+IUSE="labbookdb test"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="
@@ -35,6 +35,7 @@ RDEPEND="
 	>=sci-biology/fsl-5.0.9
 	sci-biology/bru2nii
 	sci-biology/mouse-brain-atlases
+	labbookdb? ( sci-libs/labbookdb[${PYTHON_USEDEP}] )
 	sci-libs/nibabel[${PYTHON_USEDEP}]
 	>=sci-libs/nipy-0.4.1[${PYTHON_USEDEP}]
 	>=sci-libs/nipype-1.0.0[${PYTHON_USEDEP}]
@@ -47,3 +48,10 @@ RDEPEND="
 "
 
 S="${WORKDIR}/SAMRI-${PV}"
+
+src_prepare() {
+	distutils-r1_src_prepare
+	sed -i -e "s:/usr:@GENTOO_PORTAGE_EPREFIX@/usr:g" `grep -rlI \'/usr/ samri`
+	sed -i -e "s:/usr:@GENTOO_PORTAGE_EPREFIX@/usr:g" `grep -rlI /usr/ test_scripts.sh`
+	eprefixify $(grep -rl GENTOO_PORTAGE_EPREFIX samri/* test_scripts.sh)
+}
