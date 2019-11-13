@@ -1,0 +1,4 @@
+*niicat-0_alpha (13 Nov 2019)
+
+  13 Nov 2019;  <hendrik@gentoo.org> +metadata.xml, +niicat-0_alpha.ebuild:
+  sci-visualization/niicat: new package ahead of Gentoo Science
