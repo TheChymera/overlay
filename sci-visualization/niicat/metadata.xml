@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>klugh@student.ethz.ch</email>
+    <name>Hendrik Klug</name>
+  </maintainer>
+  <longdescription lang="en">
+    This is a tool to quickly preview nifti images on the terminal. This can be helpful if you are working on a remote server via SSH and do not have a -X connection. 
+    Per default it uses libsixel to display the images. If you add the option -ic it will use iTerm2's imgcat command instead of libsixel to display the images.
+  </longdescription>
+  <upstream>
+    <remote-id type="github">wasserth/niicat</remote-id>
+  </upstream>
+</pkgmetadata>
