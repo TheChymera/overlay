@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>chr@chymera.eu</email>
+		<name>Horea Christian</name>
+	</maintainer>
+	<longdescription lang="en">
+		imcat is a 24-bit image viewer that uses ANSI terminal colours to
+		display any image supported by STB. It automatically resizes to the
+		width of your terminal, using proper sampling kernels.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">stolk/imcat</remote-id>
+	</upstream>
+</pkgmetadata>

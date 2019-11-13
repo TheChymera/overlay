@@ -1,0 +1,4 @@
+*imcat-0_alpha (13 Nov 2019)
+
+  13 Nov 2019;  <chymera@gentoo.org> +imcat-0_alpha.ebuild, +metadata.xml:
+  app-misc/imcat: new package ahead of Gentoo Main
