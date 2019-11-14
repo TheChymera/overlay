@@ -25,8 +25,8 @@ DEPEND="
 	sys-libs/zlib
 	dev-lang/tcl:0=
 	dev-lang/tk:0=
-	virtual/lapack
-	virtual/blas
+	>=virtual/lapack-3.8
+	>=virtual/blas-3.8
 	"
 RDEPEND="${DEPEND}"
 
@@ -78,10 +78,6 @@ src_prepare(){
 		$(grep -rl "\${FSLDIR}/bin" etc/matlab/*)\
 		$(grep -rl "\$FSLDIR/bin" etc/matlab/*) || die
 
-	# Not caught by the previous sed. Usually append
-	sed -e "s:\${FSLDIR}/bin::g" \
-		-i $(grep -rl "\${FSLDIR}/bin" src/*) || die
-
 	sed -e "s:\$FSLDIR/data:${EPREFIX}/usr/share/fsl/data:g" \
 		-e "s:\${FSLDIR}/data:${EPREFIX}/usr/share/fsl/data:g" \
 		-i $(grep -rl "\$FSLDIR/data" src/*) \
@@ -99,6 +95,10 @@ src_prepare(){
 		-e "s:\${FSLDIR}/etc:${EPREFIX}/etc:g" \
 		-i $(grep -rlI "\$FSLDIR/etc" *) \
 		-i $(grep -rlI "\${FSLDIR}/etc" *) || die
+
+	# Use generic blas/lapack rather than openblas
+	sed -e "s:-lopenblas:-llapack -lblas:g" \
+		-i $(grep -rlI lopenblas *) || die
 
 	# script wanting to have access to flsversion at buildtime
 	sed -e "s:/etc/fslversion:${S}/etc/fslversion:g" \

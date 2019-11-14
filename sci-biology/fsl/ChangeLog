@@ -1,3 +1,6 @@
+  14 Nov 2019; François Bissey <frp.bissey@gmail.com> fsl-6.0.2.ebuild:
+  sci-biology/fsl: use generic blas/lapack revert stuff.
+
   08 Nov 2019; François Bissey <frp.bissey@gmail.com> fsl-6.0.2.ebuild:
   sci-biology/fsl: final touches. Skip mist-clean.
 
