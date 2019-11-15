@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>hendrik.klug@gmail.com</email>
+		<name>Hendrik Klug</name>
+	</maintainer>
+	<longdescription lang="en">
+	This module is a python wrapper of libsixel.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">saitoha/libsixel/python</remote-id>
+	</upstream>
+</pkgmetadata>
