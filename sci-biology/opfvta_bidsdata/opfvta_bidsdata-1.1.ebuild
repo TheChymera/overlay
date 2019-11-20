@@ -8,8 +8,8 @@ inherit check-reqs
 DESCRIPTION="BIDS data files released with the OPFVTA publication"
 HOMEPAGE="http://www.aic-fmi.ethz.ch/"
 SRC_URI="
-	https://zenodo.org/record/3236930/files/${P}.tar.xz
 	http://chymera.eu/distfiles/${P}.tar.xz
+	https://zenodo.org/record/3546177/files/${P}.tar.xz
 	"
 
 LICENSE="CC-BY-SA-4.0"
@@ -20,7 +20,7 @@ RDEPEND=""
 DEPEND=""
 
 pkg_pretend() {
-	CHECKREQS_DISK_BUILD="11G"
+	CHECKREQS_DISK_BUILD="33G"
 	check-reqs_pkg_pretend
 }
 
