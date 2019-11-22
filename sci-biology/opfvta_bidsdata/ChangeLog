@@ -1,4 +1,0 @@
-*opfvta_bidsdata-1.1 (06 Nov 2019)
-
-  06 Nov 2019;  <chymera@gentoo.org> +metadata.xml, +opfvta_bidsdata-1.1.ebuild:
-  sci-biology/opfvta_bidsdata: version bump 1.1 ahead of Gentoo Science
