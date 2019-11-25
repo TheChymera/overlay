@@ -1,0 +1,6 @@
+*afni-19.3.12 (25 Nov 2019)
+*afni-9999 (25 Nov 2019)
+
+  25 Nov 2019;  <chymera@gentoo.org> +afni-19.3.12.ebuild, +afni-9999.ebuild,
+  +metadata.xml:
+  sci-biology/afni: afni version bump ahead of Gentoo Science
