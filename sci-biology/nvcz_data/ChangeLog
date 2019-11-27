@@ -1,3 +1,8 @@
+*nvcz_data-0.2 (27 Nov 2019)
+
+  27 Nov 2019;  <chymera@gentoo.org> +nvcz_data-0.2.ebuild:
+  sci-biology/nvcz_data: version bump 0.2  removed optical pipeline files
+
 *samri_bindata-0.3 (17 Oct 2019)
 
   17 Oct 2019;  <chymera@gentoo.org> +metadata.xml, +samri_bindata-0.3.ebuild:
