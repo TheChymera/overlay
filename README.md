@@ -15,8 +15,8 @@ mkdir /etc/portage/repos.conf
 wget https://raw.githubusercontent.com/TheChymera/overlay/master/metadata/chymeric.conf -O /etc/portage/repos.conf/chymeric
 ```
 
-Afterwards, simply run `emerge --sync`, and Portage should seamlessly make all our ebuilds availabl.
-Many of our packages are available as live (`*-9999`) ebuilds, and also need manual unmasking in `/etc/portage/package.accept_keywords` before they can be emerged.
+Afterwards, simply run `emerge --sync`, and Portage should seamlessly make all our ebuilds available.
+Some of our packages are available as live (`*-9999`) ebuilds, and if you wish to use this feature (only advisable if you are well-informed on the day-to-day development of these packages) these versions can be manually unmasked in a case-by-case basis under `/etc/portage/package.accept_keywords`.
 
 ---
 
