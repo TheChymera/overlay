@@ -1,3 +1,6 @@
+  04 Dec 2019;  <chymera@gentoo.org> python-dice-2.4.2.ebuild:
+  app-misc/python-dice: updated dependency lists
+
   04 Nov 2019;  <chymera@gentoo.org> typing-3.7.4.1.ebuild:
   dev-python/typing: KEYWORDS
 
