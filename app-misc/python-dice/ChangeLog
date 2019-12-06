@@ -1,3 +1,8 @@
+*python-dice-3.0.0 (06 Dec 2019)
+
+  06 Dec 2019;  <chymera@gentoo.org> +python-dice-3.0.0.ebuild:
+  app-misc/python-dice: version bump 3.0.0
+
   04 Dec 2019;  <chymera@gentoo.org> python-dice-2.4.2.ebuild:
   app-misc/python-dice: updated dependency lists
 
