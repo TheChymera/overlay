@@ -1,3 +1,8 @@
+*samri-0.4.1 (08 Dec 2019)
+
+  08 Dec 2019;  <chymera@gentoo.org> +samri-0.4.1.ebuild, -samri-0.4.ebuild:
+  sci-biology/samri: version bump 0.4.1 ahead of Gentoo Science
+
 *samri-9999 (12 Nov 2019)
 
   12 Nov 2019;  <chymera@gentoo.org> +samri-9999.ebuild:
