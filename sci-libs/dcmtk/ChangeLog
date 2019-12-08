@@ -1,0 +1,9 @@
+  08 Dec 2019;  <chymera@gentoo.org> dcmtk-3.6.5.ebuild:
+  sci-libs/dcmtk: f
+
+*dcmtk-3.6.5 (08 Dec 2019)
+
+  08 Dec 2019;  <chymera@gentoo.org> +dcmtk-3.6.5.ebuild,
+  +files/dcmtk-3.6.3-dcmqrdb-cfg.patch, +files/dcmtk-3.6.3-fix-gcc9.patch,
+  +files/dcmtk-3.6.3-nostrip.patch, +metadata.xml:
+  sci-libs/dcmtk: version bump to 3.6.5 and prefix fix
