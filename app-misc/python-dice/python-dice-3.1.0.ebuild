@@ -15,19 +15,10 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
-RESTRICT="test"
-# Tests do not run, which may be an upstream issue:
-# https://github.com/borntyping/python-dice/issues/25
 
 DEPEND="test? (
 	dev-python/coverage[${PYTHON_USEDEP}]
-	dev-python/pyflakes[${PYTHON_USEDEP}]
 	dev-python/pytest[${PYTHON_USEDEP}]
-	dev-python/pytest-cov[${PYTHON_USEDEP}]
-	dev-python/pytest-flakes[${PYTHON_USEDEP}]
-	dev-python/pytest-pep8[${PYTHON_USEDEP}]
-	dev-python/termcolor[${PYTHON_USEDEP}]
-	dev-python/tox[${PYTHON_USEDEP}]
 	)
 "
 RDEPEND="
@@ -37,12 +28,11 @@ RDEPEND="
 
 src_prepare() {
 	if use test; then
-		sed -i -e "s/pytest<3.7.0/pytest/g" tox.ini
+		sed -i -e "s/--cov=dice //g" tox.ini || die "Could not remove pytest-cov usage for tests."
 	fi
 	default
 }
 
 python_test() {
-	#pytest -vv || die
-	tox || die "tests failed under ${EPYTHON}"
+	pytest -vv || die
 }

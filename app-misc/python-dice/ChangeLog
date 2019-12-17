@@ -1,3 +1,9 @@
+*python-dice-3.1.0 (17 Dec 2019)
+
+  17 Dec 2019;  <chymera@gentoo.org> +python-dice-3.1.0.ebuild,
+  -python-dice-2.4.2.ebuild, -python-dice-3.0.0.ebuild:
+  app-misc/python-dice: new package ahead of gentoo main
+
 *python-dice-3.0.0 (06 Dec 2019)
 
   06 Dec 2019;  <chymera@gentoo.org> +python-dice-3.0.0.ebuild:
