@@ -3,16 +3,13 @@
 
 EAPI=7
 
-inherit git-r3
-
 DESCRIPTION="Gentoo System and Image Builder"
 HOMEPAGE="https://github.com/IBT-FMI/gebuilder"
-SRC_URI=""
-EGIT_REPO_URI="https://github.com/IBT-FMI/gebuilder.git"
+SRC_URI="https://github.com/IBT-FMI/gebuilder/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="autoupdate btrfs docker openstack test"
 
 COMMON_DEPEND="
