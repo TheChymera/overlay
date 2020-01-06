@@ -1,3 +1,6 @@
+  06 Jan 2020;  <chymera@gentoo.org> opfvta_bidsdata-2.0.ebuild:
+  sci-biology/opfvta_bidsdata:
+
 *opfvta_bidsdata-2.0 (09 Dec 2019)
 
   09 Dec 2019;  <chymera@gentoo.org> +opfvta_bidsdata-2.0.ebuild:

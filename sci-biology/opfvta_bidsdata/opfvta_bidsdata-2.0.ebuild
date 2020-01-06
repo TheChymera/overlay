@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 2019-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -9,7 +9,7 @@ DESCRIPTION="BIDS data files released with the OPFVTA publication"
 HOMEPAGE="http://www.aic-fmi.ethz.ch/"
 SRC_URI="
 	http://chymera.eu/distfiles/${P}.tar.xz
-	https://zenodo.org/record/3565897/files/${P}.tar.xz
+	https://zenodo.org/record/3575149/files/${P}.tar.xz
 	"
 
 LICENSE="CC-BY-SA-4.0"
