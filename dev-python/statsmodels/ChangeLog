@@ -1,6 +1,0 @@
-*statsmodels-0.10.1 (23 Dec 2019)
-
-  23 Dec 2019;  <chymera@gentoo.org> +files/statsmodels-0.6.1-numpy-1.10.patch,
-  +files/statsmodels-0.6.1-pandas-0.17.0.patch, +metadata.xml,
-  +statsmodels-0.10.1.ebuild:
-  dev-python/statsmodels: version bump ahead of Gentoo Main
