@@ -1,3 +1,8 @@
+*samri-0.4.2 (10 Jan 2020)
+
+  10 Jan 2020;  <chymera@gentoo.org> +samri-0.4.2.ebuild:
+  sci-biology/samri: version bump 0.4.2 ahead of Gentoo Science
+
   08 Dec 2019;  <chymera@gentoo.org> -Manifest, -samri-0.4.1.ebuild:
   sci-biology/samri: migrated version to Gentoo Science  https://gitweb.gentoo.o
   rg/proj/sci.git/commit/?id=e68c1eb1aea94ee2860d3b9feb079932114904ea
