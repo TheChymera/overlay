@@ -16,7 +16,7 @@ wget https://raw.githubusercontent.com/TheChymera/overlay/master/metadata/chymer
 ```
 
 Afterwards, simply run `emerge --sync`, and Portage should seamlessly make all our ebuilds available.
-Some of our packages are available as live (`*-9999`) ebuilds, and if you wish to use this feature (only advisable if you are well-informed on the day-to-day development of a package) these versions can be manually unmasked in a case-by-case basis under `/etc/portage/package.accept_keywords`.
+Some of our packages are available as live (`*-9999`) ebuilds, and if you wish to use this feature (only advisable if you are well-informed on the day-to-day development of the specific package) these versions can be manually unmasked on a case-by-case basis under `/etc/portage/package.accept_keywords`.
 
 ---
 
