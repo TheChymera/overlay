@@ -1,3 +1,6 @@
+  15 Jan 2020;  <chymera@gentoo.org> fsl-6.0.2.ebuild:
+  sci-biology/fsl: added dependency and bumped EAPI
+
   14 Nov 2019; François Bissey <frp.bissey@gmail.com> fsl-6.0.2.ebuild:
   sci-biology/fsl: use generic blas/lapack revert stuff.
 
