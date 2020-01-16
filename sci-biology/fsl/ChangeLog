@@ -1,3 +1,6 @@
+  16 Jan 2020;  <chymera@gentoo.org> fsl-6.0.2.ebuild:
+  sci-biology/fsl: dropped commented matlab USE flag
+
   15 Jan 2020;  <chymera@gentoo.org> fsl-6.0.2.ebuild:
   sci-biology/fsl: added dependency and bumped EAPI
 

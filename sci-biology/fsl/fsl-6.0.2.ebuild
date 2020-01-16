@@ -143,9 +143,6 @@ src_install() {
 	insinto /etc
 	doins etc/fslversion
 	doins -r etc/default_flobs.flobs etc/flirtsch etc/js etc/luts
-	#if use matlab; then
-	#	doins etc/matlab
-	#fi
 
 	#the following is needed for FSL and depending programs to be able
 	#to find its files, since FSL uses an uncommon installation path:
