@@ -1,3 +1,9 @@
+*irsabi_brudata-1.4.1 (16 Jan 2020)
+
+  16 Jan 2020;  <chymera@gentoo.org> +irsabi_brudata-1.4.1.ebuild,
+  -irsabi_brudata-1.4.ebuild:
+  sci-biology/irsabi_brudata: version bump 1.4.1
+
 *irsabi_brudata-1.4 (11 Jan 2020)
 
   11 Jan 2020;  <chymera@gentoo.org> +irsabi_brudata-1.4.ebuild, +metadata.xml:
