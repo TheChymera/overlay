@@ -1,3 +1,14 @@
+From 9de29e5141afa43c06f347ca158b67168fbb0031 Mon Sep 17 00:00:00 2001
+From: François Bissey <frp.bissey@gmail.com>
+Date: Mon, 20 Jan 2020 11:46:52 +1300
+Subject: [PATCH] Build without xmlpp since we use an external ciftilib that
+ doesnt require it. Replace it and other ciftilib flags with CIFTICFLAGS.
+
+---
+ src/flameo/Makefile  | 4 ++--
+ src/melodic/Makefile | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
 diff --git a/src/flameo/Makefile b/src/flameo/Makefile
 index d22eb965..e967e682 100644
 --- a/src/flameo/Makefile
@@ -42,3 +53,6 @@ index 50666517..0c356a2d 100644
  
  TEST_OBJS = test.o 
  
+-- 
+2.24.1
+

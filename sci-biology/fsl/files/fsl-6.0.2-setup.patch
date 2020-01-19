@@ -1,3 +1,19 @@
+From baae97cc3c8d0cadcabb7ed16559f4e4de26ddbe Mon Sep 17 00:00:00 2001
+From: François Bissey <frp.bissey@gmail.com>
+Date: Mon, 20 Jan 2020 11:54:37 +1300
+Subject: [PATCH] Adjust the build system so it doesnt build packages
+ externally provided by portage. Make the compilation flags more generic and
+ easily adjustable. Make the build system stop at the first fault.
+
+---
+ build                   |  6 +++---
+ config/buildSettings.mk | 20 ++++++++++----------
+ config/common/buildproj |  8 +++++---
+ config/common/vars.mk   | 10 +++++-----
+ extras/build            |  8 ++++----
+ src/mist-clean/Makefile |  2 +-
+ 6 files changed, 28 insertions(+), 26 deletions(-)
+
 diff --git a/build b/build
 index 05dac06c..d90e407b 100755
 --- a/build
@@ -177,3 +193,6 @@ index 20402cca..6918bee4 100755
 +			rm -f ${OBJS} mist/mist.o mist/mist || echo "CLEAN could not locate some files scheduled for deletion."
  
  .PHONY:		all clean installdata
+-- 
+2.24.1
+

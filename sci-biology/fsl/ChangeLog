@@ -1,3 +1,8 @@
+  19 Jan 2020; François Bissey <frp.bissey@gmail.com>
+  files/fsl-6.0.2-fsldir_redux.patch, files/fsl-6.0.2-no_xmlpp.patch,
+  files/fsl-6.0.2-qstring_compat.patch, files/fsl-6.0.2-setup.patch:
+  sci-biology/fsl: credit and detail the patches.
+
   08 Nov 2019; François Bissey <frp.bissey@gmail.com> fsl-6.0.2.ebuild:
   sci-biology/fsl: final touches. Skip mist-clean.
 
