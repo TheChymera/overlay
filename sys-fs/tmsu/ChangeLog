@@ -1,0 +1,8 @@
+  06 Jan 2020;  <chymera@gentoo.org> tmsu-0.7.5.ebuild:
+  sys-fs/tmsu: license update
+
+*tmsu-0.7.5 (06 Jan 2020)
+
+  06 Jan 2020;  <chymera@gentoo.org> +metadata.xml, +tmsu-0.7.5.ebuild:
+  sys-fs/tmsu: version bump ahead of Gentoo main
+  https://github.com/gentoo/gentoo/pull/10626#issuecomment-570885146

@@ -1,0 +1,4 @@
+*pyparsing-2.4.5 (04 Dec 2019)
+
+  04 Dec 2019;  <chymera@gentoo.org> +metadata.xml, +pyparsing-2.4.5.ebuild:
+  dev-python/pyparsing: version bump 2.4.5 ahead of Gentoo Main

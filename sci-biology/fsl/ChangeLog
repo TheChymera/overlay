@@ -3,6 +3,15 @@
   files/fsl-6.0.2-qstring_compat.patch, files/fsl-6.0.2-setup.patch:
   sci-biology/fsl: credit and detail the patches.
 
+  16 Jan 2020;  <chymera@gentoo.org> fsl-6.0.2.ebuild:
+  sci-biology/fsl: dropped commented matlab USE flag
+
+  15 Jan 2020;  <chymera@gentoo.org> fsl-6.0.2.ebuild:
+  sci-biology/fsl: added dependency and bumped EAPI
+
+  14 Nov 2019; François Bissey <frp.bissey@gmail.com> fsl-6.0.2.ebuild:
+  sci-biology/fsl: use generic blas/lapack revert stuff.
+
   08 Nov 2019; François Bissey <frp.bissey@gmail.com> fsl-6.0.2.ebuild:
   sci-biology/fsl: final touches. Skip mist-clean.
 

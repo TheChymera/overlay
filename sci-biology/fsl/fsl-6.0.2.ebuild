@@ -1,7 +1,7 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit flag-o-matic toolchain-funcs prefix
 
@@ -16,6 +16,7 @@ IUSE=""
 
 DEPEND="
 	dev-libs/boost
+	dev-python/fslpy
 	media-gfx/graphviz
 	media-libs/gd
 	media-libs/glu
@@ -25,8 +26,8 @@ DEPEND="
 	sys-libs/zlib
 	dev-lang/tcl:0=
 	dev-lang/tk:0=
-	virtual/lapack
-	virtual/blas
+	>=virtual/lapack-3.8
+	>=virtual/blas-3.8
 	"
 RDEPEND="${DEPEND}"
 
@@ -78,10 +79,6 @@ src_prepare(){
 		$(grep -rl "\${FSLDIR}/bin" etc/matlab/*)\
 		$(grep -rl "\$FSLDIR/bin" etc/matlab/*) || die
 
-	# Not caught by the previous sed. Usually append
-	sed -e "s:\${FSLDIR}/bin::g" \
-		-i $(grep -rl "\${FSLDIR}/bin" src/*) || die
-
 	sed -e "s:\$FSLDIR/data:${EPREFIX}/usr/share/fsl/data:g" \
 		-e "s:\${FSLDIR}/data:${EPREFIX}/usr/share/fsl/data:g" \
 		-i $(grep -rl "\$FSLDIR/data" src/*) \
@@ -99,6 +96,10 @@ src_prepare(){
 		-e "s:\${FSLDIR}/etc:${EPREFIX}/etc:g" \
 		-i $(grep -rlI "\$FSLDIR/etc" *) \
 		-i $(grep -rlI "\${FSLDIR}/etc" *) || die
+
+	# Use generic blas/lapack rather than openblas
+	sed -e "s:-lopenblas:-llapack -lblas:g" \
+		-i $(grep -rlI lopenblas *) || die
 
 	# script wanting to have access to flsversion at buildtime
 	sed -e "s:/etc/fslversion:${S}/etc/fslversion:g" \
@@ -142,9 +143,6 @@ src_install() {
 	insinto /etc
 	doins etc/fslversion
 	doins -r etc/default_flobs.flobs etc/flirtsch etc/js etc/luts
-	#if use matlab; then
-	#	doins etc/matlab
-	#fi
 
 	#the following is needed for FSL and depending programs to be able
 	#to find its files, since FSL uses an uncommon installation path:
