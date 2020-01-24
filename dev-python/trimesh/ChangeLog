@@ -1,4 +1,0 @@
-*trimesh-3.3.5 (04 Nov 2019)
-
-  04 Nov 2019;  <chymera@gentoo.org> +metadata.xml, +trimesh-3.3.5.ebuild:
-  dev-python/trimesh: version bump ahead of Genoo Science
