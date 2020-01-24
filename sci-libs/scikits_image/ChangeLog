@@ -1,3 +1,8 @@
+*scikits_image-0.16.2 (24 Jan 2020)
+
+  24 Jan 2020;  <chymera@gentoo.org> +scikits_image-0.16.2.ebuild:
+  sci-libs/scikits_image: version bump 0.16.2
+
 *scikits_image-0.14.3 (07 Jan 2020)
 
   07 Jan 2020;  <chymera@gentoo.org> +scikits_image-0.14.3.ebuild,
