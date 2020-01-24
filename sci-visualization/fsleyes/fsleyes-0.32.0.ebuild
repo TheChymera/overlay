@@ -1,13 +1,11 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-PYTHON_COMPAT=( python{2_7,3_5,3_6} )
+PYTHON_COMPAT=( python3_6 )
 
-inherit distutils-r1 gnome2-utils virtualx
-
-MY_HASH="bfc2c0919b68583b6237cbdd9492e69a7bed30189b19dd21f7ba59f9f39e"
+inherit distutils-r1 desktop virtualx
 
 DESCRIPTION="The new FSL image viewer, released with FSL 5.0.10"
 HOMEPAGE="https://git.fmrib.ox.ac.uk/fsl/fsleyes/fsleyes/tree/master"
@@ -26,7 +24,6 @@ DEPEND="
 		${RDEPEND}
 		dev-python/mock[${PYTHON_USEDEP}]
 		dev-python/pytest[${PYTHON_USEDEP}]
-		dev-python/pytest-cov[${PYTHON_USEDEP}]
 		)
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	"
@@ -48,12 +45,11 @@ RDEPEND="
 	sci-visualization/fsleyes-props[${PYTHON_USEDEP}]
 	"
 
-# Tests fail
-# https://github.com/pauldmccarthy/fsleyes/issues/14#issuecomment-477191925
-#RESTRICT="test"
-
 PATCHES=(
 	"${FILESDIR}/${PN}-0.26.2-fsldir.patch"
+	"${FILESDIR}/${PN}-0.32.0-coverage.patch"
+	"${FILESDIR}/${PN}-0.32.0-tests_timeout.patch"
+	"${FILESDIR}/${PN}-0.32.0-tests_fail.patch"
 	)
 
 src_prepare() {
@@ -79,9 +75,5 @@ pkg_postrm() {
 }
 
 python_test() {
-	rm tests/test_addmaskdataseries.py
-	rm tests/test_embed.py
-	rm tests/test_overlay_displayprops.py
-	rm tests/test_resample.py
 	virtx pytest -vv || die
 }
