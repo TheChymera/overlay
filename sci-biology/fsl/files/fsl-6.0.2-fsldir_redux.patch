@@ -1,3 +1,28 @@
+From 2bc4be1f55b27a733e1e624b34bc570187ba95e1 Mon Sep 17 00:00:00 2001
+From: François Bissey <frp.bissey@gmail.com>
+Date: Mon, 20 Jan 2020 11:40:53 +1300
+Subject: [PATCH] Making sure fsl code and executable can find other executable
+ and data in standard location.
+
+---
+ src/fast4/fast_two.cc              |  8 ++++----
+ src/feat5/feat_model.cc            |  8 +++-----
+ src/feat5/tsplot.cc                |  7 +++----
+ src/first/first_utils.cc           |  4 ++--
+ src/fnirt/fnirtfns.cpp             | 11 ++++-------
+ src/fslsurface/fslsurface_first.cc |  6 ++----
+ src/fslsurface/fslsurfacemaths.cpp | 12 ------------
+ src/libvis/miscpic.h               |  7 +------
+ src/melodic/meldata.cc             |  4 ++--
+ src/melodic/meloptions.cc          |  8 --------
+ src/melodic/meloptions.h           |  1 -
+ src/melodic/melreport.cc           | 12 ++++++------
+ src/melodic/melreport.h            | 20 ++++++++++----------
+ src/mm/mixture_model.cc            |  4 ++--
+ src/siena/siena_diff.cc            | 28 +++++++++++++---------------
+ src/topup/topupfns.cpp             |  3 +--
+ 16 files changed, 53 insertions(+), 90 deletions(-)
+
 diff --git a/src/fast4/fast_two.cc b/src/fast4/fast_two.cc
 index 592b5df..b525444 100644
 --- a/src/fast4/fast_two.cc
@@ -465,3 +490,6 @@ index 6873758..9e8b956 100644
      if (TOPUP::check_exist(ecfname)) return(ecfname);
      else if (!TOPUP::extension(ecfname).length()) { // If no path _and_ no extension given
        ecfname += string(".cnf");
+-- 
+2.24.1
+
