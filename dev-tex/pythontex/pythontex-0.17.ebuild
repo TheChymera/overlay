@@ -47,5 +47,10 @@ src_install() {
 	}
 	python_foreach_impl installation
 
-	latex-package_src_doinstall dtx ins sty
+	#latex-package_src_doinstall dtx ins sty
+
+	#insinto /usr/share/texmf-site/tex/latex/pythontex/
+	#doins ".sty
+
+	latex-package_src_install
 }

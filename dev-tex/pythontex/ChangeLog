@@ -1,3 +1,6 @@
+  17 Feb 2020;  <chymera@gentoo.org> pythontex-0.17.ebuild:
+  dev-tex/pythontex: using blanket install function
+
 *pythontex-0.17 (17 Feb 2020)
 *pythontex-9999 (17 Feb 2020)
 
