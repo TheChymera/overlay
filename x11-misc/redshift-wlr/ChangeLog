@@ -1,0 +1,4 @@
+*redshift-wlr-9999 (13 Mar 2020)
+
+  13 Mar 2020;  <chymera@gentoo.org> +metadata.xml, +redshift-wlr-9999.ebuild:
+  x11-misc/redshift-wlr: new package
