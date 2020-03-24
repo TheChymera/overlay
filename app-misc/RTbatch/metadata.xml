@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>chr@chymera.eu</email>
+		<name>Horea Christian</name>
+	</maintainer>
+	<longdescription lang="en">
+		Python script for batch porcessing in RawTherapee, which can
+		currenly process one file while iterating through a list of
+		profiles, and generate useful template code for publishing
+		resulting images on Octopress. RTbatch also supports automated
+		creation of optimized mini images for web previews, all
+		customizable from within the command line.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">TheChymera/RTbatch</remote-id>
+	</upstream>
+</pkgmetadata>
