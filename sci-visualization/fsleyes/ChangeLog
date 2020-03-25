@@ -1,3 +1,8 @@
+*fsleyes-0.32.3 (25 Mar 2020)
+
+  25 Mar 2020;  <chymera@gentoo.org> +fsleyes-0.32.3.ebuild:
+  sci-visualization/fsleyes: version bump 0.32.3
+
 *fsleyes-0.32.0 (24 Jan 2020)
 
   24 Jan 2020;  <chymera@gentoo.org> +files/fsleyes-0.32.0-coverage.patch,
