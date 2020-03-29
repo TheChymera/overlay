@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>mathgeniusabhinav@gmail.com</email>
+		<name>Abhinav Tamaskar</name>
+	</maintainer>
+	<maintainer type="person">
+		<email>chr@chymera.eu</email>
+		<name>Horea Christian</name>
+	</maintainer>
+	<longdescription>
+		wf-recorder is a utility program for screen recording of wlroots-based
+		compositors (more specifically, those that support wlr-screencopy-v1 and
+		xdg-output). Its dependencies are ffmpeg, wayland-client and
+		wayland-protocols.
+	</longdescription>
+</pkgmetadata>

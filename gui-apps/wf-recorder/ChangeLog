@@ -1,0 +1,5 @@
+*wf-recorder-0.2 (29 Mar 2020)
+
+  29 Mar 2020;  <chymera@gentoo.org> +metadata.xml, +wf-recorder-0.2.ebuild:
+  gui-apps/wf-recorder: new package  Ebuild credit to
+  https://github.com/epsilon-0/wayfire-desktop
