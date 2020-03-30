@@ -1,0 +1,5 @@
+*patternBG-0.1 (30 Mar 2020)
+
+  30 Mar 2020;  <chymera@gentoo.org> +metadata.xml, +patternBG-0.1.ebuild,
+  -patternBG-9999.ebuild:
+  app-misc/patternBG: versioned release 0.1  and removed live package

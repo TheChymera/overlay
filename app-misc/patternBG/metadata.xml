@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>chr@chymera.eu</email>
+		<name>Horea Christian</name>
+	</maintainer>
+	<longdescription lang="en">
+		Python script which renders randomly tiled images. This can be used
+		to produce GNOME3-like background images or other decorative artwork.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">TheChymera/patternBG</remote-id>
+	</upstream>
+</pkgmetadata>
