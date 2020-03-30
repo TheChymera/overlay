@@ -1,0 +1,6 @@
+*mricrogl-1.2.20190902 (30 Mar 2020)
+*mricrogl-1.2.20200324 (30 Mar 2020)
+
+  30 Mar 2020;  <chymera@gentoo.org> +metadata.xml,
+  +mricrogl-1.2.20190902.ebuild, +mricrogl-1.2.20200324.ebuild:
+  sci-visualization/mricrogl: version bump 1.2.20200324
