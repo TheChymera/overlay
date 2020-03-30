@@ -13,13 +13,14 @@ DESCRIPTION="A simple medical imaging visualization tool"
 HOMEPAGE="https://github.com/neurolabusc/MRIcroGL"
 SRC_URI="
 	https://github.com/rordenlab/MRIcroGL12/archive/${MY_HASH}.tar.gz -> ${P}.tar.gz
-	https://github.com/neurolabusc/Metal-Demos/archive/${DEMOS_HASH}.tar.gz
-	https://github.com/Alexey-T/Python-for-Lazarus/archive/${PY4LAZ_HASH}.tar.gz
+	https://github.com/neurolabusc/Metal-Demos/archive/${DEMOS_HASH}.tar.gz -> Metal-Demos-${DEMOS_HASH}.tar.gz
+	python? ( https://github.com/Alexey-T/Python-for-Lazarus/archive/${PY4LAZ_HASH}.tar.gz -> Python-for-Lazarus-${P4LAZ_HASH}.tar.gz )
 	"
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="python"
 
 RDEPEND=""
 DEPEND="dev-lang/fpc
@@ -35,14 +36,12 @@ S="${WORKDIR}/MRIcroGL12-${MY_HASH}"
 #}
 
 src_compile() {
-	# Python support will only be vaialable for the default implementation:
-	# https://github.com/neurolabusc/MRIcroGL/issues/30#issuecomment-423216197
-	#cp -rf /etc/lazarus system-lazarus-config
-	##lazbuild --verbose-pkgsearch lazopenglcontext --verbose-pkgsearch python4lazarus_package || die
-	##lazbuild  -B MRIcroGL.lpr
 	sed -i -e "s:Metal-Demos/common:Metal-Demos-${DEMOS_HASH}/common:g" MRIcroGL_NoPython.lpi || die
-	#lazbuild --verbose-pkgsearch lazopenglcontext
-	lazbuild -build-ide= --add-package lazopenglcontext ./Python-for-Lazarus-${PY4LAZ}/python4lazarus/python4lazarus_package.lpk || die
+	if use python; then
+		lazbuild -build-ide= --add-package lazopenglcontext ./Python-for-Lazarus-${PY4LAZ}/python4lazarus/python4lazarus_package.lpk || die
+	else
+		lazbuild --verbose-pkgsearch lazopenglcontext
+	fi
 	lazbuild -B --lazarusdir="/usr/share/lazarus/" --pcp="system-lazarus-config" MRIcroGL_NoPython.lpi || die
 }
 

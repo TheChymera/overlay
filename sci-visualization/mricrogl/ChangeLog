@@ -1,3 +1,6 @@
+  30 Mar 2020;  <chymera@gentoo.org> mricrogl-1.2.20200324.ebuild:
+  sci-visualization/mricrogl: Python USE flag  for python4lazarus
+
 *mricrogl-1.2.20190902 (30 Mar 2020)
 *mricrogl-1.2.20200324 (30 Mar 2020)
 
