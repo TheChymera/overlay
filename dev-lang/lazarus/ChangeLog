@@ -1,5 +1,6 @@
-*lazarus-2.0.2-r1 (23 Nov 2019)
+*lazarus-2.0.6 (31 Mar 2020)
 
-  23 Nov 2019;  <chymera@gentoo.org> +files/lazarus-0.9.26-fpcsrc.patch,
-  +lazarus-2.0.2-r1.ebuild, +metadata.xml:
-  dev-lang/lazarus: fixed Python USE flag ahead of Gentoo Main
+  31 Mar 2020;  <chymera@gentoo.org> +lazarus-2.0.6.ebuild, -ChangeLog,
+  -lazarus-2.0.2-r1.ebuild:
+  dev-lang/lazarus: version bump 2.0.6 ahead of Gentoo Main
+  https://github.com/gentoo/gentoo/pull/15183
