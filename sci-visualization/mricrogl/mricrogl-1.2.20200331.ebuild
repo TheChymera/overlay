@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit eutils gnome2-utils
+inherit eutils desktop
 
 DEMOS_HASH="d07815f31093f28b47731f87f3f5ba5543f12d11"
 PY4LAZ_HASH="8dc41685b547f0982755b90115d9a43a2d2b358c"
@@ -46,11 +46,4 @@ src_install() {
 		doicon -s scalable mricrogl.svg
 		make_desktop_entry MRIcroGL MRIcroGL /usr/share/icons/hicolor/scalable/apps/mricrogl.svg
 	popd
-}
-
-pkg_postinst() {
-	gnome2_icon_cache_update
-}
-pkg_postrm() {
-	gnome2_icon_cache_update
 }

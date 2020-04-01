@@ -1,3 +1,7 @@
+  01 Apr 2020;  <chymera@gentoo.org> mricrogl-1.2.20200331.ebuild:
+  sci-visualization/mricrogl: icon installation  improved with new desktop
+  eclass
+
 *mricrogl-1.2.20200331 (01 Apr 2020)
 
   01 Apr 2020;  <chymera@gentoo.org> +mricrogl-1.2.20200331.ebuild:
