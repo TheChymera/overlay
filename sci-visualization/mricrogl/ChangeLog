@@ -1,3 +1,9 @@
+*mricrogl-1.2.20200331 (01 Apr 2020)
+
+  01 Apr 2020;  <chymera@gentoo.org> +mricrogl-1.2.20200331.ebuild:
+  sci-visualization/mricrogl: version bump 1.2.20200331  versioned releas by
+  upstream superseding hash-based package version
+
   30 Mar 2020;  <chymera@gentoo.org> mricrogl-1.2.20200324.ebuild:
   sci-visualization/mricrogl: Python USE flag  for python4lazarus
 
