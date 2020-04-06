@@ -1,3 +1,6 @@
+  06 Apr 2020;  <chymera@gentoo.org> mkstage4-0.3.ebuild:
+  app-backup/mkstage4: fixes ahead of Gentoo Main
+
 *mkstage4-0.3 (06 Apr 2020)
 
   06 Apr 2020;  <chymera@gentoo.org> +mkstage4-0.3.ebuild, -mkstage4-0.2.ebuild,

@@ -1,7 +1,7 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 DESCRIPTION="Bash Utility for Creating Stage 4 Tarballs"
 HOMEPAGE="https://github.com/TheChymera/mkstage4"
@@ -23,5 +23,5 @@ src_install() {
 }
 
 src_test() {
-	bats -r tests || die
+	bats tests/* || die
 }
