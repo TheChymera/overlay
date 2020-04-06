@@ -10,12 +10,18 @@ SRC_URI="https://github.com/TheChymera/mkstage4/archive/${PV}.tar.gz -> ${P}.tar
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="test"
 
-DEPEND=""
-RDEPEND="app-shells/bash
-	app-arch/tar"
+DEPEND="test? ( dev-util/bats )"
+RDEPEND="
+	app-shells/bash
+	app-arch/tar
+"
 
 src_install() {
 	newbin mkstage4.sh mkstage4
+}
+
+src_test() {
+	bats -r tests || die
 }
