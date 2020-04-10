@@ -1,0 +1,5 @@
+*python-gantt-0.6.0_p1 (10 Apr 2020)
+
+  10 Apr 2020;  <chymera@gentoo.org> +metadata.xml,
+  +python-gantt-0.6.0_p1.ebuild:
+  dev-python/python-gantt: version bump 0.6.0_p1 ahead of Gentoo Science
