@@ -58,8 +58,8 @@ python_test() {
 	echo "backend : Agg" > matplotlibrc || die
 	#echo "backend.qt4 : PyQt4" >> matplotlibrc || die
 	#echo "backend.qt4 : PySide" >> matplotlibrc || die
-	mkdir "${WORKDIR}/empty_test_dir" || die
-	cd "${WORKDIR}/empty_test_dir" || die
+	mkdir "${WORKDIR}/../empty_test_dir" || die
+	cd "${WORKDIR}/../empty_test_dir" || die
 	pytest --pyargs skimage || die
 }
 
