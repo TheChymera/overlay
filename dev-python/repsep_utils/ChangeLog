@@ -1,3 +1,9 @@
+*repsep_utils-0.1.1 (10 Apr 2020)
+
+  10 Apr 2020;  <chymera@gentoo.org> +repsep_utils-0.1.1.ebuild,
+  -repsep_utils-0.1.ebuild:
+  dev-python/repsep_utils: version bump ahead of Gentoo Science
+
 *pyparsing-2.4.5 (04 Dec 2019)
 
   04 Dec 2019;  <chymera@gentoo.org> +metadata.xml, +pyparsing-2.4.5.ebuild:
