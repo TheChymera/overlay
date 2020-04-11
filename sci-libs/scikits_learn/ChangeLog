@@ -1,8 +1,0 @@
-*scikits_learn-0.22.1 (08 Apr 2020)
-
-  08 Apr 2020;  <chymera@gentoo.org>
-  +files/scikits_learn-0.18.1-system-cblas.patch,
-  +files/scikits_learn-0.20.2-fix-cdfast.patch, +metadata.xml,
-  +scikits_learn-0.22.1.ebuild:
-  sci-libs/scikits_learn: non-broken version bump ahead of Gentoo Main
-  https://github.com/gentoo/gentoo/pull/15065#issuecomment-610712405
