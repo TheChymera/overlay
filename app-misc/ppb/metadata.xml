@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>chr@chymera.eu</email>
+		<name>Horea Christian</name>
+	</maintainer>
+	<longdescription lang="en">
+		A simple and emerging script allowing you to pastebin files or piped output
+		to a webserver to which you have SSH access.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">TheChymera/ppb</remote-id>
+	</upstream>
+</pkgmetadata>

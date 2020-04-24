@@ -1,0 +1,4 @@
+*ppb-0.1 (24 Apr 2020)
+
+  24 Apr 2020;  <chymera@gentoo.org> +metadata.xml, +ppb-0.1.ebuild:
+  app-misc/ppb: new package
