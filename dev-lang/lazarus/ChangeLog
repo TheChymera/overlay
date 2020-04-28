@@ -1,6 +1,0 @@
-*lazarus-2.0.6 (31 Mar 2020)
-
-  31 Mar 2020;  <chymera@gentoo.org> +lazarus-2.0.6.ebuild, -ChangeLog,
-  -lazarus-2.0.2-r1.ebuild:
-  dev-lang/lazarus: version bump 2.0.6 ahead of Gentoo Main
-  https://github.com/gentoo/gentoo/pull/15183
