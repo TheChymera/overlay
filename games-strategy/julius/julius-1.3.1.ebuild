@@ -21,22 +21,18 @@ DEPEND="
 "
 RDEPEND=""
 
-src_compile() {
-	mkdir build
-	pushd build > /dev/null
-	cmake .. && emake
-	popd > /dev/null
-}
-
 src_test() {
 	sed -i -e "s: && cd \.\. && \./coverage.sh::" runtests.sh || die
 	./runtests.sh || die "test phase failed"
 }
 
 src_install() {
-	dobin build/julius
 	insinto /etc/profile.d
 	doins "${FILESDIR}"/90julius.sh
+	cmake-utils_src_install
+	newbin "${BUILD_DIR}"/julius Julius
+	mv "${ED}"/usr/bin/julius  "${ED}"/usr/bin/julius-game ||
+		die "Failed to rename executable (required as per conflict with app-accessibility/julius)"
 }
 
 pkg_postinst() {
