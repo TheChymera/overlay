@@ -19,7 +19,12 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
-DEPEND=""
+DEPEND="
+	test? (
+		dev-python/aiohttp[${PYTHON_USEDEP}]
+		dev-python/aiohttp-cors[${PYTHON_USEDEP}]
+		)
+	"
 RDEPEND="
 	dev-python/click[${PYTHON_USEDEP}]
 	dev-python/attrs[${PYTHON_USEDEP}]
@@ -35,6 +40,4 @@ RDEPEND="
 
 S="${WORKDIR}/${PN}-${MY_PV}"
 
-python_test() {
-	pytest -vv || die
-}
+distutils_enable_tests pytest
