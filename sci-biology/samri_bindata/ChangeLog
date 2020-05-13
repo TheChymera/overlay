@@ -1,4 +1,0 @@
-*samri_bindata-0.4 (05 Dec 2019)
-
-  05 Dec 2019;  <chymera@gentoo.org> +metadata.xml, +samri_bindata-0.4.ebuild:
-  sci-biology/samri_bindata: version bump 0.4 ahead of Gentoo Science
