@@ -67,6 +67,8 @@ src_install() {
 	cd "${WORKDIR}/${P}/Scripts" || die "scripts dir not found"
 	dobin *.sh
 	dodir /usr/$(get_libdir)/ants
-	install -t "${D}"/"${EROOT%/}"/usr/$(get_libdir)/ants * || die
+	insinto "/usr/$(get_libdir)/ants"
+	doins *
+	#install -t "${D}"/"${EROOT%/}"/usr/$(get_libdir)/ants * || die
 	doenvd "${FILESDIR}"/99ants
 }
