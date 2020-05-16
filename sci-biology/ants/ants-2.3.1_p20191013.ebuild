@@ -1,21 +1,23 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 CMAKE_MAKEFILE_GENERATOR="emake"
 
-inherit cmake-utils git-r3 multilib
+inherit cmake-utils multilib
+
+MY_COMMIT="f78b2d4a382d3090230641b5ade5da28962dad04"
+MY_PN="ANTs"
 
 DESCRIPTION="Advanced Normalitazion Tools for neuroimaging"
 HOMEPAGE="http://stnava.github.io/ANTs/"
 SRC_URI="
+	https://github.com/ANTsX/ANTs/archive/${MY_COMMIT}.tar.gz -> ${PV}.tar.gz
 	test? (
 		http://chymera.eu/distfiles/ants_testdata-${PV}.tar.xz
 	)
 "
-EGIT_REPO_URI="https://github.com/stnava/ANTs.git"
-EGIT_COMMIT="f78b2d4a382d3090230641b5ade5da28962dad04"
 
 SLOT="0"
 LICENSE="BSD"
@@ -36,8 +38,10 @@ PATCHES=(
 	"${FILESDIR}/${P}-paths.patch"
 )
 
+S="${WORKDIR}/${MY_PN}-${MY_COMMIT}"
+
 src_unpack() {
-	git-r3_src_unpack
+	default
 	if use test; then
 		mkdir -p "${S}/.ExternalData/MD5" || die "Could not create test data directory."
 		tar xvf "${DISTDIR}/ants_testdata-${PV}.tar.xz" -C "${S}/.ExternalData/MD5/" > /dev/null || die "Could not unpack test data."
