@@ -18,18 +18,25 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="dev-python/python-dateutil[${PYTHON_USEDEP}]"
-DEPEND="${RDEPEND}"
-BDEPEND="test? ( $(python_gen_impl_dep sqlite)
+DEPEND=""
+BDEPEND="
+	test? (
 		dev-vcs/git
 		dev-python/h5py[${PYTHON_USEDEP}]
 		dev-python/openpyxl[${PYTHON_USEDEP}]
 		dev-python/pandas[${PYTHON_USEDEP}]
-		dev-python/requests[${PYTHON_USEDEP}] )"
+		dev-python/requests[${PYTHON_USEDEP}]
+		$(python_gen_impl_dep sqlite)
+		${RDEPEND}
+	)
+"
 
 python_test() {
-	git init || die "git init failed"
-	git add tests/golden/ || die "git add failed"
-	dev/test.sh || die "test failed"
+	rm tests/golden/load-http.tsv || die "Could not remove network-dependent test."
+	git init || die "Git init failed."
+	git add tests/golden/ || die "Git add failed."
+	dev/test.sh || die "Tests failed."
+	rm .git -rf || die "Could not clean up git test directory."
 }
 
 pkg_postinst() {
