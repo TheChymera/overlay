@@ -1,0 +1,14 @@
+#!/sbin/openrc-run
+# Copyright 2020 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="repositorg daemon"
+description=""
+supervisor=supervise-daemon
+pidfile=/var/run/repositorg_uuid.pid
+
+command="/usr/bin/repositorg_uuid"
+command_args="${repositorg_args}"
+command_user="${RC_SVCNAME#*.}"
+
+output_log="/var/log/${RC_SVCNAME}/${RC_SVCNAME}.log"

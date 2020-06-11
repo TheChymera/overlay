@@ -1,2 +1,6 @@
+  11 Jun 2020;  <chymera@gentoo.org> +files/repositorg_uuid.initd,
+  repositorg-9999.ebuild:
+  app-misc/repositorg: OpenRC script
+
   12 May 2019;  <chymera@gentoo.org> +metadata.xml, repositorg-9999.ebuild:
   app-misc/repositorg: Updated metadata and systemd   USE functionality

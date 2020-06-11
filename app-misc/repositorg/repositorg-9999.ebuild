@@ -1,9 +1,9 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=(python2_7 python3_{4,5,6})
+PYTHON_COMPAT=(python3_{6,7,8})
 
 inherit distutils-r1 git-r3 systemd
 
@@ -28,6 +28,8 @@ python_install() {
 	distutils-r1_python_install
 	if use systemd; then
 		systemd_newunit "${FILESDIR}/${PN}_uuid.service" "${PN}_uuid@.service"
+	else
+		newinitd "${FILESDIR}/${PN}_uuid.initd" "${PN}_uuid"
 	fi
 	dobin repositorg_uuid
 }
