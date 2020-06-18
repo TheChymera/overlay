@@ -1,0 +1,4 @@
+*opfvta_brudata-2.0 (18 Jun 2020)
+
+  18 Jun 2020;  <chymera@gentoo.org> +metadata.xml, +opfvta_brudata-2.0.ebuild:
+  sci-biology/opfvta_brudata: new package
