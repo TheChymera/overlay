@@ -45,6 +45,10 @@ RDEPEND="
 "
 
 src_prepare() {
+	# Remove etelemetry
+	sed -i '/"etelemetry/d' nipype/info.py || die
+
+	# Mark failing tests
 	sed -i \
 		-e "/def test_no_et(tmp_path):/i@pytest.mark.skip('Known to fail by upstream: https://github.com/nipy/nipype/issues/3196#issuecomment-606003186')" \
 		nipype/tests/test_nipype.py || die
@@ -52,6 +56,11 @@ src_prepare() {
 		-e "/def test_fslversion():/i@pytest.mark.skip('Known to fail by upstream: https://github.com/nipy/nipype/issues/3196#issuecomment-605997462')" \
 		nipype/interfaces/fsl/tests/test_base.py || die
 	default
+}
+
+python_install_all() {
+	distutils-r1_python_install_all
+	doenvd "${FILESDIR}/98nipype"
 }
 
 python_test() {
@@ -65,4 +74,12 @@ python_test() {
 		#--cov nipype\
 		#--cov-config .coveragerc\
 		#--cov-report xml:cov.xml\
+}
+
+pkg_postinst() {
+	echo
+	einfo "Please run the following commands if you"
+	einfo "intend to use nipype from an existing shell:"
+	einfo "source /etc/profile"
+	echo
 }
