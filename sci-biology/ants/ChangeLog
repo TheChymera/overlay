@@ -1,3 +1,11 @@
+*ants-2.3.4 (04 Aug 2020)
+
+  04 Aug 2020;  <chymera@gentoo.org> +ants-2.3.4.ebuild,
+  +files/ants-2.3.4-libdir.patch, +files/ants-2.3.4-version.patch,
+  -ants-2.3.1_p20191013.ebuild, -files/ants-2.3.1_p20191013-logic.patch,
+  -files/ants-2.3.1_p20191013-paths.patch:
+  sci-biology/ants: version bump 2.3.4 ahead of Gentoo Science
+
   16 May 2020;  <chymera@gentoo.org> ants-2.3.1_p20191013.ebuild:
   sci-biology/ants: building from tarball, failing
 

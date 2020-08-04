@@ -5,15 +5,14 @@ EAPI=7
 
 CMAKE_MAKEFILE_GENERATOR="emake"
 
-inherit cmake-utils multilib
+inherit cmake multilib
 
-MY_COMMIT="f78b2d4a382d3090230641b5ade5da28962dad04"
 MY_PN="ANTs"
 
 DESCRIPTION="Advanced Normalitazion Tools for neuroimaging"
 HOMEPAGE="http://stnava.github.io/ANTs/"
 SRC_URI="
-	https://github.com/ANTsX/ANTs/archive/${MY_COMMIT}.tar.gz -> ${PV}.tar.gz
+	https://github.com/ANTsX/ANTs/archive/v${PV}.tar.gz ->  ${P}.tar.gz
 	test? (
 		http://chymera.eu/distfiles/ants_testdata-${PV}.tar.xz
 	)
@@ -26,19 +25,19 @@ IUSE="test vtk"
 
 DEPEND="
 	vtk? (
-		~sci-libs/itk-5.0.1[vtkglue]
+		~sci-libs/itk-5.1.0[vtkglue]
 		sci-libs/vtk
 	)
-	!vtk? (	~sci-libs/itk-5.0.1 )
+	!vtk? (	~sci-libs/itk-5.1.0 )
 "
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${P}-logic.patch"
-	"${FILESDIR}/${P}-paths.patch"
+	"${FILESDIR}/${P}-version.patch"
+	"${FILESDIR}/${P}-libdir.patch"
 )
 
-S="${WORKDIR}/${MY_PN}-${MY_COMMIT}"
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 src_unpack() {
 	default
@@ -51,10 +50,11 @@ src_unpack() {
 src_configure() {
 	local mycmakeargs=(
 		-DUSE_SYSTEM_ITK=ON
-		-DITK_DIR="${EROOT}/usr/include/ITK-5.0/"
+		-DITK_DIR="${EROOT}/usr/include/ITK-5.1/"
 		-DBUILD_TESTING="$(usex test ON OFF)"
 		-DUSE_VTK=$(usex vtk ON OFF)
 		-DUSE_SYSTEM_VTK=$(usex vtk ON OFF)
+		-DANTS_SNAPSHOT_VERSION:STRING=${PV}
 	)
 	use vtk && mycmakeargs+=(
 		-DVTK_DIR="${EROOT}/usr/include/vtk-8.1/"
@@ -62,17 +62,16 @@ src_configure() {
 	use test && mycmakeargs+=(
 		-DExternalData_OBJECT_STORES="${S}/.ExternalData/MD5"
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_install() {
 	BUILD_DIR="${WORKDIR}/${P}_build/ANTS-build"
-	cmake-utils_src_install
-	cd "${WORKDIR}/${P}/Scripts" || die "scripts dir not found"
+	cmake_src_install
+	cd "${S}/Scripts" || die "scripts dir not found"
 	dobin *.sh
 	dodir /usr/$(get_libdir)/ants
 	insinto "/usr/$(get_libdir)/ants"
 	doins *
-	#install -t "${D}"/"${EROOT%/}"/usr/$(get_libdir)/ants * || die
 	doenvd "${FILESDIR}"/99ants
 }
