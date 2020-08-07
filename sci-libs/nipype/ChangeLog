@@ -1,3 +1,7 @@
+  07 Aug 2020;  <chymera@gentoo.org> +files/nipype-1.5.0-version_check.patch,
+  nipype-1.5.0.ebuild:
+  sci-libs/nipype: patching out autofail on misparsed version check
+
   27 Jul 2020;  <chymera@gentoo.org> +files/98nipype, nipype-1.5.0.ebuild:
   sci-libs/nipype: disabled etelemetry functionality
 

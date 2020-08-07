@@ -44,6 +44,10 @@ RDEPEND="
 	sci-libs/scipy[${PYTHON_USEDEP}]
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}"-version_check.patch
+)
+
 src_prepare() {
 	# Remove etelemetry
 	sed -i '/"etelemetry/d' nipype/info.py || die
