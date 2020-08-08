@@ -1,3 +1,6 @@
+  08 Aug 2020;  <chymera@gentoo.org> files/itk-5.1.0-downloads.patch:
+  sci-libs/itk: better syntax for warning
+
 *itk-5.1.0 (04 Aug 2020)
 
   04 Aug 2020;  <chymera@gentoo.org> +files/itk-5.1.0-downloads.patch,
