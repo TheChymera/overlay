@@ -1,3 +1,6 @@
+  08 Aug 2020;  <chymera@gentoo.org> files/nipype-1.5.0-version_check.patch:
+  sci-libs/nipype: patched version parsing
+
   07 Aug 2020;  <chymera@gentoo.org> +files/nipype-1.5.0-version_check.patch,
   nipype-1.5.0.ebuild:
   sci-libs/nipype: patching out autofail on misparsed version check
