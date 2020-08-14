@@ -39,3 +39,10 @@ src_test() {
 		./"$i" || die "Test $i failed"
 	done
 }
+
+pkg_postinst() {
+	if use !systemd ; then
+		elog "To be able to run repositorg_uuid as your user (recommended), make a copy of the init script:"
+		elog "	cp /etc/init.d/repositorg_uuid /etc/init.d/repositorg_uuid.<YOUR_USER_NAME>"
+	fi
+}

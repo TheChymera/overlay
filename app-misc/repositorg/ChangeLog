@@ -1,3 +1,7 @@
+  14 Aug 2020;  <chymera@gentoo.org> files/repositorg_uuid.initd,
+  repositorg-0.1.ebuild:
+  app-misc/repositorg: improved init script
+
 *repositorg-0.1 (19 Jun 2020)
 
   19 Jun 2020;  <chymera@gentoo.org> +repositorg-0.1.ebuild:
