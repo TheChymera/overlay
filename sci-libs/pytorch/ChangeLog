@@ -1,0 +1,18 @@
+*pytorch-1.4.0_p0 (23 Aug 2020)
+*pytorch-1.6.0 (23 Aug 2020)
+
+  23 Aug 2020;  <chymera@gentoo.org>
+  +files/0002-Don-t-build-libtorch-again-for-PyTorch-1.4.0.patch,
+  +files/0003-Change-path-to-caffe2-build-dir-made-by-libtorch.patch,
+  +files/0004-Don-t-fill-rpath-of-Caffe2-library-for-system-wide-i.patch,
+  +files/0005-Change-library-directory-according-to-CMake-build.patch,
+  +files/0010-Remove-conversion-ambiguity-in-ternary-operators.patch,
+  +files/pytorch-1.2.0-setup.patch, +files/pytorch-1.4.0-nccl-nvccflags.patch,
+  +files/pytorch-1.4.0-skip-tests.patch, +files/pytorch-1.4.0-sleef.patch,
+  +files/pytorch-1.6.0-global-dlopen.patch,
+  +files/pytorch-1.6.0-nccl-nvccflags.patch, +files/pytorch-1.6.0-setup.patch,
+  +files/pytorch-1.6.0-skip-tests.patch,
+  +files/pytorch-1.6.0-tensorpipe-unbundle-libuv.patch, +metadata.xml,
+  +pytorch-1.4.0_p0.ebuild, +pytorch-1.6.0.ebuild:
+  sci-libs/pytorch: fix ahead of Gentoo Science  Bug:
+  https://bugs.gentoo.org/738592
