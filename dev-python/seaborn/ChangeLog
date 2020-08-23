@@ -1,0 +1,5 @@
+*seaborn-0.10.1 (23 Aug 2020)
+
+  23 Aug 2020;  <chymera@gentoo.org> +metadata.xml, +seaborn-0.10.1.ebuild:
+  dev-python/seaborn: version bump 0.10.1  fix ahead of Gentoo main Bug:
+  https://bugs.gentoo.org/738374
