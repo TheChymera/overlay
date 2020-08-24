@@ -18,7 +18,7 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	<=dev-python/matplotlib-3.3.0[${PYTHON_USEDEP}]
+	<dev-python/matplotlib-3.3.0[${PYTHON_USEDEP}]
 	>=dev-python/numpy-1.13.3[${PYTHON_USEDEP}]
 	>=dev-python/pandas-0.22.0[${PYTHON_USEDEP}]
 	dev-python/patsy[${PYTHON_USEDEP}]
