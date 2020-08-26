@@ -5,7 +5,7 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7} )
 
-inherit distutils-r1 virtualx
+inherit distutils-r1
 
 DESCRIPTION="Statistical data visualization"
 HOMEPAGE="https://seaborn.pydata.org https://github.com/mwaskom/seaborn"
