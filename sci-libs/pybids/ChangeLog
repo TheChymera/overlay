@@ -1,0 +1,4 @@
+*pybids-0.11.1 (07 Sep 2020)
+
+  07 Sep 2020;  <chymera@gentoo.org> +metadata.xml, +pybids-0.11.1.ebuild:
+  sci-libs/pybids: version bump 0.11.1 ahead of Gentoo Science
