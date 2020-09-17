@@ -30,11 +30,6 @@
 
 #--- END OF EXAMPLES ---
 
-# Horea Christian <chr@chymera.eu> (26 Jun 2018)
-# Issues with new dependencies:
-# https://github.com/nipy/nipype/issues/3196
-=sci-libs/nipype-1.4.2
-
 # Horea Christian <chr@chymera.eu> (16 Mai 2020)
 # Fails when building from tarball:
 # https://github.com/ANTsX/ANTs/issues/1002
