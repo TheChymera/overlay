@@ -1,3 +1,6 @@
+  19 Sep 2020;  <chymera@gentoo.org> itk-5.1.0.ebuild:
+  sci-libs/itk: fetching test files
+
   08 Aug 2020;  <chymera@gentoo.org> files/itk-5.1.0-downloads.patch:
   sci-libs/itk: better syntax for warning
 

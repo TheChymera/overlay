@@ -10,7 +10,13 @@ inherit toolchain-funcs cmake python-single-r1
 MY_PN="InsightToolkit"
 MY_P="${MY_PN}-${PV}"
 GLI_HASH="a02cbeaf28cb3d28ac66b9ac651073530eb6ab78"
-GLI_TEST_HASH="57b5d5de8d777f10f269445a"
+TEST_HASH="0eb202e23ae81be123b1b26cf31a9ba743824700"
+#declare -a GIT_TEST_HASHES=(
+#	"a5e11ea71164ff78c65fcf259db01ea5db981a9d868e60045ff2bffca92984df1174bf984a1076e450f0d5d69b4f0191ed1a61465c220e2c91a893b5df150c0a"
+#	"bcdbb347f3704262d1f00be7179d6a0a6e68aed56c0653e8072ee5a94985c713bd229c935b1226a658af84fb7f1fffc2458c98364fc35303a2303b12f9f7ce2f"
+#)
+GLI_TEST_HASH1="a5e11ea71164ff78c65fcf259db01ea5db981a9d868e60045ff2bffca92984df1174bf984a1076e450f0d5d69b4f0191ed1a61465c220e2c91a893b5df150c0a"
+GLI_TEST_HASH2="bcdbb347f3704262d1f00be7179d6a0a6e68aed56c0653e8072ee5a94985c713bd229c935b1226a658af84fb7f1fffc2458c98364fc35303a2303b12f9f7ce2f"
 
 DESCRIPTION="NLM Insight Segmentation and Registration Toolkit"
 HOMEPAGE="http://www.itk.org"
@@ -19,6 +25,9 @@ SRC_URI="
 	https://github.com/InsightSoftwareConsortium/ITKGenericLabelInterpolator/archive/${GLI_HASH}.zip -> ITKGenericLabelInterpolator-${PV}.zip
 	test? (
 		https://github.com/InsightSoftwareConsortium/ITK/releases/download/v${PV}/InsightData-${PV}.tar.gz
+		https://github.com/InsightSoftwareConsortium/ITKTestingData/archive/${TEST_HASH}.tar.gz
+		https://data.kitware.com/api/v1/file/hashsum/sha512/${GLI_TEST_HASH1}/download -> ${GLI_TEST_HASH1}
+		https://data.kitware.com/api/v1/file/hashsum/sha512/${GLI_TEST_HASH2}/download -> ${GLI_TEST_HASH2}
 		)
 	"
 #https://github.com/InsightSoftwareConsortium/ITKGenericLabelInterpolator/archive/${GLI_HASH}.zip -> ITKGenericLabelInterpolator-${PV}.zip
@@ -81,14 +90,24 @@ src_prepare() {
 	sed -i -e "s/find_package(OpenJPEG 2.0.0/find_package(OpenJPEG/g"\
 		Modules/ThirdParty/GDCM/src/gdcm/CMakeLists.txt
 	ln -sr ../ITKGenericLabelInterpolator-* Modules/External/ITKGenericLabelInterpolator || die
-	#if use test; then
-	#	for filename in ../GenericLabelInterpolator/test/*/*mha; do
-	#		MD5=$(md5sum $filename) || die
-	#		MD5=${MD5%  *} || die
-	#		cp "$filename" ".ExternalData/MD5/${MD5}" || die
-	#	done
-	#fi
+	#pwd
+	#echo ${S}
+	#echo ${WORKDIR}
+	#die
 	cmake_src_prepare
+	if use test; then
+		cp -rf "../ITKTestingData-${TEST_HASH}/"* ".ExternalData/" || die
+		mv "../ITKTestingData-${TEST_HASH}" "${BUILD_DIR}/.ExternalData" || die
+		cp "${DISTDIR}/${GLI_TEST_HASH1}" ".ExternalData/SHA512/" || die
+		cp "${DISTDIR}/${GLI_TEST_HASH1}" "${BUILD_DIR}/.ExternalData/SHA512/" || die
+		cp "${DISTDIR}/${GLI_TEST_HASH2}" ".ExternalData/SHA512/" || die
+		cp "${DISTDIR}/${GLI_TEST_HASH2}" "${BUILD_DIR}/.ExternalData/SHA512/" || die
+	fi
+	#pwd
+	#echo ${S}
+	#echo ${WORKDIR}
+	#echo ${BUILD_DIR}
+	#die
 }
 
 src_configure() {
