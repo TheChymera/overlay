@@ -46,7 +46,7 @@ RDEPEND="
 	dev-libs/double-conversion:0=
 	media-libs/openjpeg:2
 	media-libs/libpng:0=
-	media-libs/tiff:0=
+	media-libs/tiff:0=[jpeg]
 	sci-libs/dcmtk:0=
 	sci-libs/hdf5:0=[cxx]
 	sys-libs/zlib:0=

@@ -1,3 +1,6 @@
+  21 Sep 2020;  <chymera@gentoo.org> itk-5.1.0.ebuild:
+  sci-libs/itk: requiring jpeg support from media-libs/tiff
+
   19 Sep 2020;  <chymera@gentoo.org> itk-5.1.0.ebuild:
   sci-libs/itk: fetching test files
 
