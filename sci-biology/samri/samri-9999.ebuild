@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -30,6 +30,7 @@ RDEPEND="
 	>=dev-python/matplotlib-2.0.2[${PYTHON_USEDEP}]
 	>=dev-python/numpy-1.13.3[${PYTHON_USEDEP}]
 	dev-python/pandas[${PYTHON_USEDEP}]
+	dev-python/scipy[${PYTHON_USEDEP}]
 	dev-python/seaborn[${PYTHON_USEDEP}]
 	dev-python/statsmodels[${PYTHON_USEDEP}]
 	media-gfx/blender
@@ -42,7 +43,6 @@ RDEPEND="
 	>=sci-libs/nipype-1.0.0[${PYTHON_USEDEP}]
 	<=sci-libs/pybids-0.6.5[${PYTHON_USEDEP}]
 	sci-libs/scikits_image[${PYTHON_USEDEP}]
-	sci-libs/scipy[${PYTHON_USEDEP}]
 	sci-biology/ants
 	sci-biology/afni
 	sci-biology/nilearn[${PYTHON_USEDEP}]

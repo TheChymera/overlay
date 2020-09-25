@@ -1,3 +1,6 @@
+  25 Sep 2020;  <chymera@gentoo.org> samri-0.4.2.ebuild, samri-9999.ebuild:
+  sci-biology/samri: updated scipy dependency category
+
 *samri-0.4.2 (10 Jan 2020)
 
   10 Jan 2020;  <chymera@gentoo.org> +samri-0.4.2.ebuild:
