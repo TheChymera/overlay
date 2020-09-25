@@ -1,3 +1,6 @@
+  25 Sep 2020;  <chymera@gentoo.org> cosgen-9999.ebuild:
+  sci-libs/cosgen: removed package
+
   22 Aug 2017; Horea Christian <h.chr@mail.ru> samri-9999.ebuild:
   sci-biology/samri: added dep
 
