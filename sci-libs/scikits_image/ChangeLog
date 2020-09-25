@@ -1,3 +1,7 @@
+  25 Sep 2020;  <chymera@gentoo.org> scikits_image-0.14.3.ebuild,
+  scikits_image-0.16.2.ebuild:
+  sci-libs/scikits_image: updated scipy dependency name
+
   10 Apr 2020;  <chymera@gentoo.org> -scikits_image-0.14.2.ebuild,
   scikits_image-0.16.2.ebuild:
   sci-libs/scikits_image: version bump 0.16.2 ahead of Gentoo Main
