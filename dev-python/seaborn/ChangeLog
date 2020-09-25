@@ -1,3 +1,6 @@
+  25 Sep 2020;  <chymera@gentoo.org> seaborn-0.10.1.ebuild:
+  dev-python/seaborn: updated scipy dependency category
+
   26 Aug 2020;  <chymera@gentoo.org> seaborn-0.10.1.ebuild:
   dev-python/seaborn: no virtualx
 
