@@ -1,0 +1,11 @@
+# libsixel-python is not used by Gentoo as the python support is managed by libsixel USE="python"
+--- a/setup.py	2020-09-18 14:56:07.179050553 -0400
++++ b/setup.py	2020-09-18 14:57:21.760882060 -0400
+@@ -18,7 +18,6 @@
+           'nibabel>=2.3.0',
+           'matplotlib',
+           'numpy',
+-          'libsixel-python'
+       ],
+       zip_safe=False,
+       classifiers=[
