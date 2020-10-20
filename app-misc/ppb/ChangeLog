@@ -1,3 +1,8 @@
+*ppb-0.1.2 (20 Oct 2020)
+
+  20 Oct 2020;  <chymera@gentoo.org> +ppb-0.1.2.ebuild:
+  app-misc/ppb: version bump 0.1.2
+
 *ppb-0.1.1 (21 Jul 2020)
 
   21 Jul 2020;  <chymera@gentoo.org> +ppb-0.1.1.ebuild:
