@@ -33,7 +33,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	ewarn "Julius requires you to download the original Caesar 3 resources."
+	ewarn "Augustus requires you to download the original Caesar 3 resources."
 	ewarn
 	ewarn "You need to obtain these files from a vendor of the proprietary software."
 	ewarn "You will then need to copy the 'app' directory into '~/.cache/julius/'."
@@ -42,5 +42,5 @@ pkg_postinst() {
 	ewarn "    innoextract -m setup_caesar3_2.0.0.9.exe"
 	ewarn
 	ewarn "Lastly, run 'source /etc/profile' to refresh your environment and be able"
-	ewarn "to start the game directly by running 'julius' in the command line."
+	ewarn "to start the game directly by running 'augustus' in the command line."
 }
