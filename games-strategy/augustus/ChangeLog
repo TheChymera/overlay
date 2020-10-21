@@ -1,0 +1,5 @@
+*augustus-1.4.1a (21 Oct 2020)
+
+  21 Oct 2020;  <chymera@gentoo.org> +augustus-1.4.1a.ebuild,
+  +files/90augustus.sh, +metadata.xml:
+  games-strategy/augustus: new package
