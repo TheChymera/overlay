@@ -1,20 +1,2 @@
-*julius-1.4.1 (21 Oct 2020)
-
-  21 Oct 2020;  <chymera@gentoo.org> +julius-1.4.1.ebuild, julius-1.3.1.ebuild:
-  games-strategy/julius: version bump 1.4.1 and DESCRIPTION improvement
-
-  05 May 2020;  <chymera@gentoo.org> julius-1.3.1.ebuild:
-  games-strategy/julius: updated license
-
-  05 May 2020;  <chymera@gentoo.org> files/90julius.sh, julius-1.3.1.ebuild:
-  games-strategy/julius: using standard cmake functions and renaming  the
-  executable in order to mitigate collision with app-accessibility/julius
-
-  04 May 2020;  <chymera@gentoo.org> julius-1.3.1.ebuild:
-  games-strategy/julius: updated post-install instructions
-
-*julius-1.3.1 (04 May 2020)
-
-  04 May 2020;  <chymera@gentoo.org> +files/90julius.sh, +julius-1.3.1.ebuild,
-  +metadata.xml:
-  games-strategy/julius: new package
+  21 Oct 2020;  <chymera@gentoo.org> -ChangeLog:
+  games-strategy/julius: no longer tracking superfluous ChangLog
