@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="Feature-faithful open source re-implementation of Caesar III"
 HOMEPAGE="https://github.com/bvschaik/julius"
@@ -29,7 +29,7 @@ src_test() {
 src_install() {
 	insinto /etc/profile.d
 	doins "${FILESDIR}"/90julius.sh
-	cmake-utils_src_install
+	cmake_src_install
 	mv "${ED}"/usr/bin/julius  "${ED}"/usr/bin/julius-game ||
 		die "Failed to rename executable (required as per conflict with app-accessibility/julius)"
 }
