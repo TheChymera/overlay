@@ -44,5 +44,5 @@ pkg_postinst() {
 	ewarn "    innoextract -m setup_caesar3_2.0.0.9.exe"
 	ewarn
 	ewarn "Lastly, run 'source /etc/profile' to refresh your environment and be able"
-	ewarn "to start the game directly by running 'julius' in the command line."
+	ewarn "to start the game directly by running 'julius-game' in the command line."
 }
