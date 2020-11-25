@@ -1,3 +1,9 @@
+*pytorch-1.6.0-r2 (25 Nov 2020)
+
+  25 Nov 2020;  <chymera@gentoo.org> +pytorch-1.6.0-r2.ebuild,
+  -pytorch-1.4.0_p0.ebuild, -pytorch-1.6.0.ebuild, metadata.xml:
+  sci-libs/pytorch:
+
 *pytorch-1.4.0_p0 (23 Aug 2020)
 *pytorch-1.6.0 (23 Aug 2020)
 

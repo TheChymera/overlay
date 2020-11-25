@@ -11,7 +11,8 @@ MY_PN="SimpleITK"
 
 DESCRIPTION="Layer on top of ITK for rapid prototyping, education and interpreted languages."
 HOMEPAGE="https://simpleitk.org/"
-SRC_URI="https://github.com/SimpleITK/SimpleITK/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+#SRC_URI="https://github.com/SimpleITK/SimpleITK/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/SimpleITK/SimpleITK/releases/download/v${PV}/SimpleITK-${PV}.tar.gz"
 RESTRICT="primaryuri"
 
 LICENSE="Apache-2.0"
@@ -32,10 +33,10 @@ DEPEND="${RDEPEND}"
 
 #REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
-PATCHES=(
-	${FILESDIR}/0dfae3e_reversed.patch
-	${FILESDIR}/77a3d89_reversed.patch
-)
+#PATCHES=(
+#	${FILESDIR}/0dfae3e_reversed.patch
+#	${FILESDIR}/77a3d89_reversed.patch
+#)
 
 S="${WORKDIR}/${MY_PN}-${PV}"
 
@@ -46,6 +47,7 @@ src_configure() {
 		-DUSE_SYSTEM_GTEST=ON
 		-DUSE_SYSTEM_ITK=ON
 		-DUSE_SYSTEM_VIRTUALENV=ON
+		-DSimpleITK_PYTHON_USE_VIRTUALENV:BOOL=OFF
 	)
 		#-DITK_INSTALL_LIBRARY_DIR=$(get_libdir)
 		#-DBUILD_SHARED_LIBS=ON
@@ -82,7 +84,7 @@ src_configure() {
 	#	   -DITK_WRAP_PYTHON=OFF
 	#   )
 	#fi
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 #src_install() {
