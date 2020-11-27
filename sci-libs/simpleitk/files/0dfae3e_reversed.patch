@@ -1,0 +1,120 @@
+--- b/.circleci/config.yml
++++ a/.circleci/config.yml
+@@ -22,7 +22,7 @@
+     run:
+       name: Dependencies
+       command: |
++        sudo apt-get install -y rsync lua5.1 ccache kwstyle
+-        sudo apt-get install -y rsync lua5.3 ccache kwstyle
+         sudo python -m pip install --upgrade pip
+         sudo python -m pip install scikit-ci-addons # Provides "ctest_junit_formatter" add-on
+         sudo python -m pip install cmake==3.13.3
+--- b/.travis.yml
++++ a/.travis.yml
+@@ -19,7 +19,7 @@
+       sudo: required
+ 
+ before_script:
++  - sudo apt-get remove cmake && sudo apt-get install swig lua5.1 libinsighttoolkit4-dev doxygen graphviz
+-  - sudo apt-get remove cmake && sudo apt-get install swig lua5.3 libinsighttoolkit4-dev doxygen graphviz
+   - cd ${ExternalData_OBJECT_STORES} && if [[ ! -e ${CMAKE_DOWNLOAD_FILE} ]]; then curl -sSO https://cmake.org/files/v3.6/${CMAKE_DOWNLOAD_FILE}; fi
+   - echo "y\n" | sudo bash "${ExternalData_OBJECT_STORES}/${CMAKE_DOWNLOAD_FILE}" --prefix=/usr/local --exclude-subdir
+   - cmake --version
+--- b/CMake/sitkGenerateFilterSource.cmake
++++ a/CMake/sitkGenerateFilterSource.cmake
+@@ -6,7 +6,7 @@
+   get_property( SAVE_LUA_EXECUTABLE_TYPE CACHE LUA_EXECUTABLE PROPERTY TYPE )
+   get_property( SAVE_LUA_EXECUTABLE_DOCSTRING CACHE LUA_EXECUTABLE PROPERTY HELPSTRING )
+ 
++  find_package( LuaInterp 5.1  REQUIRED )
+-  find_package( LuaInterp 5.3  REQUIRED )
+   set( SimpleITK_LUA_EXECUTABLE ${LUA_EXECUTABLE} CACHE PATH "Lua executable used for code generation." )
+ 
+   if (DEFINED SAVE_LUA_EXECUTABLE)
+@@ -45,10 +45,10 @@
+ 
+ if( SITK_LUA_VERSION_RESULT_VARIABLE
+       OR
++    NOT ${SimpleITK_LUA_EXECUTABLE_VERSION} VERSION_GREATER "5.1"
+-    NOT ${SimpleITK_LUA_EXECUTABLE_VERSION} VERSION_GREATER "5.3"
+       OR
++    NOT ${SimpleITK_LUA_EXECUTABLE_VERSION} VERSION_LESS "5.2" )
++  message(SEND_ERROR "Lua version 5.1 is required for SimpleITK_LUA_EXECUTABLE_VERSION.")
+-    NOT ${SimpleITK_LUA_EXECUTABLE_VERSION} VERSION_LESS "5.4" )
+-  message(SEND_ERROR "Lua version 5.3 is required for SimpleITK_LUA_EXECUTABLE_VERSION.")
+ endif()
+ 
+ # Sets "out_var" variable name to the value in the json path specified
+--- b/ExpandTemplateGenerator/Components/ExecuteInternalSetITKFilterInputs.cxx.in
++++ a/ExpandTemplateGenerator/Components/ExecuteInternalSetITKFilterInputs.cxx.in
+@@ -8,7 +8,7 @@
+ $(if inputs then
+ for i = 1,#inputs do
+   if inputs[i].optional then
++    OUT = OUT .. '  if ( in'..inputs[i].name..' != NULL )\  {\n  '
+-    OUT = OUT .. '  if ( in'..inputs[i].name..' != NULL ) {\n'
+   else
+     OUT = OUT .. '  assert( '..'in' .. inputs[i].name ..' != NULL );\n'
+   end
+--- b/ExpandTemplateGenerator/ExpandTemplate.lua
++++ a/ExpandTemplateGenerator/ExpandTemplate.lua
+@@ -9,30 +9,14 @@
+ local pop     = table.remove
+ local concat  = table.concat
+ 
+--- based on http://lua-users.org/lists/lua-l/2010-06/msg00314.html
+--- this assumes f is a function
+-local function findenv(f)
+-  local level = 1
+-  repeat
+-    local name, value = debug.getupvalue(f, level)
+-    if name == '_ENV' then return level, value end
+-    level = level + 1
+-  until name == nil
+-  return nil end
+-getfenv = function (f) return(select(2, findenv(f)) or _G) end
+-setfenv = function (f, t)
+-  local level = findenv(f)
+-  if level then debug.setupvalue(f, level, t) end
+-  return f end
+-
+ local statements = {}
++for w in string.gfind('do if for while repeat', '%a+') do
+-for w in string.gmatch('do if for while repeat', '%a+') do
+   statements[w] = true
+ end
+ 
+ function expand(str, ...)
+   assert(type(str)=='string', 'expecting string')
++  local searchlist = arg
+-  local searchlist = table.pack(...)
+   local estring,evar
+ 
+   function estring(str)
+--- b/SuperBuild/External_Lua.cmake
++++ a/SuperBuild/External_Lua.cmake
+@@ -7,7 +7,7 @@
+ 
+ set(proj Lua)
+ 
++set(lua_TARGET_VERSION 5.1.5)
+-set(lua_TARGET_VERSION 5.3.5)
+ 
+ # follow the standard EP_PREFIX locations
+ set(lua_binary_dir ${CMAKE_CURRENT_BINARY_DIR}/${proj}-prefix/src/${proj}-build)
+--- b/SuperBuild/SuperBuild.cmake
++++ a/SuperBuild/SuperBuild.cmake
+@@ -307,11 +307,11 @@
+ #------------------------------------------------------------------------------
+ # Lua
+ #------------------------------------------------------------------------------
++option ( SimpleITK_USE_SYSTEM_LUA "Use a pre-compiled version of LUA 5.1 previously configured for your system" OFF )
+-option ( SimpleITK_USE_SYSTEM_LUA "Use a pre-compiled version of LUA 5.3 previously configured for your system" OFF )
+ sitk_legacy_naming( SimpleITK_USE_SYSTEM_LUA USE_SYSTEM_LUA)
+ mark_as_advanced(SimpleITK_USE_SYSTEM_LUA)
+ if ( SimpleITK_USE_SYSTEM_LUA )
++  find_package( LuaInterp 5.1 REQUIRED )
+-  find_package( LuaInterp 5.3 REQUIRED )
+   set( SimpleITK_LUA_EXECUTABLE ${LUA_EXECUTABLE} CACHE PATH "Lua executable used for code generation." )
+   mark_as_advanced( SimpleITK_LUA_EXECUTABLE )
+   unset( LUA_EXECUTABLE CACHE )

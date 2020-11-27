@@ -12,7 +12,10 @@ MY_PN="SimpleITK"
 DESCRIPTION="Layer on top of ITK for rapid prototyping, education and interpreted languages."
 HOMEPAGE="https://simpleitk.org/"
 #SRC_URI="https://github.com/SimpleITK/SimpleITK/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI="https://github.com/SimpleITK/SimpleITK/releases/download/v${PV}/SimpleITK-${PV}.tar.gz"
+SRC_URI="
+	https://github.com/SimpleITK/SimpleITK/releases/download/v${PV}/SimpleITK-${PV}.tar.gz
+	https://github.com/SimpleITK/SimpleITK/releases/download/v${PV}/SimpleITKData-${PV}.tar.gz
+"
 RESTRICT="primaryuri"
 
 LICENSE="Apache-2.0"
@@ -24,32 +27,44 @@ IUSE="python"
 # Let's hope for the best!
 RDEPEND="
 	dev-lang/lua:0
-	dev-lang/swig
 	dev-cpp/gtest
 	sci-libs/itk
 	dev-python/virtualenv
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	dev-lang/swig
+"
 
 #REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
-#PATCHES=(
-#	${FILESDIR}/0dfae3e_reversed.patch
-#	${FILESDIR}/77a3d89_reversed.patch
-#)
+PATCHES=(
+	"${FILESDIR}/${P}-module.patch"
+	"${FILESDIR}/${P}-int-cast.patch"
+)
 
 S="${WORKDIR}/${MY_PN}-${PV}"
 
+src_prepare() {
+	cmake_src_prepare
+	cp -rf "../${MY_PN}-${PV}/.ExternalData" "${BUILD_DIR}/" || die
+}
+
 src_configure() {
 	local mycmakeargs=(
-		-DUSE_SYSTEM_LUA=ON
-		-DUSE_SYSTEM_SWIG=ON
 		-DUSE_SYSTEM_GTEST=ON
 		-DUSE_SYSTEM_ITK=ON
+		-DUSE_SYSTEM_LUA=ON
+		-DUSE_SYSTEM_SWIG=ON
 		-DUSE_SYSTEM_VIRTUALENV=ON
+		-DBUILD_TESTING:BOOL=OFF
+		-DSimpleITK_FORBID_DOWNLOADS=ON
 		-DSimpleITK_PYTHON_USE_VIRTUALENV:BOOL=OFF
+		-DSimpleITK_EXPLICIT_INSTANTIATION=OFF
+		-DModule_SimpleITKFilters:BOOL=ON
+		-DExternalData_OBJECT_STORES:STRING="${BUILD_DIR}/.ExternalData"
+		-DSimpleITK_INSTALL_LIBRARY_DIR=$(get_libdir)
 	)
-		#-DITK_INSTALL_LIBRARY_DIR=$(get_libdir)
 		#-DBUILD_SHARED_LIBS=ON
 		#-DGDCM_USE_SYSTEM_OPENJPEG=ON
 		#-DITK_FORBID_DOWNLOADS:BOOL=OFF

@@ -16,25 +16,29 @@ RESTRICT="primaryuri"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+# Won't work on account of newer LUA requirement:
+# https://github.com/SimpleITK/SimpleITK/issues/1242
+KEYWORDS=""
 IUSE="python"
 
 # According to upstream it should be dev-lang/lua:5.3 , but that is hard masked.
 # Let's hope for the best!
 RDEPEND="
 	dev-lang/lua:0
-	dev-lang/swig
 	dev-cpp/gtest
 	sci-libs/itk
 	dev-python/virtualenv
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	dev-lang/swig
+	${RDEPEND}
+"
 
 #REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 PATCHES=(
-	${FILESDIR}/0dfae3e_reversed.patch
-	${FILESDIR}/77a3d89_reversed.patch
+	"${FILESDIR}/0dfae3e_reversed.patch"
+	"${FILESDIR}/77a3d89_reversed.patch"
 )
 
 S="${WORKDIR}/${MY_PN}-${PV}"
