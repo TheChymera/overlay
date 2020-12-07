@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>klugh@ethz.ch</email>
+        <name>Hendrik Klug</name>
+    </maintainer>
+    <longdescription>
+        TorchIO is a Python package containing a set of tools to efficiently read,
+        preprocess, sample, augment, and write 3D medical images in deep learning
+        applications written in PyTorch, including intensity and spatial transforms
+        for data augmentation and preprocessing. Transforms include typical computer
+        vision operations such as random affine transformations and also
+        domain-specific ones such as simulation of intensity artifacts due to MRI
+        magnetic field inhomogeneity or k-space motion artifacts.
+    </longdescription>
+    <upstream>
+        <remote-id type="github">fepegar/torchio</remote-id>
+    </upstream>
+</pkgmetadata>
