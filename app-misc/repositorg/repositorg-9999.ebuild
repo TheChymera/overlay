@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=(python3_{6,7,8})
+PYTHON_COMPAT=(python3_{6..9})
 
 inherit distutils-r1 git-r3 systemd
 
@@ -18,7 +18,8 @@ KEYWORDS=""
 IUSE="systemd"
 
 DEPEND="
-	>=dev-python/argh-0.26.2
+	>=dev-python/argh-0.26.2[${PYTHON_USEDEP}]
+	dev-python/regex[${PYTHON_USEDEP}]
 	media-libs/mutagen
 	systemd? ( sys-apps/systemd )
 "
