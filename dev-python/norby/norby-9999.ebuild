@@ -10,13 +10,13 @@ inherit git-r3
 
 DESCRIPTION="Get notified via a telegram bot when your bash command finished."
 HOMEPAGE="https://github.com/Jimmy2027/NORBY"
-#SRC_URI="https://github.com/Jimmy2027/NORBY/archive/${PV}.tar.gz -> ${P}.tar.gz"
 EGIT_REPO_URI="https://github.com/Jimmy2027/NORBY.git"
 KEYWORDS="~amd64 ~x86"
 LICENSE="GNU General Public License v3.0"
 SLOT="0"
 DEPEND="
-    dev-python/requests
+    dev-python/requests[${PYTHON_USEDEP}]
+	dev-python/subprocess-tee[${PYTHON_USEDEP}]
 	"
 
 RDEPEND="${DEPEND}"
