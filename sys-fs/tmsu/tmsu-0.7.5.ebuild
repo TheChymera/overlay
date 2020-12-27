@@ -49,6 +49,6 @@ src_install() {
 }
 
 src_test() {
-	cd "${WORKDIR}/${P}/tests" || die
+	cd "${WORKDIR}/${P}/src/github.com/oniony/TMSU/tests" || die
 	./runall || die
 }
