@@ -26,6 +26,7 @@
 		Contributions are welcome.
 	</longdescription>
 	<upstream>
+		<remote-id type="gitlab">libxc/libxc</remote-id>
 		<doc>http://octopus-code.org/wiki/Libxc:manual</doc>
 	</upstream>
 </pkgmetadata>

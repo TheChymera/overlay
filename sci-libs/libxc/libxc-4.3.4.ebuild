@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -7,7 +7,7 @@ inherit autotools fortran-2
 
 DESCRIPTION="A library of exchange-correlation functionals for use in DFT"
 HOMEPAGE="http://octopus-code.org/wiki/Libxc"
-SRC_URI="http://www.tddft.org/programs/octopus/down.php?file=libxc/${PV}/${P}.tar.gz"
+SRC_URI="https://gitlab.com/libxc/libxc/-/archive/${PV}/${P}.tar.gz"
 
 LICENSE="MPL-2.0"
 SLOT="0"
@@ -45,8 +45,8 @@ src_test() {
 
 src_install() {
 	default
-	find "${ED%/}" -name '*.la' -type f -delete || die
+	find "${ED}" -name '*.la' -type f -delete || die
 	if ! use fortran; then
-		rm "${ED%/}"/usr/$(get_libdir)/pkgconfig/libxcf{03,90}.pc || die
+		rm "${ED}"/usr/$(get_libdir)/pkgconfig/libxcf{03,90}.pc || die
 	fi
 }
