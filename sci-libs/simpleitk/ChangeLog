@@ -1,3 +1,9 @@
+  03 Jan 2021;  <chymera@gentoo.org> -files/0dfae3e_reversed.patch,
+  -files/77a3d89_reversed.patch, -files/simpleitk-1.2.4-int-cast.patch,
+  -files/simpleitk-1.2.4-module.patch, -simpleitk-1.2.4.ebuild,
+  simpleitk-2.0.0.ebuild:
+  sci-libs/simpleitk: current simpleitk pending lua-5.3 availability
+
   27 Nov 2020;  <chymera@gentoo.org> +files/0dfae3e_reversed.patch,
   +files/77a3d89_reversed.patch, +files/simpleitk-1.2.4-int-cast.patch,
   +files/simpleitk-1.2.4-module.patch, -simpleitk-1.2.3.ebuild,
