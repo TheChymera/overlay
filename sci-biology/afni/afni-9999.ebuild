@@ -23,7 +23,7 @@ EGIT_REPO_URI="https://github.com/afni/afni.git"
 
 SLOT="0"
 LICENSE="GPL-3+"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="test"
 RESTRICT="!test? ( test )"
 

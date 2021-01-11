@@ -1,3 +1,6 @@
+  11 Jan 2021;  <chymera@gentoo.org> afni-9999.ebuild:
+  sci-biology/afni: no keywords for live ebuild
+
 *afni-9999 (09 Jan 2021)
 
   09 Jan 2021;  <chymera@gentoo.org> +afni-9999.ebuild, +metadata.xml:
