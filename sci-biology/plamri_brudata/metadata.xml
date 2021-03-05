@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>chr@chymera.eu</email>
+		<name>Horea Christian</name>
+	</maintainer>
+	<maintainer type="project">
+		<email>sci@gentoo.org</email>
+		<name>Gentoo Science Project</name>
+	</maintainer>
+	<longdescription lang="en">
+		Bruker Paravision data archive containing plate scans with T1 and
+		T2-weighted sequences, as required for testing the PlaMRI package.
+	</longdescription>
+</pkgmetadata>
