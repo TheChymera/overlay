@@ -1,8 +1,6 @@
-  21 Oct 2020;  <chymera@gentoo.org> augustus-1.4.1a.ebuild:
-  games-strategy/augustus: updated elog
+*augustus-9999 (16 Mar 2021)
 
-*augustus-1.4.1a (21 Oct 2020)
-
-  21 Oct 2020;  <chymera@gentoo.org> +augustus-1.4.1a.ebuild,
-  +files/90augustus.sh, +metadata.xml:
-  games-strategy/augustus: new package
+  16 Mar 2021;  <chymera@gentoo.org> +augustus-9999.ebuild,
+  +files/augustus-2.0.1-uncapped.patch, -ChangeLog, -Manifest,
+  -augustus-1.4.1a.ebuild, metadata.xml:
+  games-strategy/augustus: live ebuild with proper system-wide dirs
