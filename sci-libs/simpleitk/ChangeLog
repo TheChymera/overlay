@@ -1,3 +1,6 @@
+  06 May 2021;  <chymera@gentoo.org> simpleitk-1.2.4.ebuild:
+  sci-libs/simpleitk: trying out python-r1 and more suited phase
+
 *simpleitk-1.2.4 (06 May 2021)
 
   06 May 2021;  <chymera@gentoo.org> +files/simpleitk-1.2.4-int-cast.patch,

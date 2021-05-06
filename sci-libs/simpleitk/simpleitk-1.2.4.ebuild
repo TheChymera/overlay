@@ -74,7 +74,9 @@ src_configure() {
 #		-DUSE_SYSTEM_LUA=ON
 #		-DUSE_SYSTEM_SWIG=ON
 
-src_install() {
+src_compile() {
+	#default
+	cmake_src_compile
 	pwd
 	ls -lah
 	echo "${BUILD_DIR}"
@@ -83,14 +85,30 @@ src_install() {
 		pwd
 		echo "Doing "python Packaging/setup.py install" here"
 		#1
-		#python Packaging/setup.py install || die
-		cd Packaging || die
-		esetup.py install || die
+		python Packaging/setup.py install || die
+		#2
+		#cd Packaging || die
+		#esetup.py install || die
 	popd > /dev/null || die
-	#pushd ../${P}_build/Wrapping/Python > /dev/null || die
-	#	python Packaging/setup.py install
-	#popd > /dev/null || die
-	#pwd
-	#ls -lah
-	#die
 }
+
+#src_install() {
+#	pwd
+#	ls -lah
+#	echo "${BUILD_DIR}"
+#	cd "../${P}_build" || die
+#	pushd Wrapping/Python > /dev/null || die
+#		pwd
+#		echo "Doing "python Packaging/setup.py install" here"
+#		#1
+#		#python Packaging/setup.py install || die
+#		cd Packaging || die
+#		esetup.py install || die
+#	popd > /dev/null || die
+#	#pushd ../${P}_build/Wrapping/Python > /dev/null || die
+#	#	python Packaging/setup.py install
+#	#popd > /dev/null || die
+#	#pwd
+#	#ls -lah
+#	#die
+#}
