@@ -4,9 +4,11 @@
 EAPI=7
 
 PYTHON_COMPAT=( python3_{7..9} )
-LUA_COMPAT=( lua5-{1..3} )
+LUA_COMPAT=( lua5-1 )
 
-inherit lua-single toolchain-funcs cmake python-single-r1
+inherit lua-single toolchain-funcs cmake python-r1
+#distutils-r1
+#python-single-r1
 
 MY_PN="SimpleITK"
 
@@ -22,6 +24,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+# tcl currently fails: https://github.com/SimpleITK/SimpleITK/issues/1348
 IUSE="python tcl"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -71,6 +74,23 @@ src_configure() {
 #		-DUSE_SYSTEM_LUA=ON
 #		-DUSE_SYSTEM_SWIG=ON
 
-#src_install() {
-#	die
-#}
+src_install() {
+	pwd
+	ls -lah
+	echo "${BUILD_DIR}"
+	cd "../${P}_build" || die
+	pushd Wrapping/Python > /dev/null || die
+		pwd
+		echo "Doing "python Packaging/setup.py install" here"
+		#1
+		#python Packaging/setup.py install || die
+		cd Packaging || die
+		esetup.py install || die
+	popd > /dev/null || die
+	#pushd ../${P}_build/Wrapping/Python > /dev/null || die
+	#	python Packaging/setup.py install
+	#popd > /dev/null || die
+	#pwd
+	#ls -lah
+	#die
+}
