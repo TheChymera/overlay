@@ -1,3 +1,6 @@
+  16 May 2021;  <chymera@gentoo.org> redshift-wlr-9999.ebuild:
+  x11-misc/redshift-wlr: python compat bump
+
 *redshift-wlr-9999 (13 Mar 2020)
 
   13 Mar 2020;  <chymera@gentoo.org> +metadata.xml, +redshift-wlr-9999.ebuild:
