@@ -1,2 +1,5 @@
+  09 Jul 2021;  <chymera@gentoo.org> RTbatch-9999.ebuild:
+  app-misc/RTbatch: EAPI and Python bump
+
   24 Mar 2020;  <chymera@gentoo.org> +metadata.xml, RTbatch-9999.ebuild:
   app-misc/RTbatch: updated ebuild
