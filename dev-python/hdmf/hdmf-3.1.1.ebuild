@@ -4,16 +4,16 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{8..10} )
+DISTUTILS_USE_SETUPTOOLS=rdepend
 inherit distutils-r1
 
 DESCRIPTION="The Hierarchical Data Modeling Framework"
 HOMEPAGE="https://github.com/hdmf-dev/hdmf"
-SRC_URI="https://github.com/hdmf-dev/hdmf/releases/download/${PV}/${P}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/hdmf-dev/hdmf/releases/download/${PV}/${P}.tar.gz"
 
 SLOT="0"
 LICENSE="BSD"
 KEYWORDS="~amd64 ~x86"
-#KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 RDEPEND="
 	dev-python/h5py[${PYTHON_USEDEP}]

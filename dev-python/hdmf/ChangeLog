@@ -1,3 +1,6 @@
+  24 Sep 2021;  <chymera@gentoo.org> hdmf-3.1.1.ebuild:
+  dev-python/hdmf: QA warnings  tests pass
+
 *keyrings_alt-4.1.0 (24 Sep 2021)
 
   24 Sep 2021;  <chymera@gentoo.org> +keyrings_alt-4.1.0.ebuild, +metadata.xml:
