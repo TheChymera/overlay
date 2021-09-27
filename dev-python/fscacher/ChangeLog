@@ -1,0 +1,5 @@
+*fscacher-0.1.4 (27 Sep 2021)
+
+  27 Sep 2021;  <chymera@gentoo.org> +files/fscacher-0.1.4-coverage.patch,
+  +fscacher-0.1.4.ebuild, +metadata.xml:
+  dev-python/fscacher: new package (DANDI stack)
