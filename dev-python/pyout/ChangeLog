@@ -1,0 +1,4 @@
+*pyout-0.7.1 (27 Sep 2021)
+
+  27 Sep 2021;  <chymera@gentoo.org> +metadata.xml, +pyout-0.7.1.ebuild:
+  dev-python/pyout: new package (DANDI stack)
