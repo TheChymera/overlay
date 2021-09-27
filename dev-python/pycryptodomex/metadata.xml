@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@chymera.eu</email>
+		<name>Horea Christian</name>
+	</maintainer>
+	<maintainer type="project">
+		<email>sci@gentoo.org</email>
+		<name>Gentoo Science Project</name>
+	</maintainer>
+	<longdescription lang="en">
+		PyCryptodome is a self-contained Python package of low-level
+		cryptographic primitives. It is a fork of PyCrypto, and brings
+		numerous enhancements with respect to the official versions of
+		PyCrypto, such as Authenticated encryption modes (GCM, CCM, EAX,
+		SIV, OCB), Accelerated AES on Intel platforms via AES-NI, Elliptic
+		curves cryptography (NIST P-256, P-384 and P-521 curves only),
+		SHA-3 (including SHAKE XOFs), truncated SHA-512 and BLAKE2 hash
+		algorithms, and many more. PyCryptodome is not a wrapper to a
+		separate C library like OpenSSL. To the largest possible extent,
+		algorithms are implemented in pure Python. Only the pieces that
+		are extremely critical to performance (e.g. block ciphers) are
+		implemented as C extensions.
+	</longdescription>
+</pkgmetadata>

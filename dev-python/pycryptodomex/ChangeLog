@@ -1,0 +1,5 @@
+*pycryptodomex-3.10.4 (27 Sep 2021)
+
+  27 Sep 2021;  <chymera@gentoo.org> +metadata.xml,
+  +pycryptodomex-3.10.4.ebuild:
+  dev-python/pycryptodomex: new package (DANDI stack)
