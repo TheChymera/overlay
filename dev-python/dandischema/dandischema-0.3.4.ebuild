@@ -8,7 +8,6 @@ inherit distutils-r1
 
 DESCRIPTION="Schemata for DANDI archive project"
 HOMEPAGE="https://github.com/dandi/dandischema"
-EGIT_REPO_URI="https://github.com/dandi/dandischema.git"
 SRC_URI="https://github.com/dandi/dandischema/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"

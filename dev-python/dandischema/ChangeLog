@@ -1,3 +1,6 @@
+  27 Sep 2021;  <chymera@gentoo.org> dandischema-0.3.4.ebuild:
+  dev-python/dandischema: removed unused git variable
+
 *dandischema-0.3.4 (27 Sep 2021)
 
   27 Sep 2021;  <chymera@gentoo.org> +dandischema-0.3.4.ebuild,
