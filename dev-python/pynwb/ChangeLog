@@ -1,3 +1,6 @@
+  01 Oct 2021;  <chymera@gentoo.org> pynwb-2.0.0.ebuild:
+  dev-python/pynwb: requiring ROS3 support on hdf5
+
 *keyrings_alt-4.1.0 (24 Sep 2021)
 
   24 Sep 2021;  <chymera@gentoo.org> +keyrings_alt-4.1.0.ebuild, +metadata.xml:
