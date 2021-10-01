@@ -1,3 +1,10 @@
+*click-didyoumean-0.1.0 (01 Oct 2021)
+*click-didyoumean-0.2.0 (01 Oct 2021)
+
+  01 Oct 2021;  <chymera@gentoo.org> +click-didyoumean-0.1.0.ebuild,
+  +click-didyoumean-0.2.0.ebuild, -click-didyoumean-0.0.3.ebuild:
+  dev-python/click-didyoumean: version bump
+
 *click-didyoumean-0.0.3 (27 Sep 2021)
 
   27 Sep 2021;  <chymera@gentoo.org> +click-didyoumean-0.0.3.ebuild,

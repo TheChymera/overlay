@@ -8,13 +8,15 @@ inherit distutils-r1
 
 DESCRIPTION="Enable git-like did-you-mean feature in click"
 HOMEPAGE="https://github.com/click-contrib/click-didyoumean"
-SRC_URI="https://github.com/click-contrib/click-didyoumean/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
+#SRC_URI="https://github.com/click-contrib/click-didyoumean/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-RESTRICT="test"
-# Issue reported upstream: https://github.com/click-contrib/click-didyoumean/issues/11
+#RESTRICT="test"
+# Tests actually pass, but not included in archive:
+# https://github.com/click-contrib/click-didyoumean/issues/11
 DEPEND="
 	dev-python/click
 "
