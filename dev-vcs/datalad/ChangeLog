@@ -1,0 +1,4 @@
+*datalad-0.15.1 (02 Oct 2021)
+
+  02 Oct 2021;  <chymera@gentoo.org> +datalad-0.15.1.ebuild, +metadata.xml:
+  dev-vcs/datalad: new package
