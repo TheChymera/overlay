@@ -1,4 +1,2 @@
-*annexremote-1.5.0 (20 Sep 2021)
-
-  20 Sep 2021;  <chymera@gentoo.org> +annexremote-1.5.0.ebuild, +metadata.xml:
-  dev-python/annexremote: new package (datalad dep)
+  02 Oct 2021;  <chymera@gentoo.org> -ChangeLog:
+  dev-python/annexremote: removed changelog
