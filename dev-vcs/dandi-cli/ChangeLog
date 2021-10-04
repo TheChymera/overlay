@@ -1,3 +1,6 @@
+  02 Oct 2021;  <chymera@gentoo.org> dandi-cli-0.27.2.ebuild:
+  dev-vcs/dandi-cli: let tests break for testing purposes
+
 *dandi-cli-0.27.2 (27 Sep 2021)
 
   27 Sep 2021;  <chymera@gentoo.org> +dandi-cli-0.27.2.ebuild, +metadata.xml:
