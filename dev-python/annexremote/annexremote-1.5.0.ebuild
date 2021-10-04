@@ -20,9 +20,16 @@ IUSE="examples"
 
 S="${WORKDIR}/${MY_P}"
 
-RDEPEND="dev-python/future[${PYTHON_USEDEP}]"
-DEPEND="${RDEPEND}
-	dev-python/setuptools[${PYTHON_USEDEP}]"
+COMMON_DEPEND="dev-python/future[${PYTHON_USEDEP}]"
+RDEPEND="
+	${COMMON_DEPEND}
+	dev-vcs/git-annex
+	"
+DEPEND="
+	${COMMON_DEPEND}
+"
+
+distutils_enable_tests nose
 
 python_install_all() {
 	distutils-r1_python_install_all
