@@ -13,7 +13,7 @@ SRC_URI="https://github.com/datalad/datalad/archive/refs/tags/${PV}.tar.gz -> ${
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="test +downloaders +metadata publish misc"
+IUSE="test +downloaders +metadata +publish misc"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
