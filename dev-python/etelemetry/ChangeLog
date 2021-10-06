@@ -1,0 +1,4 @@
+*etelemetry-0.2.2 (06 Oct 2021)
+
+  06 Oct 2021;  <chymera@gentoo.org> +etelemetry-0.2.2.ebuild, +metadata.xml:
+  dev-python/etelemetry: new package (DANDI stack)

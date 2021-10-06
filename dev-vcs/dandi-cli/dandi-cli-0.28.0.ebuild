@@ -21,7 +21,7 @@ RDEPEND="
 	dev-python/appdirs[${PYTHON_USEDEP}]
 	dev-python/click[${PYTHON_USEDEP}]
 	dev-python/click-didyoumean[${PYTHON_USEDEP}]
-	=dev-python/dandischema-0.3*[${PYTHON_USEDEP}]
+	=dev-python/dandischema-0.4*[${PYTHON_USEDEP}]
 	dev-python/fasteners[${PYTHON_USEDEP}]
 	dev-python/fscacher[${PYTHON_USEDEP}]
 	dev-python/humanize[${PYTHON_USEDEP}]

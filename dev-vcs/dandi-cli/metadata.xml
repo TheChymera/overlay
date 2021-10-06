@@ -16,4 +16,7 @@
 		has a set of options to alter their behavior. Please run
 		`dandi COMMAND --help` to get more information
 	</longdescription>
+	<use>
+		<flag name="etelemetry">version checking to respect server schema version</flag>
+	</use>
 </pkgmetadata>
