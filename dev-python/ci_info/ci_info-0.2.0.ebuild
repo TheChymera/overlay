@@ -16,7 +16,9 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
-RESTRICT="!test? ( test )"
+# Tests broken without specific CI environment:
+# https://github.com/mgxd/ci-info/issues/7
+RESTRICT="test"
 
 DEPEND=""
 RDEPEND=""
