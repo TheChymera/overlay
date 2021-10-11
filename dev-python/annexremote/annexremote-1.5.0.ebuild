@@ -23,8 +23,7 @@ S="${WORKDIR}/${MY_P}"
 COMMON_DEPEND="dev-python/future[${PYTHON_USEDEP}]"
 RDEPEND="
 	${COMMON_DEPEND}
-	dev-vcs/git-annex
-	"
+"
 DEPEND="
 	${COMMON_DEPEND}
 "

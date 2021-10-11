@@ -1,3 +1,7 @@
+  11 Oct 2021;  <chymera@gentoo.org> annexremote-1.5.0.ebuild:
+  dev-python/annexremote: does not in fact depend on git-annex
+  https://github.com/Lykos153/AnnexRemote/issues/31
+
   04 Oct 2021;  <chymera@gentoo.org> annexremote-1.5.0.ebuild:
   dev-python/annexremote: enabled test suite  passes
 
