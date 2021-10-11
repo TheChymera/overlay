@@ -14,7 +14,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test +etelemetry"
-RESTRICT="test"
+#RESTRICT="test"
 # Test fail during collection, reported upstream: https://github.com/dandi/dandi-cli/issues/774
 
 RDEPEND="
@@ -29,6 +29,7 @@ RDEPEND="
 	dev-python/keyring[${PYTHON_USEDEP}]
 	dev-python/keyrings_alt[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
+	dev-python/pycryptodomex[${PYTHON_USEDEP}]
 	dev-python/pydantic[${PYTHON_USEDEP}]
 	dev-python/pynwb[${PYTHON_USEDEP}]
 	dev-python/pyout[${PYTHON_USEDEP}]
@@ -64,7 +65,7 @@ src_prepare() {
 	default
 }
 
-#python_install_all() {
-#	distutils-r1_python_install_all
-#	dodoc README.md
-#}
+python_test() {
+	export DANDI_TESTS_NONETWORK=1
+	DANDI_TESTS_NONETWORK=1  ${EPYTHON} -m pytest -vv || die "Tests failed with ${EPYTHON}"
+}
