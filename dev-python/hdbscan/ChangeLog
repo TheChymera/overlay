@@ -1,0 +1,4 @@
+*hdbscan-0.8.26 (12 Oct 2021)
+
+  12 Oct 2021;  <chymera@gentoo.org> +hdbscan-0.8.26.ebuild, +metadata.xml:
+  dev-python/hdbscan: new package (DANDI ephys stack)
