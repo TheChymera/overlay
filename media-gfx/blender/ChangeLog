@@ -1,3 +1,6 @@
+  13 Oct 2021;  <chymera@gentoo.org> blender-2.90.1-r1.ebuild:
+  media-gfx/blender: remove broken PYTHON_COMPAT
+
 *blender-2.90.1-r1 (13 Oct 2021)
 
   13 Oct 2021;  <chymera@gentoo.org> +blender-2.90.1-r1.ebuild, -ChangeLog,
