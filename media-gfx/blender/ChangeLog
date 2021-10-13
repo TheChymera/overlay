@@ -1,4 +1,5 @@
-*blender-2.91.2 (12 Oct 2021)
+*blender-2.90.1-r1 (13 Oct 2021)
 
-  12 Oct 2021;  <chymera@gentoo.org> +blender-2.91.2.ebuild, +metadata.xml:
-  media-gfx/blender: required by SAMRI due to API change
+  13 Oct 2021;  <chymera@gentoo.org> +blender-2.90.1-r1.ebuild, -ChangeLog,
+  -blender-2.91.2.ebuild:
+  media-gfx/blender: added slot

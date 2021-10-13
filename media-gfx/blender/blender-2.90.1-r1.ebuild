@@ -3,22 +3,23 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{7,8} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit check-reqs cmake flag-o-matic pax-utils python-single-r1 \
 	toolchain-funcs xdg-utils
 
 DESCRIPTION="3D Creation/Animation/Publishing System"
 HOMEPAGE="https://www.blender.org"
+
 SRC_URI="https://download.blender.org/source/${P}.tar.xz"
 
 # Blender can have letters in the version string,
 # so strip off the letter if it exists.
 MY_PV="$(ver_cut 1-2)"
 
-SLOT="0"
+SLOT="2.91"
 LICENSE="|| ( GPL-2 BL )"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="+bullet +dds +elbeem +openexr +system-python +system-numpy +tbb \
 	abi6-compat abi7-compat alembic collada color-management cuda cycles \
 	debug doc ffmpeg fftw headless jack jemalloc jpeg2k llvm \
@@ -41,15 +42,11 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 
 RDEPEND="${PYTHON_DEPS}
 	dev-libs/boost:=[nls?,threads(+)]
-	dev-libs/gmp
-	dev-libs/pugixml
 	dev-libs/lzo:2=
 	$(python_gen_cond_dep '
 		dev-python/numpy[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
 	')
-	media-gfx/potrace
-	media-libs/fontconfig:=
 	media-libs/freetype:=
 	media-libs/glew:*
 	media-libs/libpng:=
@@ -63,7 +60,6 @@ RDEPEND="${PYTHON_DEPS}
 	collada? ( >=media-libs/opencollada-1.6.68 )
 	color-management? ( media-libs/opencolorio )
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
-	cycles? ( media-libs/freeglut )
 	ffmpeg? ( media-video/ffmpeg:=[x264,mp3,encode,theora,jpeg2k?] )
 	fftw? ( sci-libs/fftw:3.0= )
 	!headless? (
@@ -307,15 +303,6 @@ pkg_postinst() {
 	ewarn "If you are concerned about security, file a bug upstream:"
 	ewarn "  https://developer.blender.org/"
 	ewarn
-
-	if use python_single_target_python3_8; then
-		elog "You've enabled python-3.8 support for blender, which is still experimental."
-		elog "If you experience breakages with e.g. plugins, please switch to"
-		elog "python_single_target_python3_7 instead."
-		elog "Bug: https://bugs.gentoo.org/737388"
-		elog
-	fi
-
 	xdg_icon_cache_update
 	xdg_mimeinfo_database_update
 	xdg_desktop_database_update
