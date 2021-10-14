@@ -1,5 +1,0 @@
-*probeinterface-0.2.5 (09 Oct 2021)
-
-  09 Oct 2021;  <chymera@gentoo.org> +metadata.xml,
-  +probeinterface-0.2.5.ebuild:
-  dev-python/probeinterface: new package (DANDI ephys stack)

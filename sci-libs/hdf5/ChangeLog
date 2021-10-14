@@ -1,6 +1,0 @@
-*hdf5-1.12.1 (01 Oct 2021)
-
-  01 Oct 2021;  <chymera@gentoo.org> +files/hdf5-1.12.1-cmake_installdirs.patch,
-  +hdf5-1.12.1.ebuild, +metadata.xml:
-  sci-libs/hdf5: added ROS3 support (DANDI stack)  Pending:
-  https://github.com/gentoo/gentoo/pull/22455

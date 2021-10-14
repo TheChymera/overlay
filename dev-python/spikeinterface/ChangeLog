@@ -1,5 +1,0 @@
-*spikeinterface-0.91.0 (13 Oct 2021)
-
-  13 Oct 2021;  <chymera@gentoo.org> +metadata.xml,
-  +spikeinterface-0.91.0.ebuild:
-  dev-python/spikeinterface: new package (DANDI ephys stack)

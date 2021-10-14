@@ -1,4 +1,0 @@
-*tridesclous-1.6.4 (12 Oct 2021)
-
-  12 Oct 2021;  <chymera@gentoo.org> +metadata.xml, +tridesclous-1.6.4.ebuild:
-  dev-python/tridesclous: new package (DANDI ephys stack)

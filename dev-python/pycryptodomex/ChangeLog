@@ -1,4 +1,0 @@
-*pycryptodomex-3.10.1 (06 Oct 2021)
-
-  06 Oct 2021;  <chymera@gentoo.org> +pycryptodomex-3.10.1.ebuild, -ChangeLog:
-  dev-python/pycryptodomex: tests fail

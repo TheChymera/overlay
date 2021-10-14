@@ -1,9 +1,0 @@
-  12 May 2020;  <chymera@gentoo.org> pypubsub-4.0.3.ebuild:
-  dev-python/pypubsub: corrected SLOT and deprecated dep
-
-*pypubsub-4.0.3 (18 Mar 2019)
-
-  18 Mar 2019; Horea Christian <h.chr@mail.ru> +pypubsub-4.0.3.ebuild,
-  -ChangeLog, -files/pypubsub-3.3.0-imports.patch, -pypubsub-9999.ebuild,
-  pypubsub-3.4.0.ebuild:
-  dev-python/pypubsub: new ebuild

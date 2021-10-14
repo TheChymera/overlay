@@ -1,6 +1,0 @@
-*drlfom_bidsdata-1.1.1 (22 Aug 2020)
-
-  22 Aug 2020;  <chymera@gentoo.org> +drlfom_bidsdata-1.1.1.ebuild,
-  +metadata.xml:
-  sci-biology/drlfom_bidsdata: version bump ahead of gentoo science  includes
-  metadata as appropriate

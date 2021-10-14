@@ -1,7 +1,0 @@
-  27 Sep 2021;  <chymera@gentoo.org> keyrings_alt-4.1.0.ebuild:
-  dev-python/keyrings_alt: added arch, removed commented traces
-
-*keyrings_alt-4.1.0 (24 Sep 2021)
-
-  24 Sep 2021;  <chymera@gentoo.org> +keyrings_alt-4.1.0.ebuild, +metadata.xml:
-  dev-python/keyrings_alt: new package (DANDI stack)

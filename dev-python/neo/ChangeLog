@@ -1,4 +1,0 @@
-*neo-0.10.0 (11 Oct 2021)
-
-  11 Oct 2021;  <chymera@gentoo.org> +metadata.xml, +neo-0.10.0.ebuild:
-  dev-python/neo: new package (DANDI ephys stack)

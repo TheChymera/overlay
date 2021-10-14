@@ -1,7 +1,0 @@
-  17 Jun 2021;  <chymera@gentoo.org> toxic-9999.ebuild:
-  net-im/toxic: added current PYTHON_COMPAT
-
-*toxic-9999 (20 Oct 2020)
-
-  20 Oct 2020;  <chymera@gentoo.org> +metadata.xml, +toxic-9999.ebuild:
-  net-im/toxic: live version ahead of Gentoo Science

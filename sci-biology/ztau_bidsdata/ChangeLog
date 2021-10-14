@@ -1,9 +1,0 @@
-*ztau_bidsdata-1.1 (10 Oct 2019)
-
-  10 Oct 2019;  <chymera@gentoo.org> +ztau_bidsdata-1.1.ebuild:
-  sci-biology/ztau_bidsdata: version bump 1.1
-
-*ztau_bidsdata-1.0 (11 Sep 2019)
-
-  11 Sep 2019;  <chymera@gentoo.org> +metadata.xml, +ztau_bidsdata-1.0.ebuild:
-  sci-biology/ztau_bidsdata: new data package
