@@ -1,6 +1,2 @@
-*spikeextractors-0.9.7 (14 Oct 2021)
-
-  14 Oct 2021;  <chymera@gentoo.org> +.spikeinterface-0.10.0.ebuild.swp,
-  +files/spikeextractors-0.9.7-no-test-install.patch, +metadata.xml,
-  +spikeextractors-0.9.7.ebuild:
-  dev-python/spikeextractors: new package (DANDI ephys stack)
+  14 Oct 2021;  <chymera@gentoo.org> -ChangeLog:
+  dev-python/spikeextractors:
