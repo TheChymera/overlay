@@ -55,8 +55,7 @@ DEPEND="
 distutils_enable_tests pytest
 
 PATCHES=(
-	"${FILESDIR}/${P}-pip-versioncheck.patch"
-	"${FILESDIR}/${P}-test_nonetwork.patch"
+	"${FILESDIR}/${PN}-0.28.0-pip-versioncheck.patch"
 )
 
 src_prepare() {

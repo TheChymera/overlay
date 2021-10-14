@@ -1,11 +1,6 @@
-  11 Oct 2021;  <chymera@gentoo.org> dandi-cli-0.28.0.ebuild:
-  dev-vcs/dandi-cli: added dep and ammended test suite
+*dandi-cli-0.30.3 (14 Oct 2021)
 
-*dandi-cli-0.28.0 (06 Oct 2021)
-
-  06 Oct 2021;  <chymera@gentoo.org> +dandi-cli-0.28.0.ebuild,
-  +files/dandi-cli-0.27.2-no-etelemetry.patch,
-  +files/dandi-cli-0.27.2-pip-versioncheck.patch,
-  +files/dandi-cli-0.28.0-pip-versioncheck.patch, -ChangeLog,
-  dandi-cli-0.27.2.ebuild, metadata.xml:
-  dev-vcs/dandi-cli: added etelemetry support
+  14 Oct 2021;  <chymera@gentoo.org> +dandi-cli-0.30.3.ebuild,
+  +files/dandi-cli-0.28.0-test_nonetwork.patch, -ChangeLog,
+  dandi-cli-0.28.0.ebuild:
+  dev-vcs/dandi-cli: new version
