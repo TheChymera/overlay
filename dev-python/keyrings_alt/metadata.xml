@@ -18,4 +18,7 @@
 		file system, defeating the intended purpose of this library to encourage
 		best practices for security.
 	</longdescription>
+	<upstream>
+		<remote-id type="github">jaraco/keyrings.alt</remote-id>
+	</upstream>
 </pkgmetadata>

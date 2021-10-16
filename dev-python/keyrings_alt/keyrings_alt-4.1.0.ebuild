@@ -14,11 +14,10 @@ HOMEPAGE="https://github.com/jaraco/keyrings.alt/"
 SRC_URI="mirror://pypi/${MY_P:0:1}/${MY_PN}/${MY_P}.tar.gz"
 
 SLOT="0"
-LICENSE="PSF-2"
+LICENSE="MIT"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~x86"
 
 DEPEND=""
-# there are some deps in setup.cfg for extras testing that might be added.
 
 S="${WORKDIR}/${MY_P}"
 
