@@ -24,4 +24,7 @@
 		<flag name="misc">Dataset publishing support</flag>
 		<flag name="publish">Dataset publishing support</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">datalad/datalad</remote-id>
+	</upstream>
 </pkgmetadata>
