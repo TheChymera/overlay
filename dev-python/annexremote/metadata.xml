@@ -15,4 +15,7 @@
 		itself. It implements the complete external special remote protocol and
 		fulfils all specifications regarding whitespaces etc.
 	</longdescription>
+	<upstream>
+		<remote-id type="github">Lykos153/AnnexRemote</remote-id>
+	</upstream>
 </pkgmetadata>
