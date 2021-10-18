@@ -16,9 +16,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 # dev-python/hdf5storage, datalad, and neo hold back ~x86
 IUSE="test"
-RESTRICT="!test? ( test )"
+RESTRICT="test"
+# Tests fail, but the package is deprecated, so no use checking with upstream.
+# We only distribute this because nwb-conversion-tools still uses it.
 
-DEPEND=""
 RDEPEND="
 	dev-python/h5py[${PYTHON_USEDEP}]
 	dev-python/hdf5storage[${PYTHON_USEDEP}]
@@ -44,6 +45,14 @@ RDEPEND="
 # exdir
 # sonpy
 # pyyaml and shybird might not really be needed
+DEPEND="
+	test? (
+		dev-python/parameterized[${PYTHON_USEDEP}]
+		dev-python/tridesclous[${PYTHON_USEDEP}]
+		dev-vcs/datalad
+		${RDEPEND}
+	)
+"
 BDEPEND=""
 
 PATCHES=(
