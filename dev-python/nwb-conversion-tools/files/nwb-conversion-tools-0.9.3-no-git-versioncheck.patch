@@ -1,0 +1,13 @@
+--- a/setup.py	2021-10-19 07:59:23.483551681 -0400
++++ b/setup.py	2021-10-19 08:00:20.289169440 -0400
+@@ -22,10 +22,6 @@
+ with open(os.path.join(here, req_file)) as f:
+     install_requires = f.read().strip().split("\n")
+ 
+-# Get remote version
+-remote_version = subprocess.run(["git", "describe", "--tags"], stdout=subprocess.PIPE).stdout.decode("utf-8").strip()
+-assert "." in remote_version
+-
+ setup(
+     name="nwb-conversion-tools",
+     version="0.9.3",

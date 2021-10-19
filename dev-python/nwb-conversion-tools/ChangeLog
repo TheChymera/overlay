@@ -1,0 +1,6 @@
+*nwb-conversion-tools-0.9.3 (19 Oct 2021)
+
+  19 Oct 2021;  <chymera@gentoo.org>
+  +files/nwb-conversion-tools-0.9.3-no-git-versioncheck.patch, +metadata.xml,
+  +nwb-conversion-tools-0.9.3.ebuild:
+  dev-python/nwb-conversion-tools: new package (DANDI ephys stack)
