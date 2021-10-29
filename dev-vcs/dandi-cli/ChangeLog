@@ -1,6 +1,8 @@
-*dandi-cli-0.30.3 (14 Oct 2021)
+*dandi-cli-0.31.0 (29 Oct 2021)
 
-  14 Oct 2021;  <chymera@gentoo.org> +dandi-cli-0.30.3.ebuild,
-  +files/dandi-cli-0.28.0-test_nonetwork.patch, -ChangeLog,
-  dandi-cli-0.28.0.ebuild:
-  dev-vcs/dandi-cli: new version
+  29 Oct 2021;  <chymera@gentoo.org> +dandi-cli-0.31.0.ebuild,
+  +files/dandi-cli-0.28.0-no-etelemetry.patch, -ChangeLog,
+  -dandi-cli-0.27.2.ebuild, -files/dandi-cli-0.27.2-no-etelemetry.patch,
+  -files/dandi-cli-0.27.2-pip-versioncheck.patch, dandi-cli-0.28.0.ebuild,
+  dandi-cli-0.30.3.ebuild:
+  dev-vcs/dandi-cli: version bump  test failures

@@ -13,15 +13,15 @@ SRC_URI="https://github.com/dandi/dandi-cli/archive/refs/tags/${PV}.tar.gz -> ${
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="test +etelemetry"
-RESTRICT="test"
+IUSE="test etelemetry"
+#RESTRICT="test"
 # Test fail during collection, reported upstream: https://github.com/dandi/dandi-cli/issues/774
 
 RDEPEND="
 	dev-python/appdirs[${PYTHON_USEDEP}]
 	dev-python/click[${PYTHON_USEDEP}]
 	dev-python/click-didyoumean[${PYTHON_USEDEP}]
-	=dev-python/dandischema-0.3*[${PYTHON_USEDEP}]
+	=dev-python/dandischema-0.4*[${PYTHON_USEDEP}]
 	dev-python/fasteners[${PYTHON_USEDEP}]
 	dev-python/fscacher[${PYTHON_USEDEP}]
 	dev-python/humanize[${PYTHON_USEDEP}]
@@ -29,6 +29,7 @@ RDEPEND="
 	dev-python/keyring[${PYTHON_USEDEP}]
 	dev-python/keyrings_alt[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
+	dev-python/pycryptodomex[${PYTHON_USEDEP}]
 	dev-python/pydantic[${PYTHON_USEDEP}]
 	dev-python/pynwb[${PYTHON_USEDEP}]
 	dev-python/pyout[${PYTHON_USEDEP}]
@@ -40,6 +41,8 @@ RDEPEND="
 	dev-python/tqdm[${PYTHON_USEDEP}]
 	dev-python/wheel[${PYTHON_USEDEP}]
 "
+# Errors with newer jsonschema, though not a direct dependency, reported upstream:
+# https://github.com/dandi/dandi-cli/issues/825
 
 DEPEND="
 	dev-python/setuptools[${PYTHON_USEDEP}]
@@ -54,17 +57,20 @@ DEPEND="
 distutils_enable_tests pytest
 
 PATCHES=(
-	"${FILESDIR}/${P}-pip-versioncheck.patch"
+	"${FILESDIR}/${PN}-0.28.0-pip-versioncheck.patch"
 )
 
 src_prepare() {
-	if ! use etelemetry; then
-		eapply "${FILESDIR}/${PN}-0.27.2-no-etelemetry.patch"
+	if use etelemetry; then
+		default
+	else
+		eapply "${FILESDIR}/${PN}-0.28.0-no-etelemetry.patch"
+		default
+		sed -i "/etelemetry/d" setup.cfg
 	fi
-	default
 }
 
-#python_install_all() {
-#	distutils-r1_python_install_all
-#	dodoc README.md
-#}
+python_test() {
+	export DANDI_TESTS_NONETWORK=1
+	${EPYTHON} -m pytest -vv || die "Tests failed with ${EPYTHON}"
+}
