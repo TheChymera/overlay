@@ -26,3 +26,7 @@ RDEPEND="
 BDEPEND=""
 
 distutils_enable_tests pytest
+
+PATCHES=(
+	"${FILESDIR}/${PN}-3.1.1-new_jsonschema.patch"
+)
