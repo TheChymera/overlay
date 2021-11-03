@@ -1,0 +1,5 @@
+*ndx-optogenetics-9999 (03 Nov 2021)
+
+  03 Nov 2021;  <chymera@gentoo.org> +metadata.xml,
+  +ndx-optogenetics-9999.ebuild:
+  dev-python/ndx-optogenetics: new package (DANDI stack)
