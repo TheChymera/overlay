@@ -17,6 +17,8 @@ SLOT="0"
 DEPEND="
     dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/subprocess-tee[${PYTHON_USEDEP}]
+	dev-python/numpy[${PYTHON_USEDEP}]
+	dev-python/click[${PYTHON_USEDEP}]
 	"
 
 RDEPEND="${DEPEND}"
