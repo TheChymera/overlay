@@ -1,0 +1,6 @@
+*dandischema-0.4.3 (24 Jan 2022)
+*dandischema-0.5.1 (24 Jan 2022)
+
+  24 Jan 2022;  <chymera@gentoo.org> +dandischema-0.4.3.ebuild,
+  +dandischema-0.5.1.ebuild:
+  dev-python/dandischema: version bump 0.5.1
