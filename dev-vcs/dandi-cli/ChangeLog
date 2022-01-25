@@ -1,3 +1,12 @@
+*dandi-cli-0.34.1 (25 Jan 2022)
+*dandi-cli-0.35.0 (25 Jan 2022)
+
+  25 Jan 2022;  <chymera@gentoo.org> +dandi-cli-0.34.1.ebuild,
+  +dandi-cli-0.35.0.ebuild, +files/dandi-cli-0.34.1-pip-versioncheck.patch,
+  dandi-cli-0.31.0.ebuild:
+  dev-vcs/dandi-cli: version bump  Tests fail: https://github.com/dandi/dandi-
+  cli/issues/878
+
 *dandi-cli-0.31.0 (29 Oct 2021)
 
   29 Oct 2021;  <chymera@gentoo.org> +dandi-cli-0.31.0.ebuild,

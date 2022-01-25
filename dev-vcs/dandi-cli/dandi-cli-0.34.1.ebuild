@@ -21,7 +21,7 @@ RDEPEND="
 	dev-python/appdirs[${PYTHON_USEDEP}]
 	dev-python/click[${PYTHON_USEDEP}]
 	dev-python/click-didyoumean[${PYTHON_USEDEP}]
-	=dev-python/dandischema-0.4*[${PYTHON_USEDEP}]
+	=dev-python/dandischema-0.5*[${PYTHON_USEDEP}]
 	dev-python/fasteners[${PYTHON_USEDEP}]
 	dev-python/fscacher[${PYTHON_USEDEP}]
 	dev-python/humanize[${PYTHON_USEDEP}]
@@ -40,8 +40,8 @@ RDEPEND="
 	dev-python/tenacity[${PYTHON_USEDEP}]
 	dev-python/tqdm[${PYTHON_USEDEP}]
 	dev-python/wheel[${PYTHON_USEDEP}]
-	<dev-python/jsonschema-4[${PYTHON_USEDEP}]
 "
+#<dev-python/jsonschema-4[${PYTHON_USEDEP}]
 # Errors with newer jsonschema, though not a direct dependency, reported upstream:
 # https://github.com/dandi/dandi-cli/issues/825
 
@@ -58,7 +58,7 @@ DEPEND="
 distutils_enable_tests pytest
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.28.0-pip-versioncheck.patch"
+	"${FILESDIR}/${P}-pip-versioncheck.patch"
 )
 
 src_prepare() {
