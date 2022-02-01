@@ -1,3 +1,8 @@
+  01 Feb 2022;  <chymera@gentoo.org> dandi-cli-0.34.1.ebuild,
+  dandi-cli-0.35.0.ebuild:
+  dev-vcs/dandi-cli: depending on old jsonschema as per weird issue
+  https://github.com/dandi/dandi-cli/issues/825
+
 *dandi-cli-0.34.1 (25 Jan 2022)
 *dandi-cli-0.35.0 (25 Jan 2022)
 

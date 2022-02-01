@@ -40,10 +40,11 @@ RDEPEND="
 	dev-python/tenacity[${PYTHON_USEDEP}]
 	dev-python/tqdm[${PYTHON_USEDEP}]
 	dev-python/wheel[${PYTHON_USEDEP}]
+	<dev-python/jsonschema-4[${PYTHON_USEDEP}]
 "
-#<dev-python/jsonschema-4[${PYTHON_USEDEP}]
 # Errors with newer jsonschema, though not a direct dependency, reported upstream:
 # https://github.com/dandi/dandi-cli/issues/825
+# https://github.com/python-hyper/uritemplate/issues/76
 
 DEPEND="
 	dev-python/setuptools[${PYTHON_USEDEP}]
