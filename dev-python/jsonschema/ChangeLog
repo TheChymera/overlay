@@ -1,0 +1,7 @@
+*jsonschema-3.2.0-r1 (01 Feb 2022)
+
+  01 Feb 2022;  <chymera@gentoo.org>
+  +files/jsonschema-3.2.0-add-webcolors-1.11-compat.patch,
+  +jsonschema-3.2.0-r1.ebuild, +metadata.xml:
+  dev-python/jsonschema: keeping old package for weird DANDI issue
+  https://github.com/dandi/dandi-cli/issues/825
