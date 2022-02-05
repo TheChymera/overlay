@@ -38,8 +38,8 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	#"${FILESDIR}/${PN}-1.2.4-module.patch"
-	#"${FILESDIR}/${PN}-1.2.4-int-cast.patch"
+	"${FILESDIR}/${PN}-2.1.1-module.patch"
+	"${FILESDIR}/${PN}-2.1.1-int-cast.patch"
 )
 
 S="${WORKDIR}/${MY_PN}-${PV}"
