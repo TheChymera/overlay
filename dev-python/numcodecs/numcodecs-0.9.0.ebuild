@@ -14,6 +14,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
+# Tests fail for yet unknown reasons:
+# https://github.com/zarr-developers/numcodecs/issues/304
 RESTRICT="!test? ( test )"
 
 RDEPEND="
