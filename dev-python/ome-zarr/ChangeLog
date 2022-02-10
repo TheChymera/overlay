@@ -1,0 +1,4 @@
+*ome-zarr-0.2.0 (10 Feb 2022)
+
+  10 Feb 2022;  <chymera@gentoo.org> +metadata.xml, +ome-zarr-0.2.0.ebuild:
+  dev-python/ome-zarr: new package (DANDI stack)  tests fail
