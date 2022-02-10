@@ -28,4 +28,10 @@ RDEPEND="
 	dev-python/numpy[${PYTHON_USEDEP}]
 "
 
+DEPEND="
+	test? (
+		dev-python/msgpack[${PYTHON_USEDEP}]
+	)
+"
+
 distutils_enable_tests pytest

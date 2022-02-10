@@ -1,3 +1,6 @@
+  10 Feb 2022;  <chymera@gentoo.org> zarr-2.10.3.ebuild:
+  dev-python/zarr: added dep  tests still fail
+
 *zarr-2.10.3 (09 Feb 2022)
 
   09 Feb 2022;  <chymera@gentoo.org> +metadata.xml, +zarr-2.10.3.ebuild:
