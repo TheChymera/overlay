@@ -16,8 +16,6 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
-# Tests fail:
-# https://github.com/ome/ome-zarr-py/issues/168
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -38,5 +36,13 @@ DEPEND="
 "
 
 S="${WORKDIR}/${MY_PN}-${PV}"
+
+# Reported upstream, perhaps auto-skippable in future releases:
+# https://github.com/ome/ome-zarr-py/issues/168
+EPYTEST_DESELECT=(
+	"tests/test_cli.py::TestCli::test_s3_info[v0.1]"
+	"tests/test_cli.py::TestCli::test_s3_info[v0.2]"
+	"tests/test_cli.py::TestCli::test_s3_info[v0.3]"
+)
 
 distutils_enable_tests pytest
