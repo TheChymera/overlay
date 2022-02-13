@@ -1,3 +1,8 @@
+*tmsu-0.7.5_p20220210 (13 Feb 2022)
+
+  13 Feb 2022;  <chymera@gentoo.org> +tmsu-0.7.5_p20220210.ebuild:
+  sys-fs/tmsu: version bump  for upstream having merged previous patch
+
   13 Feb 2022;  <chymera@gentoo.org> +files/tmsu-0.7.5-new_go.patch,
   tmsu-0.7.5.ebuild:
   sys-fs/tmsu: package update as per new go eclass
