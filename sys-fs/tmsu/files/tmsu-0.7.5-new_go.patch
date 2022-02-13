@@ -1,0 +1,79 @@
+From 57cf4678e8c7d06d771fbe5da1bdfe3485017d9d Mon Sep 17 00:00:00 2001
+From: "Sean E. Russell" <ser@ser1.net>
+Date: Tue, 8 Jun 2021 10:19:57 -0500
+Subject: [PATCH] Updated for Go (1.16) modules
+
+---
+ Makefile                          |  6 +++---
+ src/github.com/oniony/TMSU/go.mod |  9 +++++++++
+ src/github.com/oniony/TMSU/go.sum | 13 +++++++++++++
+ 4 files changed, 32 insertions(+), 12 deletions(-)
+ create mode 100644 src/github.com/oniony/TMSU/go.mod
+ create mode 100644 src/github.com/oniony/TMSU/go.sum
+
+diff --git a/Makefile b/Makefile
+index 3c4ded9..6ff9705 100644
+--- a/Makefile
++++ b/Makefile
+@@ -21,7 +21,7 @@ clean:
+ 	@echo
+ 	@echo "CLEANING"
+ 	@echo
+-	go clean github.com/oniony/TMSU
++	cd src/github.com/oniony/TMSU && go clean .
+ 	rm -Rf bin
+ 	rm -Rf $(DIST_DIR)
+ 	rm -f $(DIST_FILE)
+@@ -31,7 +31,7 @@ compile:
+ 	@echo "COMPILING"
+ 	@echo
+ 	@mkdir -p bin
+-	go build -o bin/tmsu github.com/oniony/TMSU
++	cd src/github.com/oniony/TMSU && go build -o ../../../../bin/tmsu github.com/oniony/TMSU
+ 
+ test: unit-test integration-test
+ 
+@@ -39,7 +39,7 @@ unit-test: compile
+ 	@echo
+ 	@echo "RUNNING UNIT TESTS"
+ 	@echo
+-	go test github.com/oniony/TMSU/...
++	cd src/github.com/oniony/TMSU && go test github.com/oniony/TMSU/...
+ 
+ integration-test: compile
+ 	@echo
+diff --git a/src/github.com/oniony/TMSU/go.mod b/src/github.com/oniony/TMSU/go.mod
+new file mode 100644
+index 0000000..deb79e4
+--- /dev/null
++++ b/src/github.com/oniony/TMSU/go.mod
+@@ -0,0 +1,9 @@
++module github.com/oniony/TMSU
++
++go 1.16
++
++require (
++	github.com/hanwen/go-fuse v1.0.0
++	github.com/mattn/go-sqlite3 v1.14.7
++	golang.org/x/crypto v0.0.0-20210513164829-c07d793c2f9a
++)
+diff --git a/src/github.com/oniony/TMSU/go.sum b/src/github.com/oniony/TMSU/go.sum
+new file mode 100644
+index 0000000..a60c2bc
+--- /dev/null
++++ b/src/github.com/oniony/TMSU/go.sum
+@@ -0,0 +1,13 @@
++github.com/hanwen/go-fuse v1.0.0 h1:GxS9Zrn6c35/BnfiVsZVWmsG803xwE7eVRDvcf/BEVc=
++github.com/hanwen/go-fuse v1.0.0/go.mod h1:unqXarDXqzAk0rt98O2tVndEPIpUgLD9+rwFisZH3Ok=
++github.com/mattn/go-sqlite3 v1.14.7 h1:fxWBnXkxfM6sRiuH3bqJ4CfzZojMOLVc0UTsTglEghA=
++github.com/mattn/go-sqlite3 v1.14.7/go.mod h1:NyWgC/yNuGj7Q9rpYnZvas74GogHl5/Z4A/KQRfk6bU=
++golang.org/x/crypto v0.0.0-20210513164829-c07d793c2f9a h1:kr2P4QFmQr29mSLA43kwrOcgcReGTfbE9N577tCTuBc=
++golang.org/x/crypto v0.0.0-20210513164829-c07d793c2f9a/go.mod h1:P+XmwS30IXTQdn5tA2iutPOUgjI07+tq3H3K9MVA1s8=
++golang.org/x/net v0.0.0-20210226172049-e18ecbb05110/go.mod h1:m0MpNAwzfU5UDzcl9v0D8zg8gWTRqZa9RBIspLL5mdg=
++golang.org/x/sys v0.0.0-20180830151530-49385e6e1522/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
++golang.org/x/sys v0.0.0-20201119102817-f84b799fce68 h1:nxC68pudNYkKU6jWhgrqdreuFiOQWj1Fs7T3VrH4Pjw=
++golang.org/x/sys v0.0.0-20201119102817-f84b799fce68/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
++golang.org/x/term v0.0.0-20201126162022-7de9c90e9dd1/go.mod h1:bj7SfCRtBDWHUb9snDiAeCFNEtKQo2Wmx5Cou7ajbmo=
++golang.org/x/text v0.3.3/go.mod h1:5Zoc/QRtKVWzQhOtBMvqHzDpF6irO9z98xDceosuGiQ=
++golang.org/x/tools v0.0.0-20180917221912-90fa682c2a6e/go.mod h1:n7NCudcB/nEzxVGmLbDWY5pfWTLqBcC2KZ6jyYvM4mQ=
+
