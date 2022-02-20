@@ -34,6 +34,8 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
+RDEPEND="sys-fs/fuse:0"
+
 PATCHES=(
 	"${FILESDIR}/tmsu-0.7.5-new_go.patch"
 )

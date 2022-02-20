@@ -35,4 +35,6 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
+RDEPEND="sys-fs/fuse:0"
+
 S="${WORKDIR}/${MY_PN}-${MY_HASH}"
