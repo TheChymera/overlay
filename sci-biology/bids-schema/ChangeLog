@@ -1,6 +1,0 @@
-*bids-schema-1.6.0 (05 Jan 2022)
-*bids-schema-9999 (05 Jan 2022)
-
-  05 Jan 2022;  <chymera@gentoo.org> +bids-schema-1.6.0.ebuild,
-  +bids-schema-9999.ebuild, +metadata.xml:
-  sci-biology/bids-schema: new package
