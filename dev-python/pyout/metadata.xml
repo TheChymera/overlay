@@ -17,4 +17,8 @@
 		goal of the interface is the separation of content from style and
 		presentation.
 	</longdescription>
+	<upstream>
+		<remote-id type="github">pyout/pyout</remote-id>
+		<remote-id type="pypi">pyout</remote-id>
+	</upstream>
 </pkgmetadata>
