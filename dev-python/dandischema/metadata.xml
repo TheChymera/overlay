@@ -19,4 +19,8 @@
 		Dandischema generates JSON schema definitions and also an associated
 		context.json file for JSON-LD compliance of the metadata models.
 	</longdescription>
+	<upstream>
+		<remote-id type="github">dandi/dandischema</remote-id>
+		<remote-id type="pypi">dandischema</remote-id>
+	</upstream>
 </pkgmetadata>

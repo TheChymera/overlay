@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -28,8 +28,7 @@ DEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${P}-coverage.patch"
-	"${FILESDIR}/${P}-versioningit.patch"
+	"${FILESDIR}/${PN}-0.3.4-coverage.patch"
 )
 
 src_configure() {
@@ -39,11 +38,7 @@ src_configure() {
 distutils_enable_tests pytest
 
 python_test() {
-	local EPYTEST_DESELECT=(
-		# Requires network access:
-		# https://github.com/dandi/dandischema/issues/87
-		dandischema/tests/test_metadata.py::test_migrate_041
-	)
+	export DANDI_TESTS_NONETWORK=1
 	pushd dandischema || die
 		epytest tests
 	popd
