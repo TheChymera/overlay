@@ -16,21 +16,25 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test etelemetry"
+RESTRICT="test"
+# video tests fail:
+# https://github.com/dandi/dandi-cli/issues/944
 
 RDEPEND="
 	dev-python/appdirs[${PYTHON_USEDEP}]
 	dev-python/click[${PYTHON_USEDEP}]
 	dev-python/click-didyoumean[${PYTHON_USEDEP}]
-	=dev-python/dandischema-0.5*[${PYTHON_USEDEP}]
+	~dev-python/dandischema-0.6.0[${PYTHON_USEDEP}]
 	dev-python/fasteners[${PYTHON_USEDEP}]
 	dev-python/fscacher[${PYTHON_USEDEP}]
 	dev-python/humanize[${PYTHON_USEDEP}]
+	dev-python/interleave[${PYTHON_USEDEP}]
 	dev-python/joblib[${PYTHON_USEDEP}]
 	dev-python/keyring[${PYTHON_USEDEP}]
 	dev-python/keyrings_alt[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/pycryptodomex[${PYTHON_USEDEP}]
-	dev-python/pydantic[${PYTHON_USEDEP}]
+	>=dev-python/pydantic-1.9.0[${PYTHON_USEDEP}]
 	dev-python/pynwb[${PYTHON_USEDEP}]
 	dev-python/pyout[${PYTHON_USEDEP}]
 	dev-python/python-dateutil[${PYTHON_USEDEP}]
@@ -38,20 +42,22 @@ RDEPEND="
 	dev-python/ruamel-yaml[${PYTHON_USEDEP}]
 	dev-python/semantic_version[${PYTHON_USEDEP}]
 	dev-python/tenacity[${PYTHON_USEDEP}]
-	dev-python/tqdm[${PYTHON_USEDEP}]
 	dev-python/wheel[${PYTHON_USEDEP}]
+	dev-python/zarr[${PYTHON_USEDEP}]
 "
 
 DEPEND="
-	dev-python/setuptools[${PYTHON_USEDEP}]
 	test? (
 		dev-python/anys[${PYTHON_USEDEP}]
 		dev-python/responses[${PYTHON_USEDEP}]
 		dev-python/pyfakefs[${PYTHON_USEDEP}]
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
+		media-libs/opencv[${PYTHON_USEDEP}]
 	)
 "
 
+# Some tests require deep copy with git history
+# https://github.com/dandi/dandi-cli/issues/878#issuecomment-1021720299
 EPYTEST_DESELECT=(
 	"dandi/tests/test_utils.py::test_get_instance_dandi_with_api"
 	"dandi/tests/test_utils.py::test_get_instance_url"
@@ -62,7 +68,7 @@ EPYTEST_DESELECT=(
 distutils_enable_tests pytest
 
 PATCHES=(
-	"${FILESDIR}/${P}-pip-versioncheck.patch"
+	"${FILESDIR}/${PN}-0.37.0-pip-versioncheck.patch"
 )
 
 src_prepare() {

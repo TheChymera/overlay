@@ -19,4 +19,8 @@
 	<use>
 		<flag name="etelemetry">version checking to respect server schema version</flag>
 	</use>
+	<upstream>
+		<remote-id type="github">dandi/dandi-cli</remote-id>
+		<remote-id type="pypi">dandi</remote-id>
+	</upstream>
 </pkgmetadata>
