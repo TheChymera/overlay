@@ -16,9 +16,6 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test etelemetry"
-RESTRICT="test"
-# video tests fail:
-# https://github.com/dandi/dandi-cli/issues/944
 
 RDEPEND="
 	dev-python/appdirs[${PYTHON_USEDEP}]
@@ -33,7 +30,7 @@ RDEPEND="
 	dev-python/keyring[${PYTHON_USEDEP}]
 	dev-python/keyrings_alt[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
-	dev-python/pycryptodomex[${PYTHON_USEDEP}]
+	dev-python/pycryptodome[${PYTHON_USEDEP}]
 	>=dev-python/pydantic-1.9.0[${PYTHON_USEDEP}]
 	dev-python/pynwb[${PYTHON_USEDEP}]
 	dev-python/pyout[${PYTHON_USEDEP}]
@@ -52,7 +49,6 @@ DEPEND="
 		dev-python/responses[${PYTHON_USEDEP}]
 		dev-python/pyfakefs[${PYTHON_USEDEP}]
 		dev-python/pytest-mock[${PYTHON_USEDEP}]
-		media-libs/opencv[${PYTHON_USEDEP}]
 	)
 "
 
@@ -63,6 +59,13 @@ EPYTEST_DESELECT=(
 	"dandi/tests/test_utils.py::test_get_instance_url"
 	"dandi/tests/test_utils.py::test_get_instance_cli_version_too_old"
 	"dandi/tests/test_utils.py::test_get_instance_bad_cli_version"
+)
+# Opencv test fail as of now:
+# https://github.com/dandi/dandi-cli/issues/944
+# add media-libs/opencv[${PYTHON_USEDEP}] to DEPEND test?
+EPYTEST_DESELECT+=(
+	"dandi/tests/test_organize.py::test_video_organize"
+	"dandi/tests/test_organize.py::test_video_organize_common"
 )
 
 distutils_enable_tests pytest

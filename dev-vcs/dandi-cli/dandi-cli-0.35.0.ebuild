@@ -29,7 +29,7 @@ RDEPEND="
 	dev-python/keyring[${PYTHON_USEDEP}]
 	dev-python/keyrings_alt[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
-	dev-python/pycryptodomex[${PYTHON_USEDEP}]
+	dev-python/pycryptodome[${PYTHON_USEDEP}]
 	dev-python/pydantic[${PYTHON_USEDEP}]
 	dev-python/pynwb[${PYTHON_USEDEP}]
 	dev-python/pyout[${PYTHON_USEDEP}]
