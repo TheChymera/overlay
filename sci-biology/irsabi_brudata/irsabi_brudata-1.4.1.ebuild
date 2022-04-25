@@ -7,7 +7,7 @@ inherit check-reqs
 
 DESCRIPTION="Raw data files released with the IRSABI publication"
 HOMEPAGE="http://www.aic-fmi.ethz.ch/"
-SRC_URI="http://chymera.eu/distfiles/${P}.tar.xz"
+SRC_URI="http://resources.chymera.eu/distfiles/${P}.tar.xz"
 
 LICENSE="CC-BY-SA-4.0"
 SLOT="0"

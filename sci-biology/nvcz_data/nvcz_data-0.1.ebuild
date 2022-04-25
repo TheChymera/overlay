@@ -6,7 +6,7 @@ EAPI=7
 DESCRIPTION="Bruker and BIDS data from neurovascular coupling experiments"
 HOMEPAGE="https://gitlab.com/Chymera/nvcz"
 SRC_URI="
-	http://chymera.eu/distfiles/${P}.tar.xz
+	http://resources.chymera.eu/distfiles/${P}.tar.xz
 	"
 
 LICENSE="GPL-3"

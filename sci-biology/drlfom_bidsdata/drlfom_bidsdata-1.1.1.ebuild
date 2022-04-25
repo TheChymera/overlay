@@ -9,7 +9,7 @@ DESCRIPTION="BIDS data files released with the DRLFOM publication"
 HOMEPAGE="http://www.aic-fmi.ethz.ch/"
 SRC_URI="
 	https://zenodo.org/record/3598424/files/${P}.tar.xz
-	http://chymera.eu/distfiles/${P}.tar.xz
+	http://resources.chymera.eu/distfiles/${P}.tar.xz
 "
 
 LICENSE="CC-BY-SA-4.0"

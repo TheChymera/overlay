@@ -5,7 +5,7 @@ EAPI=7
 
 DESCRIPTION="Bruker ParaVision data files for testing the PlaMRI package"
 HOMEPAGE="http://jasanofflab.mit.edu/"
-SRC_URI="http://chymera.eu/distfiles/${P}.tar.xz"
+SRC_URI="http://resources.chymera.eu/distfiles/${P}.tar.xz"
 
 LICENSE="CC-BY-SA-4.0"
 SLOT="0"
