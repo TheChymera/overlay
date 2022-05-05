@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@chymera.eu</email>
+		<name>Horea Christian</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">schachmat/wego</remote-id>
+		<bugs-to>https://github.com/schachmat/wego/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">
+		Features show forecast for 1 to 7 days nice ASCII art icons displayed info
+		(metric or imperial units): temperature range (felt and measured) windspeed
+		and direction viewing distance precipitation amount and probability ssl.
+	</longdescription>
+</pkgmetadata>
