@@ -1,0 +1,19 @@
+--- a/tools/schemacode/schemacode/tests/test_validator.py
++++ b/tools/schemacode/schemacode/tests/test_validator.py
+@@ -1,4 +1,5 @@
+ import os
++import pytest
+ 
+ 
+ def test__add_entity():
+@@ -295,6 +296,10 @@ def test_write_report(tmp_path):
+     assert report_text == expected_report_text
+ 
+ 
++@pytest.mark.skipif(
++    os.environ.get("SCHEMACODE_TESTS_NONETWORK") is not None,
++    reason="no network",
++)
+ def test_bids_datasets(bids_examples, tmp_path):
+     from schemacode.validator import validate_bids
+ 
