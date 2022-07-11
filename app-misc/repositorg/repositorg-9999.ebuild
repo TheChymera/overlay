@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=(python3_{6..9})
+PYTHON_COMPAT=(python3_{8..10})
 
 inherit distutils-r1 git-r3 systemd
 
@@ -14,7 +14,7 @@ EGIT_REPO_URI="https://github.com/TheChymera/repositorg"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="systemd"
 
 DEPEND="
@@ -40,4 +40,11 @@ src_test() {
 	for i in *.sh; do
 		./"$i" || die "Test $i failed"
 	done
+}
+
+pkg_postinst() {
+	if use !systemd ; then
+		elog "To be able to run repositorg_uuid as your user (recommended), make a copy of the init script:"
+		elog "	cp /etc/init.d/repositorg_uuid /etc/init.d/repositorg_uuid.<YOUR_USER_NAME>"
+	fi
 }
