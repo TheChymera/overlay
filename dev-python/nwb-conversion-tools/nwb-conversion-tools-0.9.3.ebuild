@@ -1,10 +1,9 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..9} )
-# 3.10 missing on numba and spyking-circus
+PYTHON_COMPAT=( python3_{8..10} )
 inherit distutils-r1
 
 DESCRIPTION="Create NWB files by converting proprietary formats and adding essential metadata"
