@@ -6,17 +6,16 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{8..11} )
 
-MY_HASH="14302430895d2f52d33b0e9a2c8e957c86187ce4"
-
-inherit distutils-r1
+inherit distutils-r1 git-r3
 
 DESCRIPTION="A Python library for working with the BIDS schema"
 HOMEPAGE="https://github.com/bids-standard/bids-specification"
-SRC_URI="https://github.com/TheChymera/bids-specification/archive/${MY_HASH}.tar.gz -> ${P}.tar.gz"
+EGIT_REPO_URI="git@github.com:TheChymera/bids-specification.git"
+EGIT_BRANCH="release_candidate"
 
 LICENSE="CC-BY-SA-4.0"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 
 RDEPEND="dev-python/tabulate"
 DEPEND=""
