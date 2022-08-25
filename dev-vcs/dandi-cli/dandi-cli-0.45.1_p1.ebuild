@@ -10,11 +10,11 @@ inherit distutils-r1
 
 MY_PN="dandi"
 MY_P="${MY_PN}-${PV}"
-MY_HASH="39bce6defa408ee89f3e00f7c2b3bad189faf24d"
+MY_HASH="548e22147689a60e48af95679df41e36fdce1d75"
 
 DESCRIPTION="DANDI command line client to facilitate common operations"
 HOMEPAGE="https://github.com/dandi/dandi-cli"
-SRC_URI="https://github.com/dandi/dandi-cli/archive/${MY_HASH}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/dandi/dandi-cli/archive/${MY_HASH}.tar.gz -> ${P}.gh.tar.gz"
 #SRC_URI="mirror://pypi/${MY_PN:0:1}/${MY_PN}/${MY_P}.tar.gz"
 
 LICENSE="Apache-2.0"
