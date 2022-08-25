@@ -1,0 +1,98 @@
+--- a/bidsschematools/tests/conftest.py
++++ b/bidsschematools/tests/conftest.py
+@@ -35,29 +35,38 @@ BIDS_ERROR_SELECTION = [
+ def get_gitrepo_fixture(url, whitelist):
+     @pytest.fixture(scope="session")
+     def fixture():
+-        with tempfile.TemporaryDirectory() as path:
+-            assert os.path.exists(path)
+-            lgr.debug("Cloning %r into %r", url, path)
+-            runout = run(
+-                [
+-                    "git",
+-                    "clone",
+-                    "--depth=1",
+-                    "--filter=blob:none",
+-                    "--sparse",
+-                    url,
+-                    path,
+-                ],
+-                capture_output=True,
+-            )
+-            if runout.returncode:
+-                raise RuntimeError(f"Failed to clone {url} into {path}")
+-            # cwd specification is VERY important, not only to achieve the correct
+-            # effects, but also to avoid dropping files from your repository if you
+-            # were to run `git sparse-checkout` inside the software repo.
+-            _ = run(["git", "sparse-checkout", "init", "--cone"], cwd=path)
+-            _ = run(["git", "sparse-checkout", "set"] + whitelist, cwd=path)
+-            yield path
++        archive_name = url.rsplit("/",1)[-1]
++        testdata_archive = os.path.join(os.getcwd(),"testdata",archive_name)
++        if os.path.isdir(testdata_archive):
++            lgr.info("Found static testdata archive under `%s`. "
++                "Not downloading latest data from version control.", testdata_archive)
++            yield testdata_archive
++        else:
++            lgr.info("No static testdata available under `%s`. "
++                "Attempting to fetch live data from version control.", testdata_archive)
++            with tempfile.TemporaryDirectory() as path:
++                assert os.path.exists(path)
++                lgr.debug("Cloning %r into %r", url, path)
++                runout = run(
++                    [
++                        "git",
++                        "clone",
++                        "--depth=1",
++                        "--filter=blob:none",
++                        "--sparse",
++                        url,
++                        path,
++                    ],
++                    capture_output=True,
++                )
++                if runout.returncode:
++                    raise RuntimeError(f"Failed to clone {url} into {path}")
++                # cwd specification is VERY important, not only to achieve the correct
++                # effects, but also to avoid dropping files from your repository if you
++                # were to run `git sparse-checkout` inside the software repo.
++                _ = run(["git", "sparse-checkout", "init", "--cone"], cwd=path)
++                _ = run(["git", "sparse-checkout", "set"] + whitelist, cwd=path)
++                yield path
+
+     return fixture
+
+
+--- a/bidsschematools/tests/test_validator.py
++++ b/bidsschematools/tests/test_validator.py
+@@ -377,7 +377,6 @@ def test_bids_datasets(bids_examples, tmp_path, dataset):
+     result = validate_bids(
+         target,
+         schema_version=schema_path,
+-        report_path=True,
+     )
+     # Have all files been validated?
+     assert len(result["path_tracking"]) == 0
+--- a/bidsschematools/validator.py
++++ b/bidsschematools/validator.py
+@@ -451,7 +451,7 @@ def validate_all(
+
+ def write_report(
+     validation_result,
+-    report_path="/var/tmp/bids-validator/report_{datetime}-{pid}.log",
++    report_path="~/.cache/bidsschematools/validator-report_{datetime}-{pid}.log",
+     datetime_format="%Y%m%d%H%M%SZ",
+ ):
+     """Write a human-readable report based on the validation result.
+@@ -481,8 +481,9 @@ def write_report(
+         pid=os.getpid(),
+     )
+     report_path = os.path.abspath(os.path.expanduser(report_path))
++    report_dir = os.path.dirname(report_path)
+     try:
+-        os.makedirs(os.path.dirname(report_path))
++        os.makedirs(report_dir)
+     except OSError:
+         pass
+
+
