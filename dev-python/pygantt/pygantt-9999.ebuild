@@ -10,7 +10,8 @@ inherit distutils-r1 git-r3
 DESCRIPTION=" Simple Gantt Charts in Python "
 HOMEPAGE="https://github.com/TheChymera/pygantt"
 EGIT_REPO_URI="https://github.com/TheChymera/pygantt.git"
-KEYWORDS="~amd64 ~x86"
+
+KEYWORDS=""
 LICENSE="GPL-3"
 SLOT="0"
 
