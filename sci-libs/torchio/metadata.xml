@@ -16,5 +16,6 @@
     </longdescription>
     <upstream>
         <remote-id type="github">fepegar/torchio</remote-id>
+        <remote-id type="pypi">torchio</remote-id>
     </upstream>
 </pkgmetadata>
