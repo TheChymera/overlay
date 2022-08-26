@@ -11,6 +11,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="autoupdate btrfs docker openstack test"
+RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
 	>=app-shells/bash-4.2:*
@@ -28,7 +29,7 @@ RDEPEND="${COMMON_DEPEND}
 	sys-process/lsof
 	autoupdate? ( virtual/cron )
 	btrfs? ( sys-fs/btrfs-progs )
-	docker? ( >=app-emulation/docker-18.05.0 )
+	docker? ( app-containers/docker )
 	openstack? ( dev-python/python-glanceclient )
 "
 
