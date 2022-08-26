@@ -16,7 +16,7 @@ inherit distutils-r1
 DESCRIPTION="A Python library for working with the BIDS schema"
 HOMEPAGE="https://github.com/bids-standard/bids-specification"
 SRC_URI="
-	https://github.com/bids-standard/bids-specification/archive/${MY_HASH}.tar.gz -> ${P}.tar.gz
+	https://github.com/bids-standard/bids-specification/archive/${MY_HASH}.tar.gz -> ${P}.gh.tar.gz
 	test? (
 		https://github.com/bids-standard/bids-examples/archive/${EXAMPLES_HASH}.tar.gz -> bids-examples-${EXAMPLES_HASH}.tar.gz
 		https://github.com/bids-standard/bids-error-examples/archive/${ERROR_EXAMPLES_HASH}.tar.gz -> bids-error-examples-${ERROR_EXAMPLES_HASH}.tar.gz
