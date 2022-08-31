@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@chymera.eu</email>
+		<name>Horea Christian</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">TheChymera/waybar-tooltips</remote-id>
+	</upstream>
+	<use>
+		<flag name="khal">Calendar tooltip via khal</flag>
+		<flag name="weather">Weather tooltip via wttr.in and ansiweather fallback</flag>
+	</use>
+</pkgmetadata>
