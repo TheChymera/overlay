@@ -18,6 +18,7 @@ SLOT="0"
 
 RDEPEND="
 	${PYTHON_DEPS}
+	media-fonts/fontawesome
 	khal? (
 		app-misc/khal[${PYTHON_USEDEP}]
 	)
