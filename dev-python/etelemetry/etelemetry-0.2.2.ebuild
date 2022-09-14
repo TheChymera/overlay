@@ -18,10 +18,9 @@ KEYWORDS="~amd64 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-DEPEND="
-	dev-python/versioneer[${PYTHON_USEDEP}]
-"
+DEPEND=""
 RDEPEND="
+	dev-python/ci_info[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 "
 BDEPEND=""
@@ -29,3 +28,11 @@ BDEPEND=""
 S="${WORKDIR}/${MY_PN}-${PV}"
 
 distutils_enable_tests pytest
+
+# Due to the clowdish nature of the package, most tests fail:
+# https://github.com/sensein/etelemetry-client/issues/41
+EPYTEST_DESELECT=(
+	"etelemetry/tests/test_client.py::test_etrequest"
+	"etelemetry/tests/test_client.py::test_get_project"
+	"etelemetry/tests/test_client.py::test_check_available"
+)
