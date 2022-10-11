@@ -20,7 +20,8 @@ REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 BDEPEND="dev-libs/libconfig"
 
-RDEPEND=">=net-libs/tox-0.2.8:*
+RDEPEND="
+	~net-libs/tox-9999:*
 	net-misc/curl
 	sys-libs/ncurses:*
 	notification? ( x11-libs/libnotify )
