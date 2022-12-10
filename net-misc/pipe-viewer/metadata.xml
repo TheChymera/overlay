@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<upstream>
+		<maintainer status="active">
+			<email>trizenx@gmail.com</email>
+			<name>Daniel Șuteu</name>
+		</maintainer>
+		<bugs-to>https://github.com/trizen/pipe-viewer/issues</bugs-to>
+		<remote-id type="github">trizen/pipe-viewer</remote-id>
+	</upstream>
+	<maintainer type="person">
+		<email>kai@kske.dev</email>
+		<name>Kai S. K. Engelbart</name>
+	</maintainer>
+	<use>
+		<flag name="gtk">Install the GTK3 GUI</flag>
+	</use>
+	<longdescription lang="en">
+		A lightweight application (fork of straw-viewer) for searching and
+		playing videos from youtube. This fork parses the YouTube website
+		directly and relies on the indivious instances only as a fallback
+		method.
+	</longdescription>
+</pkgmetadata>
