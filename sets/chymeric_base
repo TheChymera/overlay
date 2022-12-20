@@ -1,4 +1,10 @@
 app-portage/eix
+sys-apps/pciutils
+sys-boot/grub:2
+sys-kernel/linux-firmware
+sys-kernel/gentoo-sources
+sys-process/cronie
+sys-process/lsof
 app-text/wgetpaste
 app-editors/vim
 sys-apps/the_silver_searcher

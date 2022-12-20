@@ -1,0 +1,11 @@
+app-text/zathura
+app-text/zathura-pdf-mupdf
+gui-apps/waybar
+gui-wm/sway
+media-fonts/fontawesome
+media-gfx/imv
+net-misc/networkmanager
+sys-apps/pciutils
+sys-fs/udiskie
+www-client/links
+x11-terms/alacritty

@@ -1,0 +1,5 @@
+media-sound/alsa-utils
+media-sound/pulseeffects
+media-sound/pulsemixer
+media-video/mpv
+net-misc/pipe-viewer
