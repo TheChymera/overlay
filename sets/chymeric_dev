@@ -1,5 +1,6 @@
 app-vim/airline
 app-vim/airline-themes
+media-fonts/fira-code
 media-fonts/powerline-symbols
 dev-vcs/git
 app-misc/colordiff
