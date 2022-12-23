@@ -1,6 +1,7 @@
+app-misc/colordiff
 app-vim/airline
 app-vim/airline-themes
+dev-vcs/git
 media-fonts/fira-code
 media-fonts/powerline-symbols
-dev-vcs/git
-app-misc/colordiff
+x11-terms/kitty
