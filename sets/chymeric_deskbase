@@ -3,6 +3,7 @@ app-text/zathura-pdf-mupdf
 gui-apps/waybar
 gui-wm/sway
 media-fonts/fontawesome
+media-fonts/jetbrains-mono
 media-gfx/imv
 net-misc/networkmanager
 sys-fs/udiskie
