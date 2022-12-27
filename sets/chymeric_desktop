@@ -5,6 +5,7 @@ app-text/sarcasm-formatter
 dev-python/requests-oauthlib
 gui-apps/grim
 gui-apps/slurp
+gui-apps/swaybg
 gui-apps/swaylock
 gui-apps/waybar-tooltips
 gui-apps/wf-recorder
