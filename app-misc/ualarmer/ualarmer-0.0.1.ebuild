@@ -17,10 +17,6 @@ RDEPEND="
 	x11-themes/sound-theme-freedesktop
 "
 
-src_unpack() {
-	cp -r -L "$DOTGENTOO_PACKAGE_ROOT" "$S"
-}
-
 src_install() {
 	newbin bin/ualarmer.sh ualarmer
 	einstalldocs
