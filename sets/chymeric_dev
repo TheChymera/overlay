@@ -1,7 +1,5 @@
-app-misc/colordiff
 app-vim/airline
 app-vim/airline-themes
 dev-vcs/git
 media-fonts/fira-code
 media-fonts/powerline-symbols
-x11-terms/kitty
