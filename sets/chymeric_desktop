@@ -21,4 +21,5 @@ net-irc/weechat
 net-p2p/syncthing
 net-wireless/bluez
 net-wireless/wireless-tools
+www-client/lynx
 x11-terms/kitty
