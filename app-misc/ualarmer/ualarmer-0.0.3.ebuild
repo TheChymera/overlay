@@ -18,6 +18,6 @@ RDEPEND="
 "
 
 src_install() {
-	newbin bin/ualarmer.sh ualarmer
+	dobin bin/*
 	einstalldocs
 }
