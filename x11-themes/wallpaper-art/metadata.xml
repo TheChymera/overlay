@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>gentoo@chymera.eu</email>
+        <name>Horea Christian</name>
+    </maintainer>
+    <!-- Gin is not yet a supported upstream, maybe figure out where to add it and add it.
+    <upstream>
+        <remote-id type="gin">TheChymera/wallpaper-art</remote-id>
+    </upstream>
+    -->
+</pkgmetadata>
