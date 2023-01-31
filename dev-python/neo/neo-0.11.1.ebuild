@@ -1,12 +1,11 @@
-# Copyright 2021 Gentoo Authors
+# Copyright 2021-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{10..10} )
+DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
-
-MY_PN="python-neo"
 
 DESCRIPTION="Read and represent a wide range of neurophysiology file formats in Python"
 HOMEPAGE="https://github.com/NeuralEnsemble/python-neo"
@@ -17,9 +16,6 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
-#RESTRICT="test"
-# Numerous test failures, checking with upstream:
-# https://github.com/NeuralEnsemble/python-neo/issues/1037
 
 RDEPEND="
 	dev-python/numpy[${PYTHON_USEDEP}]
@@ -46,6 +42,14 @@ BDEPEND="
 # sonpy
 # ipython
 
-#S="${WORKDIR}/${MY_PN}-${PV}"
-
 distutils_enable_tests pytest
+
+# Reported upstream
+# https://github.com/NeuralEnsemble/python-neo/issues/1037
+python_test() {
+	local EPYTEST_IGNORE=(
+		neo/test/iotest/*
+		neo/test/rawiotest/*
+	)
+	epytest
+}
