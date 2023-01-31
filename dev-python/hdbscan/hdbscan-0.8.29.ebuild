@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{8..10} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1
 
@@ -15,9 +15,9 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
-RESTRICT="test"
-# Tests fail, reported to upstream
+# Reported upstream:
 # https://github.com/scikit-learn-contrib/hdbscan/issues/501
+RESTRICT="test"
 
 DEPEND=""
 RDEPEND="
