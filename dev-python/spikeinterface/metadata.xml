@@ -9,6 +9,10 @@
 		<email>sci@gentoo.org</email>
 		<name>Gentoo Science Project</name>
 	</maintainer>
+    <use>
+        <flag name="extractors">support for all extractors</flag>
+        <flag name="full">support for all optional processing features</flag>
+    </use>
 	<upstream>
 		<remote-id type="github">SpikeInterface/spikeinterface</remote-id>
 	</upstream>

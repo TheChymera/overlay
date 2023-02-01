@@ -3,8 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
-# 3.10 missing on numba and spyking-circus
+PYTHON_COMPAT=( python3_{10..10} )
 inherit distutils-r1
 
 DESCRIPTION="A Python-based module for creating flexible and robust spike sorting pipelines."
