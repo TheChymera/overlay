@@ -25,5 +25,5 @@ src_install() {
 }
 
 src_test() {
-	bats tests/* || die
+	bats -r tests/* || die
 }
