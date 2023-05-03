@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..10} )
+PYTHON_COMPAT=( python3_{10..11} )
 inherit python-r1
 
 DESCRIPTION="Tooltips for Waybar"
@@ -16,11 +16,12 @@ IUSE="khal +weather"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 SLOT="0"
 
+# Khal is not used via python, hence no python coherence needed
 RDEPEND="
 	${PYTHON_DEPS}
 	media-fonts/fontawesome
 	khal? (
-		app-misc/khal[${PYTHON_USEDEP}]
+		app-misc/khal
 	)
 	weather? (
 		app-misc/ansiweather
