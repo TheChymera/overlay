@@ -1,5 +1,0 @@
-*blender-2.91.2 (15 Oct 2021)
-
-  15 Oct 2021;  <chymera@gentoo.org> +blender-2.91.2.ebuild,
-  blender-2.90.1-r1.ebuild:
-  media-gfx/blender: added 2.91.2 release, python 3.9 compatible
