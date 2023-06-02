@@ -1,5 +1,6 @@
 app-text/zathura
 app-text/zathura-pdf-mupdf
+gui-apps/mako
 gui-apps/waybar
 gui-wm/sway
 media-fonts/fontawesome
