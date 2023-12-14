@@ -1,0 +1,40 @@
+diff --git a/cmake/afni_project_dependencies.cmake b/cmake/afni_project_dependencies.cmake
+index ac85256f0..a196cd56b 100644
+--- a/cmake/afni_project_dependencies.cmake
++++ b/cmake/afni_project_dependencies.cmake
+@@ -58,9 +58,9 @@ endif()
+ # software isolation then python is only searched for in this environment.
+ # For more details see:
+ # https://cmake.org/cmake/help/git-stage/module/FindPython.html
+-set(CMAKE_FIND_FRAMEWORK LAST)
+-set(Python_FIND_VIRTUALENV ONLY)
+-set(Python_FIND_STRATEGY LOCATION)
++set_if_not_defined(CMAKE_FIND_FRAMEWORK LAST)
++set_if_not_defined(Python_FIND_VIRTUALENV ONLY)
++set_if_not_defined(Python_FIND_STRATEGY LOCATION)
+ 
+ # python >=3.6 supported
+ find_package(Python 3.6 REQUIRED COMPONENTS Interpreter)
+diff --git a/src/XmHTML/CMakeLists.txt b/src/XmHTML/CMakeLists.txt
+index d7aa5e27d..50d595ec8 100644
+--- a/src/XmHTML/CMakeLists.txt
++++ b/src/XmHTML/CMakeLists.txt
+@@ -1,17 +1,14 @@
+ # TODO: install prefix should be used to distinguish from external library
+ cmake_minimum_required(VERSION 3.13)
+ project(XmHTML)
+-set(CMAKE_BUILD_TYPE "Release")
+
+ set(XMHTML_VERSION "1107")
+ set(XMHTML_ARCHIVE "1.1.7")
+
+-set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -DNDEBUG")
+-
+ # Construct XmHTML  library
+ add_afni_library(XmHTML "")
+ target_compile_definitions(
+-  XmHTML PRIVATE "VERSION=${XMHTML_VERSION}" Motif HAVE_LIBJPEG HAVE_REGEX_H
++  XmHTML PRIVATE "VERSION=${XMHTML_VERSION}" Motif HAVE_LIBJPEG HAVE_REGEX_H NDEBUG
+ )
+ # add headers to XmHTML target_sources
+ add_subdirectory(include)
