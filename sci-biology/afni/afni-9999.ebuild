@@ -6,7 +6,8 @@ EAPI=7
 #CMAKE_MAKEFILE_GENERATOR="emake"
 PYTHON_COMPAT=( python3_{10..11} )
 
-inherit cmake distutils-r1 git-r3 multilib ninja-utils
+inherit cmake-multilib distutils-r1 git-r3 ninja-utils
+#inherit cmake distutils-r1 git-r3 multilib ninja-utils
 
 GTS_HASH="962155a01f5a1b87bd64e3e3d880b4dbc2347ac7"
 NIFTI_HASH="65f801b9c2f1f15f4de4a19d45e6595c25765632"
