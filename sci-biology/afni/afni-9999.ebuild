@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 #CMAKE_MAKEFILE_GENERATOR="emake"
 PYTHON_COMPAT=( python3_{10..11} )
@@ -61,7 +61,6 @@ DEPEND="
 	app-shells/tcsh
 	"
 # Prospectively:
-#sci-libs/gts
 #Update jpeg-compat to virtual/jpeg:0
 # look for xmhtlm
 
@@ -103,14 +102,13 @@ src_configure() {
 		-DPython_FIND_VIRTUALENV=STANDARD
 		-DPython_FIND_STRATEGY=LOCATION
 	)
+		#-DBUILD_SHARED_LIBS=OFF
 	tc-export CC
 	cmake_src_configure
 }
 
 src_compile() {
 	cd ../afni-9999_build
-	pwd
-	ls -la
 	eninja || die
 }
 
@@ -123,9 +121,13 @@ src_install() {
 	#pwd
 	#ls -lah
 	#addpredict targets_built/libf2c.so
-	addpredict /usr/lib64/libf2c.so
 	#rm targets_built/libf2c.so
+	#addpredict /usr/lib64/libf2c.so
+	#addpredict /usr/bin/whirlgif
+	#addpredict /usr/bin/mpeg_encode
 	#exit
+	rm targets_built/whirlgif
+	rm targets_built/mpeg_encode
 	DESTDIR=${D} eninja install
 	# This is old example ants stuff.
 	#BUILD_DIR="${WORKDIR}/${P}_build/ANTS-build"
