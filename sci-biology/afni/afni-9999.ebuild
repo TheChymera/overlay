@@ -17,11 +17,11 @@ GIFTI_HASH="5eae81ba1e87ef3553df3b6ba585f12dc81a0030"
 DESCRIPTION="Advanced Normalitazion Tools for neuroimaging"
 HOMEPAGE="http://stnava.github.io/ANTs/"
 SRC_URI="
-	https://github.com/leej3/gts/archive/${GTS_HASH}.tar.gz
 	https://github.com/NIFTI-Imaging/nifti_clib/archive/${NIFTI_HASH}.tar.gz
 	https://github.com/NIFTI-Imaging/gifti_clib/archive/${GIFTI_HASH}.tar.gz
 	"
-EGIT_REPO_URI="https://github.com/leej3/afni.git"
+	#https://github.com/leej3/gts/archive/${GTS_HASH}.tar.gz
+EGIT_REPO_URI="https://github.com/TheChymera/afni.git"
 EGIT_BRANCH="make_some_build_fixes_for_gentoo_packaging"
 
 SLOT="0"
@@ -41,6 +41,7 @@ RDEPEND="
 	media-libs/qhull
 	media-video/mpeg-tools
 	sci-libs/gsl
+	sci-libs/gts
 	sys-devel/llvm:*
 	sys-libs/libomp
 	dev-libs/libpthread-stubs
@@ -62,8 +63,8 @@ DEPEND="
 #Update jpeg-compat to virtual/jpeg:0
 # look for xmhtlm
 
+	#tar xf "${DISTDIR}/${GTS_HASH}.tar.gz" || die
 src_prepare() {
-	tar xf "${DISTDIR}/${GTS_HASH}.tar.gz" || die
 	tar xf "${DISTDIR}/${NIFTI_HASH}.tar.gz" || die
 	tar xf "${DISTDIR}/${GIFTI_HASH}.tar.gz" || die
 	cmake_src_prepare
@@ -76,19 +77,21 @@ src_configure() {
 	export GIT_REPO_VERSION=3.0.1.1
 	#export LDFLAGS="-lpthread ${LDFLAGS}"
 	#-CC="$(tc-getCC)"
+		#-DFETCHCONTENT_SOURCE_DIR_GTS="${WORKDIR}/${P}/gts-${GTS_HASH}"
+		#-DUSE_SYSTEM_GTS=OFF
 	local mycmakeargs=(
 		-GNinja
 		-DLIBDIR=/usr/$(get_libdir)
 		-DNIFTI_INSTALL_LIBRARY_DIR=/usr/$(get_libdir)
 		-DGIFTI_INSTALL_LIBRARY_DIR=/usr/$(get_libdir)
+		-DGIFTI_INSTALL_LIB_DIR=/usr/$(get_libdir)
 		-DAFNI_INSTALL_LIBRARY_DIR=/usr/$(get_libdir)
 		-DCMAKE_INSTALL_LIBDIR=/usr/$(get_libdir)
 		-DCOMP_COREBINARIES=ON
 		-DUSE_SYSTEM_NIFTI=OFF
 		-DUSE_SYSTEM_GIFTI=OFF
 		-DUSE_SYSTEM_XMHTML=OFF
-		-DUSE_SYSTEM_GTS=OFF
-		-DFETCHCONTENT_SOURCE_DIR_GTS="${WORKDIR}/${P}/gts-${GTS_HASH}"
+		-DUSE_SYSTEM_GTS=ON
 		-DFETCHCONTENT_SOURCE_DIR_NIFTI_CLIB="${WORKDIR}/${P}/nifti_clib-${NIFTI_HASH}"
 		-DFETCHCONTENT_SOURCE_DIR_GIFTI_CLIB="${WORKDIR}/${P}/gifti_clib-${GIFTI_HASH}"
 		-DCOMP_GUI=ON
