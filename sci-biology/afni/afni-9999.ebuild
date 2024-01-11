@@ -11,8 +11,10 @@ inherit cmake distutils-r1 git-r3 ninja-utils
 #inherit cmake distutils-r1 git-r3 multilib ninja-utils
 
 GTS_HASH="962155a01f5a1b87bd64e3e3d880b4dbc2347ac7"
-NIFTI_HASH="65f801b9c2f1f15f4de4a19d45e6595c25765632"
-GIFTI_HASH="5eae81ba1e87ef3553df3b6ba585f12dc81a0030"
+#NIFTI_HASH="65f801b9c2f1f15f4de4a19d45e6595c25765632"
+NIFTI_HASH="da476fd27f46098f37f5c9c4c1baee01e559572c"
+#GIFTI_HASH="5eae81ba1e87ef3553df3b6ba585f12dc81a0030"
+GIFTI_HASH="d3e873d8539d9b469daf7db04093da1d7e73d4f7"
 
 DESCRIPTION="Advanced Normalitazion Tools for neuroimaging"
 HOMEPAGE="http://stnava.github.io/ANTs/"
@@ -116,6 +118,14 @@ src_compile() {
 
 src_install() {
 	cd ../afni-9999_build
+	# File collision, upstream confirmation here:
+	# https://github.com/afni/afni/issues/558#issuecomment-1887693900
+	#pwd
+	#ls -lah
+	#addpredict targets_built/libf2c.so
+	addpredict /usr/lib64/libf2c.so
+	#rm targets_built/libf2c.so
+	#exit
 	DESTDIR=${D} eninja install
 	# This is old example ants stuff.
 	#BUILD_DIR="${WORKDIR}/${P}_build/ANTS-build"
