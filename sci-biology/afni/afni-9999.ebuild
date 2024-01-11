@@ -22,7 +22,7 @@ SRC_URI="
 	"
 	#https://github.com/leej3/gts/archive/${GTS_HASH}.tar.gz
 EGIT_REPO_URI="https://github.com/TheChymera/afni.git"
-EGIT_BRANCH="make_some_build_fixes_for_gentoo_packaging"
+EGIT_BRANCH="packaging"
 
 SLOT="0"
 LICENSE="GPL-3+"
