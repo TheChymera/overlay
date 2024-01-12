@@ -29,7 +29,7 @@ EGIT_BRANCH="packaging"
 SLOT="0"
 LICENSE="GPL-3+"
 KEYWORDS=""
-IUSE="test"
+IUSE="test whirlgif"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -74,6 +74,11 @@ src_prepare() {
 
 src_configure() {
 	#LDFLAGS="-L${S}/${LIBDIR} ${LDFLAGS}" econf --enable-progpath="${EPREFIX}/usr/bin"
+	if use !whirlgif; then
+		#sed -i /whirlgif/d  src/CMakeLists_binaries.txt
+		#cat src/CMakeLists_binaries.txt
+		eapply "${FILESDIR}/${PN}-whirlgif.patch"
+	fi
 	export CFLAGS="-pthread ${CFLAGS}"
 	export GIT_REPO_VERSION=3.0.1.1
 	#export LDFLAGS="-lpthread ${LDFLAGS}"
@@ -126,9 +131,10 @@ src_install() {
 	#addpredict /usr/bin/whirlgif
 	#addpredict /usr/bin/mpeg_encode
 	#exit
-	rm targets_built/whirlgif
-	rm targets_built/mpeg_encode
 	DESTDIR=${D} eninja install
+	cd ${D}
+	#rm usr/bin/whirlgif
+	rm usr/bin/mpeg_encode
 	# This is old example ants stuff.
 	#BUILD_DIR="${WORKDIR}/${P}_build/ANTS-build"
 	#cmake_src_install
