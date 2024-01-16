@@ -84,7 +84,6 @@ src_configure() {
 		#-DFETCHCONTENT_SOURCE_DIR_GTS="${WORKDIR}/${P}/gts-${GTS_HASH}"
 		#-DUSE_SYSTEM_GTS=OFF
 	local mycmakeargs=(
-		-GNinja
 		-DLIBDIR=/usr/$(get_libdir)
 		-DNIFTI_INSTALL_LIBRARY_DIR=/usr/$(get_libdir)
 		-DGIFTI_INSTALL_LIBRARY_DIR=/usr/$(get_libdir)
@@ -101,10 +100,11 @@ src_configure() {
 		-DCOMP_GUI=ON
 		-DCOMP_PLUGINS=ON
 		-DUSE_OMP=ON
-		-DCOMP_PYTHON=OFF
-		#-DCOMP_PYTHON=ON
-		-DPython_FIND_VIRTUALENV=STANDARD
-		-DPython_FIND_STRATEGY=LOCATION
+		#-DCOMP_PYTHON=OFF
+		-DCOMP_PYTHON=ON
+		#-DSTANDARD_PYTHON_INSTALL=OFF
+		#-DPython_FIND_VIRTUALENV=STANDARD
+		#-DPython_FIND_STRATEGY=LOCATION
 		-DUSE_SYSTEM_F2C=ON
 	)
 		#-DBUILD_SHARED_LIBS=OFF
@@ -113,8 +113,11 @@ src_configure() {
 }
 
 src_compile() {
-	cd ../afni-9999_build
-	eninja || die
+	python_foreach_impl cmake_src_compile
+	#cmake_src_compile
+	#cd ../afni-9999_build
+	#default
+	#eninja || die
 }
 
 #/work/afni-9999/nifti_clib-65f801b9c2f1f15f4de4a19d45e6595c25765632
@@ -125,5 +128,8 @@ src_install() {
 	# File collision, upstream confirmation here:
 	# https://github.com/afni/afni/issues/558#issuecomment-1887693900
 	cd ${D}
+	pwd
+	ls -lah
+	#exit
 	rm usr/bin/mpeg_encode
 }
