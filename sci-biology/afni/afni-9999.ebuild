@@ -75,8 +75,6 @@ src_prepare() {
 src_configure() {
 	#LDFLAGS="-L${S}/${LIBDIR} ${LDFLAGS}" econf --enable-progpath="${EPREFIX}/usr/bin"
 	if use !whirlgif; then
-		#sed -i /whirlgif/d  src/CMakeLists_binaries.txt
-		#cat src/CMakeLists_binaries.txt
 		eapply "${FILESDIR}/${PN}-whirlgif.patch"
 	fi
 	export CFLAGS="-pthread ${CFLAGS}"
@@ -104,8 +102,10 @@ src_configure() {
 		-DCOMP_PLUGINS=ON
 		-DUSE_OMP=ON
 		-DCOMP_PYTHON=OFF
+		#-DCOMP_PYTHON=ON
 		-DPython_FIND_VIRTUALENV=STANDARD
 		-DPython_FIND_STRATEGY=LOCATION
+		-DUSE_SYSTEM_F2C=ON
 	)
 		#-DBUILD_SHARED_LIBS=OFF
 	tc-export CC
@@ -121,27 +121,9 @@ src_compile() {
 
 src_install() {
 	cd ../afni-9999_build
+	DESTDIR=${D} eninja install
 	# File collision, upstream confirmation here:
 	# https://github.com/afni/afni/issues/558#issuecomment-1887693900
-	#pwd
-	#ls -lah
-	#addpredict targets_built/libf2c.so
-	#rm targets_built/libf2c.so
-	#addpredict /usr/lib64/libf2c.so
-	#addpredict /usr/bin/whirlgif
-	#addpredict /usr/bin/mpeg_encode
-	#exit
-	DESTDIR=${D} eninja install
 	cd ${D}
-	#rm usr/bin/whirlgif
 	rm usr/bin/mpeg_encode
-	# This is old example ants stuff.
-	#BUILD_DIR="${WORKDIR}/${P}_build/ANTS-build"
-	#cmake_src_install
-	#cd "${S}/Scripts" || die "scripts dir not found"
-	#dobin *.sh
-	#dodir /usr/$(get_libdir)/ants
-	#insinto "/usr/$(get_libdir)/ants"
-	#doins *
-	#doenvd "${FILESDIR}"/99ants
 }
