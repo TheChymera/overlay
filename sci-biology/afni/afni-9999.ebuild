@@ -79,6 +79,7 @@ src_configure() {
 	fi
 	export CFLAGS="-pthread ${CFLAGS}"
 	export GIT_REPO_VERSION=3.0.1.1
+	export DO_NOT_USE_PIP=true
 	#export LDFLAGS="-lpthread ${LDFLAGS}"
 	#-CC="$(tc-getCC)"
 		#-DFETCHCONTENT_SOURCE_DIR_GTS="${WORKDIR}/${P}/gts-${GTS_HASH}"
@@ -109,7 +110,8 @@ src_configure() {
 	)
 		#-DBUILD_SHARED_LIBS=OFF
 	tc-export CC
-	cmake_src_configure
+	python_foreach_impl cmake_src_configure
+	python_foreach_impl python_optimize
 }
 
 src_compile() {
