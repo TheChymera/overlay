@@ -80,6 +80,7 @@ src_configure() {
 	export CFLAGS="-pthread ${CFLAGS}"
 	export GIT_REPO_VERSION=3.0.1.1
 	export DO_NOT_USE_PIP=true
+	export EXPLICIT_AFNIPY_INSTALL=false
 	#export LDFLAGS="-lpthread ${LDFLAGS}"
 	#-CC="$(tc-getCC)"
 		#-DFETCHCONTENT_SOURCE_DIR_GTS="${WORKDIR}/${P}/gts-${GTS_HASH}"
@@ -125,13 +126,15 @@ src_compile() {
 #/work/afni-9999/nifti_clib-65f801b9c2f1f15f4de4a19d45e6595c25765632
 
 src_install() {
-	cd ../afni-9999_build
-	DESTDIR=${D} eninja install
+	python_foreach_impl cmake_src_install
+	python_foreach_impl python_optimize
+	#cd ../afni-9999_build
+	#DESTDIR=${D} eninja install
 	# File collision, upstream confirmation here:
 	# https://github.com/afni/afni/issues/558#issuecomment-1887693900
 	cd ${D}
-	pwd
-	ls -lah
+	#pwd
+	#ls -lah
 	#exit
 	rm usr/bin/mpeg_encode
 }
