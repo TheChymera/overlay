@@ -79,8 +79,8 @@ src_configure() {
 	fi
 	export CFLAGS="-pthread ${CFLAGS}"
 	export GIT_REPO_VERSION=3.0.1.1
-	export DO_NOT_USE_PIP=true
-	export EXPLICIT_AFNIPY_INSTALL=false
+	#export DO_NOT_USE_PIP=true
+	#export EXPLICIT_AFNIPY_INSTALL=false
 	#export LDFLAGS="-lpthread ${LDFLAGS}"
 	#-CC="$(tc-getCC)"
 		#-DFETCHCONTENT_SOURCE_DIR_GTS="${WORKDIR}/${P}/gts-${GTS_HASH}"
@@ -102,8 +102,8 @@ src_configure() {
 		-DCOMP_GUI=ON
 		-DCOMP_PLUGINS=ON
 		-DUSE_OMP=ON
-		#-DCOMP_PYTHON=OFF
-		-DCOMP_PYTHON=ON
+		-DCOMP_PYTHON=OFF
+		#-DCOMP_PYTHON=ON
 		#-DSTANDARD_PYTHON_INSTALL=OFF
 		#-DPython_FIND_VIRTUALENV=STANDARD
 		#-DPython_FIND_STRATEGY=LOCATION
@@ -111,13 +111,17 @@ src_configure() {
 	)
 		#-DBUILD_SHARED_LIBS=OFF
 	tc-export CC
-	python_foreach_impl cmake_src_configure
-	python_foreach_impl python_optimize
+	cmake_src_configure
+	#python_foreach_impl cmake_src_configure
+	#python_foreach_impl python_optimize
 }
 
 src_compile() {
-	python_foreach_impl cmake_src_compile
-	distutils-r1_src_compile
+	#python_foreach_impl cmake_src_compile
+	cmake_src_compile
+	pushd src/python_scripts
+		distutils-r1_src_compile
+	popd
 	#cmake_src_compile
 	#cd ../afni-9999_build
 	#default
@@ -127,9 +131,12 @@ src_compile() {
 #/work/afni-9999/nifti_clib-65f801b9c2f1f15f4de4a19d45e6595c25765632
 
 src_install() {
-	python_foreach_impl cmake_src_install
-	python_foreach_impl python_optimize
-	distutils-r1_src_install
+	#python_foreach_impl cmake_src_install
+	#python_foreach_impl python_optimize
+	cmake_src_install
+	pushd src/python_scripts
+		distutils-r1_src_install
+	popd
 	#cd ../afni-9999_build
 	#DESTDIR=${D} eninja install
 	# File collision, upstream confirmation here:
