@@ -117,6 +117,7 @@ src_configure() {
 
 src_compile() {
 	python_foreach_impl cmake_src_compile
+	distutils-r1_src_compile
 	#cmake_src_compile
 	#cd ../afni-9999_build
 	#default
@@ -128,6 +129,7 @@ src_compile() {
 src_install() {
 	python_foreach_impl cmake_src_install
 	python_foreach_impl python_optimize
+	distutils-r1_src_install
 	#cd ../afni-9999_build
 	#DESTDIR=${D} eninja install
 	# File collision, upstream confirmation here:
