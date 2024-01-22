@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@chymera.eu</email>
+		<name>Horea Christian</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">TheChymera/ular</remote-id>
+		<bugs-to>https://github.com/TheChymera/ular/issues</bugs-to>
+	</upstream>
+</pkgmetadata>
