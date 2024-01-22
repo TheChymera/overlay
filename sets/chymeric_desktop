@@ -1,5 +1,6 @@
 app-i18n/unicode-emoji
 app-misc/abook
+app-misc/ular
 app-text/mupdf
 app-text/sarcasm-formatter
 dev-python/requests-oauthlib
