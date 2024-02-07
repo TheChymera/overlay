@@ -18,7 +18,6 @@ LICENSE="GPL-2"
 SLOT="0"
 
 DEPEND="app-text/ansifilter"
-RDEPEND=""
 # Only functionality relies on target server.
 RESTRICT="test"
 
