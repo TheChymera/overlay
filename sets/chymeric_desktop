@@ -4,6 +4,7 @@ app-misc/ular
 app-text/mupdf
 app-text/sarcasm-formatter
 dev-python/requests-oauthlib
+dev-python/vdirsyncer
 gui-apps/grim
 gui-apps/slurp
 gui-apps/swaybg
