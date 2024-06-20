@@ -3,18 +3,18 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..13} )
 inherit python-r1
 
 DESCRIPTION="Tooltips for Waybar"
 HOMEPAGE="https://github.com/TheChymera/waybar-tooltips/"
 SRC_URI="https://github.com/TheChymera/waybar-tooltips/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
-KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-3"
+SLOT="0"
+KEYWORDS="~amd64 ~x86"
 IUSE="khal +weather"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-SLOT="0"
 
 # Khal is not used via python, hence no python coherence needed
 RDEPEND="
