@@ -6,7 +6,6 @@ app-text/tree
 app-text/wgetpaste
 sys-apps/pciutils
 sys-apps/ripgrep
-sys-apps/the_silver_searcher
 sys-apps/usbutils
 sys-boot/grub:2
 sys-kernel/gentoo-sources
