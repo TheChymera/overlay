@@ -7,7 +7,6 @@ dev-python/requests-oauthlib
 dev-python/vdirsyncer
 gui-apps/grim
 gui-apps/slurp
-gui-apps/swaybg
 gui-apps/swaylock
 gui-apps/waybar-tooltips
 gui-apps/wf-recorder
