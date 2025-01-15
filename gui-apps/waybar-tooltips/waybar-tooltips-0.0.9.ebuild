@@ -12,7 +12,7 @@ SRC_URI="https://github.com/TheChymera/waybar-tooltips/archive/refs/tags/${PV}.t
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE="khal +weather"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
