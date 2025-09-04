@@ -5,16 +5,15 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..14} )
 
-inherit git-r3 python-single-r1 xdg
+inherit python-single-r1 xdg
 
 DESCRIPTION="A curses-based client for Tox"
 HOMEPAGE="https://github.com/JFreegman/toxic"
-#SRC_URI="https://github.com/JFreegman/toxic/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-GIT_REPO_URI="https://github.com/JFreegman/toxic.git"
+SRC_URI="https://github.com/JFreegman/toxic/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="amd64 x86"
 IUSE="+audio-notify debug experimental games llvm notification png python qrcode +sound +video +X"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )
 	video? ( sound X ) "
