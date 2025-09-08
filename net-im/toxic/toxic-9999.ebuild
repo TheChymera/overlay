@@ -10,7 +10,8 @@ inherit git-r3 python-single-r1 xdg
 DESCRIPTION="A curses-based client for Tox"
 HOMEPAGE="https://github.com/JFreegman/toxic"
 #SRC_URI="https://github.com/JFreegman/toxic/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-GIT_REPO_URI="https://github.com/JFreegman/toxic.git"
+GIT_REPO_URI="https://github.com/TheChymera/toxic.git"
+EGIT_BRANCH="fopen2"
 
 LICENSE="GPL-3+"
 SLOT="0"
