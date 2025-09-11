@@ -15,4 +15,7 @@
 		to FSLView, and aims to improve and expand upon this functionality in many
 		ways.
 	</longdescription>
+	<upstream>
+		<remote-id type="github">schollii/pypubsub</remote-id>
+	</upstream>
 </pkgmetadata>
