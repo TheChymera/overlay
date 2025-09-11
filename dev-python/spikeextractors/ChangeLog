@@ -1,2 +1,0 @@
-  18 Oct 2021;  <chymera@gentoo.org> spikeextractors-0.9.7.ebuild:
-  dev-python/spikeextractors: masking tests but providing dep details
