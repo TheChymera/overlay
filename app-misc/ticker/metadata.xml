@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>gentoo@chymera.eu</email>
+		<name>Horea Christian</name>
+	</maintainer>
+	<longdescription lang="en">
+		Track stocks, crypto, and derivatives prices and positions in real time from your terminal.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">achannarasappa/ticker</remote-id>
+	</upstream>
+</pkgmetadata>
