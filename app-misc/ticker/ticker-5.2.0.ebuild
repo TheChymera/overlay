@@ -8,13 +8,13 @@ inherit go-module
 
 DESCRIPTION="Terminal stock & crypto price watcher and position tracker"
 HOMEPAGE="https://github.com/achannarasappa/ticker"
-LICENSE="GPL-3"
-SLOT="0"
 
 SRC_URI="
 	https://github.com/achannarasappa/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://resources.chymera.eu/distfiles/${P}-deps.tar.xz
 "
+LICENSE="GPL-3"
+SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 src_compile() {
