@@ -3,7 +3,6 @@
 
 EAPI=8
 
-GO_OPTIONAL=1
 inherit go-module
 
 DESCRIPTION="Terminal stock & crypto price watcher and position tracker"
