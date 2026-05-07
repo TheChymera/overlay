@@ -4,13 +4,12 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=(python3_{11..13})
+PYTHON_COMPAT=(python3_{11..14})
 
 inherit distutils-r1 git-r3 systemd
 
 DESCRIPTION="Automatically reposit, organize, rename, and process large collections of files."
 HOMEPAGE="https://github.com/TheChymera/repositorg"
-SRC_URI=""
 EGIT_REPO_URI="https://github.com/TheChymera/repositorg"
 
 LICENSE="GPL-3"
