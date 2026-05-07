@@ -15,15 +15,30 @@ EGIT_REPO_URI="https://github.com/TheChymera/repositorg"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="systemd"
+IUSE="systemd test"
+RESTRICT="!test? ( test )"
 
 DEPEND="
 	>=dev-python/argh-0.26.2[${PYTHON_USEDEP}]
 	dev-python/regex[${PYTHON_USEDEP}]
-	media-libs/mutagen
+	media-libs/mutagen[${PYTHON_USEDEP}]
 	systemd? ( sys-apps/systemd )
 "
 RDEPEND="${DEPEND}"
+BDEPEND="
+	test? ( dev-python/pytest[${PYTHON_USEDEP}] )
+"
+
+# Write the correct version in pyproject.toml
+python_prepare_all() {
+	sed -i \
+		-e "s/dynamic = \[\"version\"\]/version = \"${PV}\"/" \
+		-e "/\[tool\.setuptools_scm\]/d" \
+		-e "/fallback_version/d" \
+		-e "s/\"setuptools-scm\", //" \
+		pyproject.toml
+	distutils-r1_python_prepare_all
+}
 
 python_install() {
 	distutils-r1_python_install
