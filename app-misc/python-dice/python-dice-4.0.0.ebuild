@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,13 +25,6 @@ RDEPEND="
 	dev-python/docopt[${PYTHON_USEDEP}]
 	>=dev-python/pyparsing-2.4.1[${PYTHON_USEDEP}]
 "
-
-src_prepare() {
-	if use test; then
-		sed -i -e "s/--cov=dice //g" tox.ini || die "Could not remove pytest-cov usage for tests."
-	fi
-	default
-}
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
