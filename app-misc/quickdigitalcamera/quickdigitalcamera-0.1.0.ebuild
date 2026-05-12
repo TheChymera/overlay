@@ -17,7 +17,6 @@ fi
 LICENSE="MIT"
 SLOT="0"
 
-DEPEND=""
 RDEPEND="
 	media-gfx/gphoto2
 	media-video/mpv
