@@ -10,4 +10,4 @@ media-gfx/imv
 net-misc/networkmanager
 sys-fs/udiskie
 www-client/links
-x11-terms/alacritty
+x11-terms/alacritty-graphics
