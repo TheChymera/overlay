@@ -6,8 +6,8 @@ inherit go-module
 
 MY_PN="TMSU"
 MY_HASH="009d691c5ebbe376e5c0c972dbf3131bcb71d807"
-HOMEPAGE="https://github.com/oniony/TMSU"
 DESCRIPTION="File tagger and virtual tag-based filesystem"
+HOMEPAGE="https://github.com/oniony/TMSU"
 
 EGO_SUM=(
 	"github.com/hanwen/go-fuse v1.0.0"
@@ -31,10 +31,9 @@ SRC_URI="https://github.com/oniony/TMSU/archive/${MY_HASH}.tar.gz -> ${P}.tar.gz
 	${EGO_SUM_SRC_URI}
 "
 
+S="${WORKDIR}/${MY_PN}-${PV}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="sys-fs/fuse:0"
-
-S="${WORKDIR}/${MY_PN}-${MY_HASH}"

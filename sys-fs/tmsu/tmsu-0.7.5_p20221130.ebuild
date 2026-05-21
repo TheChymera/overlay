@@ -5,6 +5,7 @@ EAPI=8
 inherit go-module
 
 MY_PN="TMSU"
+MY_HASH="0bf4b8031cbeffc0347007d85647062953e90571"
 DESCRIPTION="File tagger and virtual tag-based filesystem"
 HOMEPAGE="https://github.com/oniony/TMSU"
 
@@ -26,7 +27,7 @@ EGO_SUM=(
 
 go-module_set_globals
 
-SRC_URI="https://github.com/oniony/TMSU/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+SRC_URI="https://github.com/oniony/TMSU/archive/${MY_HASH}.tar.gz -> ${P}.tar.gz
 	${EGO_SUM_SRC_URI}
 "
 
@@ -36,7 +37,3 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="sys-fs/fuse:0"
-
-PATCHES=(
-	"${FILESDIR}/tmsu-0.7.5-new_go.patch"
-)
