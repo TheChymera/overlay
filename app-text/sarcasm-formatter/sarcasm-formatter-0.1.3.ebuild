@@ -9,11 +9,7 @@ SRC_URI="https://github.com/Othyem86/sarcasm-formatter/archive/${PV}.tar.gz -> $
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE=""
 KEYWORDS="~amd64 ~x86"
-
-DEPEND=""
-RDEPEND=""
 
 src_install() {
 	newbin sarcasm.sh sarcasm

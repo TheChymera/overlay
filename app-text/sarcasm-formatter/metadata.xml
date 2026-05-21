@@ -2,15 +2,15 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<maintainer type="person">
-		<email>horea.christ@gmail.com</email>
+		<email>gentoo@chymera.eu</email>
 		<name>Horea Christian</name>
 	</maintainer>
 	<longdescription lang="en">
-		The sarcasm formatter provides JS, Python, and Bash support for formatting text
-		sArCaStIcAlLy, meaning with alternating lower and upper-case letters, and provides
-		optional parametrization such as choosing the starting case.
+		The sarcasm formatter provides Bash support for formatting text sArCaStIcAlLy, i.e. spongecase,
+		i.e. with alternating lower and upper-case, with some improvements for legibility. It also
+		provides automatic clipboard integration.
 	</longdescription>
 	<upstream>
-		<remote-id type="github">Othyem86/sarcasm-formatter</remote-id>
+		<remote-id type="github">TheChymera/sarcasm-formatter</remote-id>
 	</upstream>
 </pkgmetadata>
