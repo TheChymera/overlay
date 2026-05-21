@@ -8,13 +8,8 @@ HOMEPAGE="https://gin.g-node.org/TheChymera/wallpaper-art"
 SRC_URI="https://gin.g-node.org/TheChymera/wallpaper-art/raw/master/releases/${P}.tar.xz"
 
 LICENSE="public-domain"
-KEYWORDS="amd64 arm arm64 x86"
-IUSE=""
-
-RDEPEND=""
-DEPEND=""
-
 SLOT="0"
+KEYWORDS="amd64 arm arm64 x86"
 
 src_install() {
 	insinto "/usr/share/backgrounds/${PN}"
