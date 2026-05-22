@@ -4,7 +4,6 @@
 EAPI=8
 inherit go-module
 
-MY_PN="TMSU"
 MY_HASH="0bf4b8031cbeffc0347007d85647062953e90571"
 DESCRIPTION="File tagger and virtual tag-based filesystem"
 HOMEPAGE="https://github.com/oniony/TMSU"
@@ -31,7 +30,7 @@ SRC_URI="https://github.com/oniony/TMSU/archive/${MY_HASH}.tar.gz -> ${P}.tar.gz
 	${EGO_SUM_SRC_URI}
 "
 
-S="${WORKDIR}/${MY_PN}-${PV}"
+S="${WORKDIR}/${PN^^}-${MY_HASH}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64"
