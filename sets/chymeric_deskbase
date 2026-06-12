@@ -1,13 +1,12 @@
 app-text/zathura
-gui-apps/swaybg
 app-text/zathura-pdf-mupdf
-gui-apps/mako
 gui-apps/waybar
 gui-wm/sway
 media-fonts/fontawesome
+media-fonts/fontawesome
 media-fonts/jetbrains-mono
+media-fonts/noto-emoji
 media-gfx/imv
 net-misc/networkmanager
 sys-fs/udiskie
 www-client/links
-x11-terms/alacritty-graphics

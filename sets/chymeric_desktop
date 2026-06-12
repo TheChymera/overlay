@@ -6,13 +6,12 @@ app-text/sarcasm-formatter
 dev-python/requests-oauthlib
 dev-python/vdirsyncer
 gui-apps/grim
+gui-apps/mako
 gui-apps/slurp
 gui-apps/swaylock
 gui-apps/waybar-tooltips
 gui-apps/wf-recorder
 gui-apps/wlsunset
-media-fonts/fontawesome
-media-fonts/noto-emoji
 media-gfx/gimp
 media-gfx/gphoto2
 media-sound/mpc
@@ -23,4 +22,5 @@ net-p2p/syncthing
 net-wireless/bluez
 net-wireless/wireless-tools
 www-client/lynx
+x11-terms/alacritty-graphics
 x11-terms/kitty
